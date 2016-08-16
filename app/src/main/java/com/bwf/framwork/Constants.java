@@ -6,6 +6,8 @@ package com.bwf.framwork;
  */
 public class Constants {
 
+    public static final String ZBD_Test = "123";
+
     public static final String DB_NAME = "tuanche_db";//数据库名称
 
     public static final int DB_VERSION = 1;//数据库版本
