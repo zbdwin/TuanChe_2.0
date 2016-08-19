@@ -2,6 +2,8 @@ package com.bwf.tuanche;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -9,6 +11,8 @@ import com.bwf.framwork.base.ReccleViewAdapter;
 import com.bwf.framwork.bean.UserBean;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
+import com.bwf.framwork.utils.IntentUtils;
+import com.bwf.tuanche.tuancheDetial.TuanDetialActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +27,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         lv_test = (ListView) findViewById(R.id.lv_test);
-
+        Button button= (Button) findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IntentUtils.openActivity(MainActivity.this, TuanDetialActivity.class);
+            }
+        });
         List<String> list = new ArrayList<>();
         list.add("123");
         list.add("fdfd");
