@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.bwf.tuanche.tuancheDetial.TuanDetialActivity">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/back"
+            android:layout_alignParentLeft="true"
+            android:padding="10dp"/>
+    <LinearLayout
+        android:id="@+id/ll_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/tv_carname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_16"
+            android:layout_centerHorizontal="true"
+            android:text="东风-" />
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="成都站"
+            android:textSize="@dimen/text_16"
+            android:drawableRight="@mipmap/icon_top_add_arrow" />
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/iv_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_fenxiang"
+        android:layout_alignParentRight="true"
+        android:padding="10dp"/>
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_below="@id/ll_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <fragment
+                android:id="@+id/fragment1"
+                android:name="com.bwf.tuanche.tuancheDetial.carDetial.DetialFragment1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <fragment
+                android:id="@+id/fragment2"
+                android:name="com.bwf.tuanche.tuancheDetial.carDetial.DetialFragment2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <fragment
+                android:id="@+id/fragment3"
+                android:name="com.bwf.tuanche.tuancheDetial.carDetial.DetialFragment3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <fragment
+                android:id="@+id/fragment4"
+                android:name="com.bwf.tuanche.tuancheDetial.carDetial.DetialFragment4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+            <fragment
+                android:id="@+id/fragment5"
+                android:name="com.bwf.tuanche.tuancheDetial.carDetial.DetialFragment5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <fragment
+                android:id="@+id/fragment6"
+                android:name="com.bwf.tuanche.tuancheDetial.carDetial.DetialFragment6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

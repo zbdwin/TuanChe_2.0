@@ -3,6 +3,7 @@ package com.bwf.framwork.http;
 
 import com.bwf.framwork.utils.UrlUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.BitmapCallback;
 
 /**
  * Created by Lizhangfeng on 2016/7/13 0013.
@@ -34,12 +35,58 @@ public class HttpHelper {
     }
 
     /**
-     * 1
-     * 、首页topBrand
+<<<<<<< HEAD
+     * 购车评价
+     *
+     */
+    public static void getDetailBuyCarPingjia(String count,String offset,String cityId,String brandId,HttpCallBack callBack){
+        OkHttpUtils
+                .post()
+                .url(UrlUtils.BUY_CAR_PINGJIA)
+                .addParams("count",count)
+                .addParams("offset",offset)
+                .addParams("cityId",cityId)
+                .addParams("brandId",brandId)
+                .build()
+                .execute(callBack);
+    }
+    /**
+     * 购车详情
+     *
+     */
+    public static void getDetailBuyCarDetial(String styleId,String cityId,String brandId,HttpCallBack callBack){
+        OkHttpUtils
+                .post()
+                .url(UrlUtils.BUY_CAR_DETIAL)
+                .addParams("styleId",styleId)
+                .addParams("cityId",cityId)
+                .addParams("brandId",brandId)
+                .build()
+                .execute(callBack);
+    }
+    /**
+     * 根据车品牌获取车列表
+     *
+     */
+    public static void getDetailByPingpai(String type,String cityId,String brandId,HttpArrayCallBack callBack){
+        OkHttpUtils
+                .post()
+                .url(UrlUtils.BUY_CAR_DETIAL_PINGPAILIEBIAO)
+                .addParams("type",type)
+                .addParams("cityId",cityId)
+                .addParams("brandId",brandId)
+                .build()
+                .execute(callBack);
+    }
+
+
+     /* 1
+     * 首页topBrand
      * 接口地址：bwf_TuanChe_HomeServlet
      * 请求参数：
      * cityId： 城市Id
      */
+
 
     //条件选车--级别/国别/排量
     public void getFactorDatas(String url,HttpCallBack callBack){

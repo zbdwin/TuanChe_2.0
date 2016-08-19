@@ -12,8 +12,14 @@ import android.widget.TextView;
 import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
+
 import com.bwf.framwork.utils.DrawableUtils;
 import com.bwf.framwork.utils.IntentUtils;
+
+
+
+
+
 import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.car_select.CarSelectActivity;
 import com.bwf.tuanche.homepage.HomePage_FmentTitlebar01;
@@ -21,7 +27,13 @@ import com.bwf.tuanche.homepage.Home_service;
 import com.bwf.tuanche.homepage.Home_service_My;
 import com.bwf.tuanche.homepage.entity.Cheap_car_home_result;
 
+
+
 public class MainActivity extends BaseActivity implements Handler.Callback, View.OnClickListener {
+
+
+
+
     private HomePage_FmentTitlebar01 homePage_fmentTitlebar01;
     private Home_service homePage_fmentTitlebar02;
     private Home_service_My homePage_fmentTitlebar03;
@@ -39,6 +51,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
     public int getContentViewId() {
         return R.layout.activity_main;
     }
+
     @Override
     public void beforeInitView() {
         handler = new Handler(this);

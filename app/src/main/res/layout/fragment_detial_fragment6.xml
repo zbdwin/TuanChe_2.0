@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.bwf.tuanche.tuancheDetial.carDetial.DetialFragment6">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/simple_black"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/simple_black"/>
+    <WebView
+        android:id="@+id/wb_image_problem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </WebView>
+
+</LinearLayout>

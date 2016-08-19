@@ -4,10 +4,12 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="withe">#ffffff</color>
-    <color name="black">#000000</color>
-    <color name="light_gray">#EEEEEE</color>
     <color name="simple_black">#ACB0B5</color>
+    <color name="black">#ff000000</color>
+    <color name="chengshe">#ff7f00</color>
+    <color name="withe">#ffffff</color>
+
+    <color name="light_gray">#EEEEEE</color>
     <color name="zise">#2c0043</color>
     <color name="title_color">#2C0043</color>
     <color name="red">#BE1417</color>
