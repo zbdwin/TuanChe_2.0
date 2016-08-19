@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.bwf.tuanche.homepage.Home_margin">
+
+    <TextView
+        android:id="@+id/dsafsdfasfasfa"
+        android:drawableLeft="@mipmap/back"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginLeft="15dp"
+        android:textSize="@dimen/text_16"
+        android:layout_height="50dp"
+        android:text="买贵就赔三倍差价"/>
+    <WebView
+        android:id="@+id/homemarginweb"
+        android:layout_below="@id/dsafsdfasfasfa"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

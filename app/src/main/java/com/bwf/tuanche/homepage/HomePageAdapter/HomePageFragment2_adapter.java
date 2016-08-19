@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,8 +68,10 @@ public class HomePageFragment2_adapter extends RecyclerView.Adapter<HomePageFrag
         if (position != 8) {
             holder.homepage2_itemimg.setImageURI(Uri.parse(tuanChe_topBr1.logo));
 //        imageLoader =new ImageLoader(this);
+            //"有<font color='red'>" + tuanChe_topBr1.baseNum + "</font>人报名"
             holder.homepage2_itemtvbrand.setText(tuanChe_topBr1.name);
-            holder.homepage2_itemtvperson.setText("有" + tuanChe_topBr1.baseNum + "人报名");
+            String string = "有<font color='red'>"+ tuanChe_topBr1.baseNum + "</font>人报名";
+            holder.homepage2_itemtvperson.setText(Html.fromHtml(string));
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

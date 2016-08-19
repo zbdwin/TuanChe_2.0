@@ -4,6 +4,7 @@ package com.bwf.tuanche.homepage.HomepageFagment_Details;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -12,6 +13,7 @@ import com.bwf.framwork.http.HttpCallBackArray;
 import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.utils.LogUtils;
 import com.bwf.tuanche.R;
+import com.bwf.tuanche.car_select.view.RecycleViewDivider;
 import com.bwf.tuanche.homepage.HomePageAdapter.HomePageFragment5_Adapter;
 import com.bwf.tuanche.homepage.entity.HotstyleRoot;
 import java.util.List;
@@ -36,6 +38,8 @@ public class HomePageFragment5 extends BaseFragment {
     @Override
     protected void initView(View rootView) {
         recyclerView = (RecyclerView) rootView.findViewById(R.id.hotcarhomepage);
+        recyclerView.addItemDecoration(new RecycleViewDivider(this.getContext(), LinearLayoutManager.VERTICAL));
+        recyclerView.addItemDecoration(new RecycleViewDivider(this.getContext(), LinearLayoutManager.HORIZONTAL));
         GridLayoutManager manager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(manager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
