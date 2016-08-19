@@ -2,23 +2,18 @@ package com.bwf.tuanche.homepage.HomepageFagment_Details;
 
 
 import android.net.Uri;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.bwf.framwork.base.BaseFragment;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
+import com.bwf.framwork.utils.IntentUtils;
+import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.R;
-import com.bwf.tuanche.homepage.entity.Banner.BannerResult;
+import com.bwf.tuanche.homepage.Home_margin;
 import com.bwf.tuanche.homepage.entity.Banner.BannerResultBean;
-import com.bwf.tuanche.homepage.entity.BannerServlet_Root;
-import com.bwf.tuanche.homepage.entity.BannerServlet_Root_banner;
-import com.bwf.tuanche.homepage.entity.BannerServlet_Root_banner_result;
-import com.bwf.tuanche.homepage.entity.BannerServlet_center_banner;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 /**婚姻座驾
@@ -54,7 +49,16 @@ public class HomePageFragment4 extends BaseFragment {
         homePageFragment4_05 =findViewByIdNoCast(R.id.homePageFragment4_05);
         homePageFragment4_06 =findViewByIdNoCast(R.id.homePageFragment4_06);
         homePageFragment4_07 =findViewByIdNoCast(R.id.homePageFragment4_07);
+
         homePageFragment4_08 =findViewByIdNoCast(R.id.homePageFragment4_08);
+        homePageFragment4_02.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToastUtil.showToast("D");
+                IntentUtils.openActivity(getContext(), Home_margin.class);
+            }
+        });
+
     }
 
     @Override

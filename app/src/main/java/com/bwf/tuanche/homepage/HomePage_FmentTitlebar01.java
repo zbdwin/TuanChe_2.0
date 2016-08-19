@@ -10,8 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bwf.framwork.base.BaseFragment;
+import com.bwf.framwork.utils.IntentUtils;
 import com.bwf.framwork.utils.UrlUtils;
 import com.bwf.tuanche.R;
+import com.bwf.tuanche.car_select.CarSelectActivity;
 import com.bwf.tuanche.homepage.HomepageFagment_Details.HomePageFragment;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -42,7 +44,12 @@ public class HomePage_FmentTitlebar01 extends BaseFragment {
     protected void initData() {
         Uri uri =Uri.parse(UrlUtils.SIMPLEDRAWEEVIEW);
         simpleDraweeView.setImageURI(uri);
-
+        simpleDraweeView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IntentUtils.openActivity(getContext(), CarSelectActivity.class);
+            }
+        });
     }
 
     @Override

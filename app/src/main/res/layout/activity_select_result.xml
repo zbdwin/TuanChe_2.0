@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:fitsSystemWindows="true"
     tools:context="com.bwf.tuanche.car_select.SelectResultActivity">
 
     <RelativeLayout
@@ -14,9 +15,9 @@
         >
         <ImageView
             android:id="@+id/img_select_factor_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/icon_back"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:src="@mipmap/icon_back"
             android:layout_centerVertical="true"
             />
 
@@ -38,6 +39,7 @@
         >
 
         <TextView
+            android:id="@+id/tv_select_result_hot"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -48,6 +50,7 @@
             />
 
         <TextView
+            android:id="@+id/tv_select_result_price"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -79,6 +82,7 @@
         android:headerDividersEnabled="false"
         android:scrollbars="none"
         android:smoothScrollbar="true"
+        android:background="@color/withe"
         ptr:ptrMode="both"
         ptr:ptrDrawable="@mipmap/operation_sucess"
         >

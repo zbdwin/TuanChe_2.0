@@ -1,6 +1,7 @@
 package com.bwf.tuanche.car_select;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.text.TextUtils;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.bean.HotstyleRoot;
@@ -22,6 +24,8 @@ import com.handmark.pulltorefresh.library.ILoadingLayout;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshGridView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -29,7 +33,7 @@ import java.util.List;
 public class SelectResultActivity extends BaseActivity {
 
     private ImageView img_select_factor_back;
-    private AnimationDrawable animationDrawable;
+    private TextView tv_select_result_price,tv_select_result_hot;
 
     private PullToRefreshGridView mPullRefreshListView;
     private MySelectResultAdapter adapter;
@@ -53,6 +57,8 @@ public class SelectResultActivity extends BaseActivity {
     @Override
     public void initView() {
         img_select_factor_back = findViewByIdNoCast(R.id.img_select_factor_back);
+        tv_select_result_price = findViewByIdNoCast(R.id.tv_select_result_price);
+        tv_select_result_hot = findViewByIdNoCast(R.id.tv_select_result_hot);
         // 得到控件
         mPullRefreshListView =  findViewByIdNoCast(R.id.pull_refresh_list);
         mPullRefreshListView.getRefreshableView().setNumColumns(2);
@@ -90,7 +96,7 @@ public class SelectResultActivity extends BaseActivity {
                         mPullRefreshListView.onRefreshComplete();
                     }
                 });
-        setOnClick(R.id.img_select_factor_back);
+        setOnClick(R.id.img_select_factor_back,R.id.tv_select_result_price,R.id.tv_select_result_hot);
     }
 
     @Override
@@ -128,6 +134,14 @@ public class SelectResultActivity extends BaseActivity {
             case R.id.img_select_factor_back:
                 IntentUtils.openActivity(this,CarSelectActivity.class);
             break;
+            case R.id.tv_select_result_price:
+                tv_select_result_price.setTextColor(Color.RED);
+                tv_select_result_hot.setTextColor(Color.BLACK);
+                break;
+            case R.id.tv_select_result_hot:
+                tv_select_result_price.setTextColor(Color.BLACK);
+                tv_select_result_hot.setTextColor(Color.RED);
+                break;
         }
     }
 }

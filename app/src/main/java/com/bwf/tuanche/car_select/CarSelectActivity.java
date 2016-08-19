@@ -16,7 +16,9 @@ import com.bwf.framwork.bean.StyleList;
 import com.bwf.framwork.http.HttpArrayCallBack;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
+import com.bwf.framwork.utils.IntentUtils;
 import com.bwf.framwork.utils.UrlUtils;
+import com.bwf.tuanche.MainActivity;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.car_select.fragment.SelectByBrand_Fragment;
 import com.bwf.tuanche.car_select.fragment.SelectByFactor_Fragment;
@@ -62,7 +64,7 @@ public class CarSelectActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        setOnClick(R.id.img_select_back,R.id.btn_select_by_brand,R.id.btn_select_by_factor);
+        setOnClick(R.id.img_select_back,R.id.btn_select_by_brand,R.id.btn_select_by_factor,R.id.img_select_back);
     }
 
     @Override
@@ -71,7 +73,7 @@ public class CarSelectActivity extends BaseActivity {
         fragmentTransaction = fragmentManager.beginTransaction();
         switch(view.getId()){
             case R.id.img_select_back://返回
-
+                IntentUtils.openActivity(this, MainActivity.class);
             break;
             case R.id.btn_select_by_brand://品牌选车(品牌选车选中，条件选车隐藏)
                 fragmentTransaction.replace(R.id.fragment_content,selectByBrand_Fragment);

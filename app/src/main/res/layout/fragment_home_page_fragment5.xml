@@ -4,13 +4,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.bwf.tuanche.homepage.HomepageFagment_Details.HomePageFragment5">
-
-    <TextView
-        android:gravity="center_vertical"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:paddingLeft="7dp"
-        android:text="热门车型" />
+        android:layout_height="10dp"
+        android:background="#E3E3E3" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:paddingLeft="8dp"
+        android:gravity="center_vertical"
+        android:text="热门品牌"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/hotcarhomepage"
 
