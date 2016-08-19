@@ -61,25 +61,27 @@ public class My_Bos_GridViewAdapter extends BaseAdapter {
 
         if (levleBeanList != null && !levleBeanList.isEmpty()){
             viewHolder.tv_select_factor_level.setText(levleBeanList.get(i).name);
-            ImageLoader.getInstance().disPlayImage(viewHolder.img_select_factor_level,levleBeanList.get(i).defIcon);
-            final ViewHolder finalViewHolder1 = viewHolder;
-            final ViewHolder finalViewHolder2 = viewHolder;
+            final ViewHolder finalViewHolder = viewHolder;
+            setChanges(viewHolder,i);
             viewHolder.img_select_factor_level.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     levleBeanList.get(i).isSelected =  !levleBeanList.get(i).isSelected;
-                    if (levleBeanList.get(i).isSelected == false){
-                        finalViewHolder2.tv_select_factor_level.setTextColor(Color.BLACK);
-                        ImageLoader.getInstance().disPlayImage(finalViewHolder1.img_select_factor_level,levleBeanList.get(i).defIcon);
-                    }else{
-                        finalViewHolder2.tv_select_factor_level.setTextColor(Color.RED);
-                        ImageLoader.getInstance().disPlayImage(finalViewHolder1.img_select_factor_level,levleBeanList.get(i).icon);
-                    }
+                    setChanges(finalViewHolder,i);
                 }
             });
-
         }
         return convertView;
+    }
+
+    public void setChanges(ViewHolder viewHolder,int i){
+        if (levleBeanList.get(i).isSelected == false){
+            viewHolder.tv_select_factor_level.setTextColor(Color.BLACK);
+            ImageLoader.getInstance().disPlayImage(viewHolder.img_select_factor_level,levleBeanList.get(i).defIcon);
+        }else{
+            viewHolder.tv_select_factor_level.setTextColor(Color.RED);
+            ImageLoader.getInstance().disPlayImage(viewHolder.img_select_factor_level,levleBeanList.get(i).icon);
+        }
     }
 
     private class ViewHolder{

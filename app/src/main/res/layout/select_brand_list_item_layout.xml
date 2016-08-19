@@ -9,9 +9,8 @@
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/img_select_brand_list"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:background="@mipmap/ic_launcher"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         />
 
     <TextView

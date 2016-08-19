@@ -38,4 +38,29 @@ public class ListUtils {
         return dest;
     }
 
+    /**
+     * 深层次复制集合
+     * 序列化过程
+     *
+     * @param src
+     * @return
+     */
+    public static Object deepCopyObject(Object src) {
+        ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
+        ObjectOutputStream out = null;
+        Object dest = null;
+        try {
+            out = new ObjectOutputStream(byteOut);
+            out.writeObject(src);
+            ByteArrayInputStream byteIn = new ByteArrayInputStream(byteOut.toByteArray());
+            ObjectInputStream in = new ObjectInputStream(byteIn);
+            dest = in.readObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return dest;
+    }
+
 }

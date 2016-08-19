@@ -13,6 +13,7 @@
         android:padding="8dp"
         >
         <ImageView
+            android:id="@+id/img_select_factor_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@mipmap/icon_back"

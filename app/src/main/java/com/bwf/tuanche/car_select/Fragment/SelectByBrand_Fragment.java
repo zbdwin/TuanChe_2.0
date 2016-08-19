@@ -1,25 +1,31 @@
-package com.bwf.tuanche.car_select.Fragment;
+package com.bwf.tuanche.car_select.fragment;
 
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.bwf.framwork.base.BaseFragment;
 import com.bwf.framwork.bean.HotBrandResultBean;
 import com.bwf.framwork.bean.ListBrandBean;
+import com.bwf.framwork.bean.StyleList;
+import com.bwf.framwork.http.HttpArrayCallBack;
+import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.utils.ListViewUtils;
+import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.car_select.adapter.MyHotBrandAdapter;
 import com.bwf.tuanche.car_select.adapter.MyListBrandAdapter;
+import com.bwf.tuanche.car_select.view.PopWindow_Hot_Price;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
 public class SelectByBrand_Fragment extends BaseFragment implements MyHotBrandAdapter.CallBack {
+
+    private View title_bar_select;
     //热门
     private RecyclerView hot_recyclerView;
     private MyHotBrandAdapter hot_adapter;
@@ -32,16 +38,17 @@ public class SelectByBrand_Fragment extends BaseFragment implements MyHotBrandAd
     //列表数据
     private List<ListBrandBean> listBrandBeanList;
     private ListBrandBean separatorBean;
+    //热门、价格弹窗
+    private PopWindow_Hot_Price popWindow_hot_price;
 
-
-    public void setHotDatas(HotBrandResultBean hotBrandResultBean){
+    public void setHotDatas(HotBrandResultBean hotBrandResultBean,View title_bar_select){
         if (hotBrandResultBean != null && !hotBrandResultBean.list.isEmpty()){
             //热门
             this.hotBrandResultBean = hotBrandResultBean;
+            this.title_bar_select = title_bar_select;
             hot_adapter = new MyHotBrandAdapter(this.getActivity());
             hot_adapter.setDatas(hotBrandResultBean.list,this);
             hot_recyclerView.setAdapter(hot_adapter);
-//            ListViewUtils.measureListViewHeight(hot_recyclerView);
         }
     }
 
@@ -50,7 +57,6 @@ public class SelectByBrand_Fragment extends BaseFragment implements MyHotBrandAd
             //列表
             this.listBrandBeanList = listBrandBeanList;
             initData();
-//            ListViewUtils.measureListViewHeight(hot_recyclerView);
         }
     }
 
@@ -70,9 +76,18 @@ public class SelectByBrand_Fragment extends BaseFragment implements MyHotBrandAd
         hot_recyclerView = findViewByIdNoCast(R.id.rv_select_brand_hot);
         GridLayoutManager layoutManager = new GridLayoutManager(this.getActivity(), 4);
         hot_recyclerView.setLayoutManager(layoutManager);
+
         //列表
         lv_select_brand_list = findViewByIdNoCast(R.id.lv_select_brand_list);
 
+        lv_select_brand_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String brandId = listBrandBeanList.get(i).id;
+                popWindow_hot_price = new PopWindow_Hot_Price(SelectByBrand_Fragment.this.getContext(),brandId);
+                popWindow_hot_price.showPopWindow(title_bar_select);
+            }
+        });
     }
 
     @Override
@@ -93,11 +108,9 @@ public class SelectByBrand_Fragment extends BaseFragment implements MyHotBrandAd
             list_adapter = new MyListBrandAdapter(this.getActivity(),listBrandBeanList);
             lv_select_brand_list.setAdapter(list_adapter);
             ListViewUtils.measureListViewHeight(lv_select_brand_list);
-//        Log.e("tuanche",listBrandBeanList.size()+"");
         }
     }
 
-    //
     @Override
     public void onClick(View view) {
 
@@ -106,6 +119,8 @@ public class SelectByBrand_Fragment extends BaseFragment implements MyHotBrandAd
     //热门-item点击实现
     @Override
     public void OnItemClick(int position) {
-
+        String brandId = hotBrandResultBean.list.get(position).id;
+        popWindow_hot_price = new PopWindow_Hot_Price(SelectByBrand_Fragment.this.getContext(),brandId);
+        popWindow_hot_price.showPopWindow(title_bar_select);
     }
 }

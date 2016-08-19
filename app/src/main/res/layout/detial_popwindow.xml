@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:padding="15dp"
+    android:background="@color/simple_black">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:background="@android:color/white">
+        <TextView
+            android:id="@+id/tv_qq_frend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   QQ"
+            android:textSize="20dp"
+            android:paddingRight="20dp"
+            android:drawableTop="@mipmap/btn_share_weixin"/>
+        <TextView
+            android:id="@+id/tv_qq_qone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QQ空间"
+            android:textSize="20dp"
+            android:paddingRight="10dp"
+            android:drawableTop="@mipmap/btn_share_pengyou"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

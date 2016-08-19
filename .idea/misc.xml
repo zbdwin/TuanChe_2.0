@@ -3,6 +3,11 @@
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> lilin
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
     <option name="myDefaultNotNull" value="android.support.annotation.NonNull" />
@@ -27,6 +32,10 @@
       </value>
     </option>
   </component>
+<<<<<<< HEAD
+>>>>>>> 5e586a96bc19e6b21172a8749887a16582a44658
+=======
+>>>>>>> lilin
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />

@@ -12,18 +12,20 @@ import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.bean.FactorResultBean;
 import com.bwf.framwork.bean.HotBrandResultBean;
 import com.bwf.framwork.bean.ListBrandBean;
+import com.bwf.framwork.bean.StyleList;
 import com.bwf.framwork.http.HttpArrayCallBack;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.utils.UrlUtils;
 import com.bwf.tuanche.R;
-import com.bwf.tuanche.car_select.Fragment.SelectByBrand_Fragment;
-import com.bwf.tuanche.car_select.Fragment.SelectByFactor_Fragment;
+import com.bwf.tuanche.car_select.fragment.SelectByBrand_Fragment;
+import com.bwf.tuanche.car_select.fragment.SelectByFactor_Fragment;
 
 import java.util.List;
 
 public class CarSelectActivity extends BaseActivity {
 
+    private View title_bar_select;
     private ImageView img_select_back;
     private Button btn_select_by_brand,btn_select_by_factor;
 
@@ -44,6 +46,7 @@ public class CarSelectActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        title_bar_select = findViewById(R.id.title_bar_select);
         img_select_back = findViewByIdNoCast(R.id.img_select_back);
         btn_select_by_brand = findViewByIdNoCast(R.id.btn_select_by_brand);
         btn_select_by_factor = findViewByIdNoCast(R.id.btn_select_by_factor);
@@ -96,7 +99,7 @@ public class CarSelectActivity extends BaseActivity {
             @Override
             public void onSuccess(HotBrandResultBean hotBrandResultBean) {
 //                  Log.e("tuanche",hotBrandResultBean.toString());
-                selectByBrand_Fragment.setHotDatas(hotBrandResultBean);
+                selectByBrand_Fragment.setHotDatas(hotBrandResultBean,title_bar_select);
             }
 
             @Override

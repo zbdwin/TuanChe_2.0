@@ -4,10 +4,14 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
+
+
 import android.widget.ListView;
-import android.widget.TextView;
+
 
 import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.base.BaseBean;
@@ -15,10 +19,15 @@ import com.bwf.framwork.base.ReccleViewAdapter;
 import com.bwf.framwork.bean.UserBean;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
+
+import com.bwf.framwork.utils.IntentUtils;
+import com.bwf.tuanche.tuancheDetial.TuanDetialActivity;
+
 import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.homepage.HomePage_FmentTitlebar01;
 import com.bwf.tuanche.homepage.entity.Cheap_car_home;
 import com.bwf.tuanche.homepage.entity.Cheap_car_home_result;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +44,6 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
         return R.layout.activity_main;
     }
 
-    @Override
     public void beforeInitView() {
         handler = new Handler(this);
     }

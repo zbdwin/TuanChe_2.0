@@ -1,8 +1,10 @@
 package com.bwf.framwork.http;
 
 
+import com.bwf.framwork.http.request.HotCarTypeRequest;
 import com.bwf.framwork.utils.UrlUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.BitmapCallback;
 
 /**
  * Created by Lizhangfeng on 2016/7/13 0013.
@@ -11,7 +13,7 @@ import com.zhy.http.okhttp.OkHttpUtils;
 public class HttpHelper {
 
     //品牌选车--热门
-    public void getHotBrandDatas(String url,String isbBuy,String cityId,HttpCallBack callBack){
+    public static void getHotBrandDatas(String url,String isbBuy,String cityId,HttpCallBack callBack){
         OkHttpUtils
                 .post()
                 .url(url)
@@ -23,7 +25,7 @@ public class HttpHelper {
 
 
     //品牌选车--列表
-    public void getListBrandDatas(String url,String cityId,HttpArrayCallBack callBack){
+    public static void getListBrandDatas(String url,String cityId,HttpArrayCallBack callBack){
 
         OkHttpUtils
                 .post()
@@ -34,15 +36,61 @@ public class HttpHelper {
     }
 
     /**
-     * 1
-     * 、首页topBrand
+<<<<<<< HEAD
+     * 购车评价
+     *
+     */
+    public static void getDetailBuyCarPingjia(String count,String offset,String cityId,String brandId,HttpCallBack callBack){
+        OkHttpUtils
+                .post()
+                .url(UrlUtils.BUY_CAR_PINGJIA)
+                .addParams("count",count)
+                .addParams("offset",offset)
+                .addParams("cityId",cityId)
+                .addParams("brandId",brandId)
+                .build()
+                .execute(callBack);
+    }
+    /**
+     * 购车详情
+     *
+     */
+    public static void getDetailBuyCarDetial(String styleId,String cityId,String brandId,HttpCallBack callBack){
+        OkHttpUtils
+                .post()
+                .url(UrlUtils.BUY_CAR_DETIAL)
+                .addParams("styleId",styleId)
+                .addParams("cityId",cityId)
+                .addParams("brandId",brandId)
+                .build()
+                .execute(callBack);
+    }
+    /**
+     * 根据车品牌获取车列表
+     *
+     */
+    public static void getDetailByPingpai(String type,String cityId,String brandId,HttpArrayCallBack callBack){
+        OkHttpUtils
+                .post()
+                .url(UrlUtils.LIST_HOT_AND_PRICE_DATA_BY_BRAND)
+                .addParams("type",type)
+                .addParams("cityId",cityId)
+                .addParams("brandId",brandId)
+                .build()
+                .execute(callBack);
+    }
+
+
+     /* 1
+     * 首页topBrand
      * 接口地址：bwf_TuanChe_HomeServlet
      * 请求参数：
      * cityId： 城市Id
      */
 
+
     //条件选车--级别/国别/排量
-    public void getFactorDatas(String url,HttpCallBack callBack){
+    public static void getFactorDatas(String url,HttpCallBack callBack){
         OkHttpUtils
                 .post()
                 .url(url)
@@ -51,12 +99,12 @@ public class HttpHelper {
     }
 
     //热门车型
-    public void getHotTypeDatas(String url,String cityId,HttpArrayCallBack callBack){
+    public static void getHotTypeDatas(String url, String cityId, HotCarTypeRequest request, HttpArrayCallBack callBack){
         OkHttpUtils
                 .post()
                 .url(url)
-                .addParams("count", "10")
-                .addParams("offset", "0")
+                .addParams("count", request.count+"")
+                .addParams("offset", request.offset+"")
                 .addParams("cityId", cityId)
                 .build()
                 .execute(callBack);

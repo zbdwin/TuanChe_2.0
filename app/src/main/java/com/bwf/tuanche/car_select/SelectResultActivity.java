@@ -1,5 +1,7 @@
 package com.bwf.tuanche.car_select;
 
+import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +13,8 @@ import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.bean.HotstyleRoot;
 import com.bwf.framwork.http.HttpArrayCallBack;
 import com.bwf.framwork.http.HttpHelper;
+import com.bwf.framwork.http.request.HotCarTypeRequest;
+import com.bwf.framwork.utils.IntentUtils;
 import com.bwf.framwork.utils.UrlUtils;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.car_select.adapter.MySelectResultAdapter;
@@ -18,15 +22,21 @@ import com.handmark.pulltorefresh.library.ILoadingLayout;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshGridView;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class SelectResultActivity extends BaseActivity {
 
-    private ImageView imageView;
+    private ImageView img_select_factor_back;
+    private AnimationDrawable animationDrawable;
 
     private PullToRefreshGridView mPullRefreshListView;
     private MySelectResultAdapter adapter;
+
+    private List<HotstyleRoot> hotstyleRootList;
+
+    private HotCarTypeRequest request;
 
     @Override
     public int getContentViewId() {
@@ -35,11 +45,14 @@ public class SelectResultActivity extends BaseActivity {
 
     @Override
     public void beforeInitView() {
-
+        hotstyleRootList = new ArrayList<>();
+        request = new HotCarTypeRequest();
+        adapter = new MySelectResultAdapter(SelectResultActivity.this);
     }
 
     @Override
     public void initView() {
+        img_select_factor_back = findViewByIdNoCast(R.id.img_select_factor_back);
         // 得到控件
         mPullRefreshListView =  findViewByIdNoCast(R.id.pull_refresh_list);
         mPullRefreshListView.getRefreshableView().setNumColumns(2);
@@ -48,11 +61,15 @@ public class SelectResultActivity extends BaseActivity {
         mPullRefreshListView.setMode(PullToRefreshBase.Mode.BOTH);
 
         ILoadingLayout startLabels = mPullRefreshListView
-                .getLoadingLayoutProxy();
+                .getLoadingLayoutProxy(true, false);//下拉刷新文字设置
         startLabels.setPullLabel("下拉刷新...");// 刚下拉时，显示的提示
-        startLabels.setRefreshingLabel("加载中...");// 刷新时
-        startLabels.setReleaseLabel("松开即可刷新...");// 下来达到一定距离时，显示的提
+        startLabels.setRefreshingLabel("松开即可刷新...");// 刷新时
+        startLabels.setReleaseLabel("加载中...");// 下来达到一定距离时，显示的提示
 
+        ILoadingLayout endLabels = mPullRefreshListView.getLoadingLayoutProxy(
+                false, true);//上拉加载更多文字设置
+        endLabels.setPullLabel("加载更多...");// 刚下拉时，显示的提示
+        endLabels.setRefreshingLabel("正在加载...");// 刷新时
         getDatas();
 
         mPullRefreshListView
@@ -60,7 +77,7 @@ public class SelectResultActivity extends BaseActivity {
                     @Override
                     public void onPullDownToRefresh(PullToRefreshBase<GridView> refreshView) {
                         //这里写下拉刷新的任务
-                        Log.e("TAG", "onPullDownToRefresh");
+                        request.offset = 0;
                         getDatas();
                         mPullRefreshListView.onRefreshComplete();
                     }
@@ -68,10 +85,12 @@ public class SelectResultActivity extends BaseActivity {
                     @Override
                     public void onPullUpToRefresh(PullToRefreshBase<GridView> refreshView) {
                         //这里写上拉加载更多的任务
+                        request.offset++;
                         getDatas();
                         mPullRefreshListView.onRefreshComplete();
                     }
                 });
+        setOnClick(R.id.img_select_factor_back);
     }
 
     @Override
@@ -80,15 +99,16 @@ public class SelectResultActivity extends BaseActivity {
     }
 
     public void getDatas(){
-        HttpHelper httpHelper = new HttpHelper();
+        if (request.offset == 0)
+            hotstyleRootList.clear();
 
-        httpHelper.getHotTypeDatas(UrlUtils.HOT_CAR_TYPE, "156", new HttpArrayCallBack<HotstyleRoot>() {
+        HttpHelper.getHotTypeDatas(UrlUtils.HOT_CAR_TYPE, "156",request,new HttpArrayCallBack<HotstyleRoot>() {
             @Override
             public void onSuccess(List<HotstyleRoot> result) {
                 if (result != null && !result.isEmpty()){
+                    hotstyleRootList.addAll(result);
                     // 设置适配器
-                    adapter = new MySelectResultAdapter(SelectResultActivity.this);
-                    adapter.setDatas(result);
+                    adapter.setDatas(hotstyleRootList);
                     adapter.notifyDataSetChanged();
                     mPullRefreshListView.setAdapter(adapter);
                 }
@@ -104,6 +124,10 @@ public class SelectResultActivity extends BaseActivity {
 
     @Override
     public void onClick(View view) {
-
+        switch(view.getId()){
+            case R.id.img_select_factor_back:
+                IntentUtils.openActivity(this,CarSelectActivity.class);
+            break;
+        }
     }
 }

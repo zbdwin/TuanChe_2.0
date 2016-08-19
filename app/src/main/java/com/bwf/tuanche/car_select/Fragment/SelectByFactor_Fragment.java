@@ -1,14 +1,14 @@
-package com.bwf.tuanche.car_select.Fragment;
+package com.bwf.tuanche.car_select.fragment;
 
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.GridView;
 
 import com.bwf.framwork.base.BaseFragment;
+import com.bwf.framwork.bean.BosBean;
 import com.bwf.framwork.bean.FactorResultBean;
+import com.bwf.framwork.bean.LevleBean;
+import com.bwf.framwork.bean.SeriesBean;
 import com.bwf.framwork.utils.IntentUtils;
-import com.bwf.framwork.utils.ListViewUtils;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.car_select.SelectResultActivity;
 import com.bwf.tuanche.car_select.adapter.My_Bos_GridViewAdapter;
@@ -73,11 +73,25 @@ public class SelectByFactor_Fragment extends BaseFragment implements View.OnClic
         }
     }
 
+    //重置数据
+    public void resetDatas(){
+        for (BosBean bean1:factorResultBean.bos){
+            bean1.isSelected = false;
+        }
+        for (LevleBean bean2:factorResultBean.levle){
+            bean2.isSelected = false;
+        }
+        for (SeriesBean bean3:factorResultBean.series){
+            bean3.isSelected = false;
+        }
+    }
+
     @Override
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.btn_select_factor_reset:
-
+                resetDatas();
+                initData();
             break;
             case R.id.btn_select_factor_check:
                 IntentUtils.openActivity(this.getActivity(), SelectResultActivity.class);

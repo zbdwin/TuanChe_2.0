@@ -7,7 +7,9 @@
     tools:context="com.bwf.tuanche.car_select.CarSelectActivity">
 
     <!--标头内容-->
-    <include layout="@layout/select_titlebar_layout" />
+    <include
+        android:id="@+id/title_bar_select"
+        layout="@layout/select_titlebar_layout" />
 
     <FrameLayout
         android:layout_width="match_parent"
