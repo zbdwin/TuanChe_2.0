@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/withe"
     tools:context="com.bwf.tuanche.homepage.HomepageFagment_Details.HomePageFragment4">
 
     <!-- TODO: Update blank fragment layout -->
@@ -29,9 +30,9 @@
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/homePageFragment4_01"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="15dp"
+                android:layout_width="195dp"
+                android:layout_height="100dp"
+                android:padding="17dp"
                 fresco:placeholderImage="@mipmap/pic_smell"
                 fresco:placeholderImageScaleType="centerCrop"
                  />
@@ -46,9 +47,9 @@
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/homePageFragment4_02"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="15dp"
+                android:layout_width="195dp"
+                android:layout_height="100dp"
+                android:padding="17dp"
                 fresco:placeholderImage="@mipmap/pic_smell"
                 fresco:placeholderImageScaleType="centerCrop" />
 
@@ -174,14 +175,20 @@
                         android:text="说走就走" />
 
                 </LinearLayout>
+<LinearLayout
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="1">
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/homePageFragment4_05"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        fresco:placeholderImage="@mipmap/pic_smell"
+        fresco:placeholderImageScaleType="centerCrop" />
 
-                <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/homePageFragment4_05"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    fresco:placeholderImage="@mipmap/pic_smell"
-                    fresco:placeholderImageScaleType="centerCrop" />
+</LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>

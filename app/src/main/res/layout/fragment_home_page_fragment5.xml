@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/withe"
     android:orientation="vertical"
     tools:context="com.bwf.tuanche.homepage.HomepageFagment_Details.HomePageFragment5">
     <View
@@ -16,10 +17,18 @@
         android:paddingLeft="8dp"
         android:gravity="center_vertical"
         android:text="热门品牌"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#E3E3E3" />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/hotcarhomepage"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="17dp"
+        android:background="#E3E3E3" />
 
 </LinearLayout>
