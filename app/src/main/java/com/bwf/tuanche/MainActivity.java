@@ -34,27 +34,27 @@ public class MainActivity extends AppCompatActivity {
         adapter.settList(list);
         lv_test.setAdapter(adapter);
 
-        test();
+//        test();
     }
 
-    public void test(){
-
-        String url = "http://119.254.70.199:8080/landz-app/house/houseBuySellList";
-
-        HttpHelper.getDetail(url,"0","10",new HttpCallBack<UserBean>() {
-
-            @Override
-            public void onFail(String errMsg) {
-
-            }
-
-            @Override
-            public void onSuccess(UserBean result) {
-
-
-            }
-
-        });
-    }
+//    public void test(){
+//
+//        String url = "http://119.254.70.199:8080/landz-app/house/houseBuySellList";
+//
+//        HttpHelper.getDetail(url,"0","10",new HttpCallBack<UserBean>() {
+//
+//            @Override
+//            public void onFail(String errMsg) {
+//
+//            }
+//
+//            @Override
+//            public void onSuccess(UserBean result) {
+//
+//
+//            }
+//
+//        });
+//    }
 
 }

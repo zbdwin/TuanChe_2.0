@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    >
+
+    <TextView
+        android:id="@+id/tv_select_factor_country"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="TextView01"
+        android:textColor="@color/black"
+        android:background="@drawable/select_factor_black_shape"
+        android:gravity="center"
+        >
+
+    </TextView>
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/img_select_factor_country"
+        android:layout_width="20dp"
+        android:layout_height="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        />
+
+</RelativeLayout>
