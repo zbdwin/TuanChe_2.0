@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:padding="10dp"
+    >
+        <ImageView
+            android:id="@+id/img_select_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/icon_back"
+            />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            >
+        <Button
+            android:id="@+id/btn_select_by_brand"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:text="品牌选车"
+            android:textSize="@dimen/text_14"
+            android:textColor="@color/withe"
+            android:background="@mipmap/round_red_left"
+            android:gravity="center"
+            />
+
+        <Button
+            android:id="@+id/btn_select_by_factor"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:text="条件选车"
+            android:textSize="@dimen/text_14"
+            android:textColor="@color/red"
+            android:background="@mipmap/round_white_right"
+            android:layout_toRightOf="@id/btn_select_by_brand"
+            android:gravity="center"
+            />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/choosebrand_search"
+            android:layout_marginLeft="80dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            />
+
+</RelativeLayout>

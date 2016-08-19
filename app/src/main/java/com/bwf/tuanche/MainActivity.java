@@ -1,70 +1,116 @@
 package com.bwf.tuanche;
 
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
 
+
+import android.widget.ListView;
+
+
+import com.bwf.framwork.base.BaseActivity;
+import com.bwf.framwork.base.BaseBean;
 import com.bwf.framwork.base.ReccleViewAdapter;
 import com.bwf.framwork.bean.UserBean;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
+
 import com.bwf.framwork.utils.IntentUtils;
 import com.bwf.tuanche.tuancheDetial.TuanDetialActivity;
+
+import com.bwf.framwork.utils.ToastUtil;
+import com.bwf.tuanche.homepage.HomePage_FmentTitlebar01;
+import com.bwf.tuanche.homepage.entity.Cheap_car_home;
+import com.bwf.tuanche.homepage.entity.Cheap_car_home_result;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-
-    private ListView lv_test;
+public class MainActivity extends BaseActivity implements Handler.Callback {
+    private HomePage_FmentTitlebar01 homePage_fmentTitlebar01;
+    private Cheap_car_home_result cheap_car_home_result;
+    private String cityId = "156";
+    private boolean isBack = true;
+    private Handler handler;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        lv_test = (ListView) findViewById(R.id.lv_test);
-        Button button= (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                IntentUtils.openActivity(MainActivity.this, TuanDetialActivity.class);
-            }
-        });
-        List<String> list = new ArrayList<>();
-        list.add("123");
-        list.add("fdfd");
-        list.add("14143");
-        list.add("gsgd");
-        list.add("sdsd");
-        ReccleViewAdapter adapter = new ReccleViewAdapter(this);
-        adapter.settList(list);
-        lv_test.setAdapter(adapter);
-
-        test();
+    public int getContentViewId() {
+        return R.layout.activity_main;
     }
 
-    public void test(){
+    public void beforeInitView() {
+        handler = new Handler(this);
+    }
 
-        String url = "http://119.254.70.199:8080/landz-app/house/houseBuySellList";
+    @Override
+    public void initView() {
+        homePage_fmentTitlebar01 = (HomePage_FmentTitlebar01) getSupportFragmentManager().findFragmentById(R.id.homopagement01);
+    }
 
-        HttpHelper.getDetail(url,"0","10",new HttpCallBack<UserBean>() {
+    @Override
+    public void initData() {
+        HttpHelper.getTopBrand(cityId, new HttpCallBack<Cheap_car_home_result>() {
+
+
+            @Override
+            public void onSuccess(Cheap_car_home_result result) {
+
+            }
 
             @Override
             public void onFail(String errMsg) {
 
             }
-
-            @Override
-            public void onSuccess(UserBean result) {
-
-
-            }
-
         });
     }
 
+
+    @Override
+    public void onClick(View view) {
+
+    }
+
+
+    /**
+     * 按下监听
+     *
+     * @param keyCode
+     * @param event
+     * @return
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_BACK) {//按下返回键
+
+            if (isBack) {
+                ToastUtil.showToast("再次点击退出");
+                isBack = false;
+                handler.sendEmptyMessageDelayed(1, 1500);
+            } else {
+                //退出app
+                System.exit(0);
+            }
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public boolean handleMessage(Message message) {
+
+        switch (message.what) {
+            case 1:
+                isBack = true;
+                break;
+        }
+
+        return false;
+    }
 }
