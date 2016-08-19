@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:gravity="center"
+        android:padding="3dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:gravity="center">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/homepage2_itemimg"
+                android:layout_width="130dp"
+                android:layout_height="90dp"
+                android:padding="1dp"
+
+                fresco:placeholderImage="@mipmap/pic_smell"
+                fresco:placeholderImageScaleType="centerCrop" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/homepage2_itemtvbrand"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:gravity="center"
+            android:text="大众"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <TextView
+            android:id="@+id/homepage2_itemtvperson"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:gravity="center"
+            android:text="有510人报名"
+            android:textColor="#FF3837" />
+
+        <TextView
+            android:id="@+id/homepage2_itemtvmoney"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:gravity="center"
+            android:text="指导价格"
+            android:textColor="#000000" />
+    </LinearLayout>
+    </LinearLayout>
