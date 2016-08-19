@@ -1,6 +1,7 @@
 package com.bwf.framwork.http;
 
 
+import com.bwf.framwork.utils.UrlUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
 
 /**
@@ -20,8 +21,10 @@ public class HttpHelper {
                 .execute(callBack);
     }
 
+
     //品牌选车--列表
     public void getListBrandDatas(String url,String cityId,HttpArrayCallBack callBack){
+
         OkHttpUtils
                 .post()
                 .url(url)
@@ -29,6 +32,14 @@ public class HttpHelper {
                 .build()
                 .execute(callBack);
     }
+
+    /**
+     * 1
+     * 、首页topBrand
+     * 接口地址：bwf_TuanChe_HomeServlet
+     * 请求参数：
+     * cityId： 城市Id
+     */
 
     //条件选车--级别/国别/排量
     public void getFactorDatas(String url,HttpCallBack callBack){
@@ -51,4 +62,67 @@ public class HttpHelper {
                 .execute(callBack);
     }
 
+    public static void getTopBrand(String cityId, HttpCallBack callBack) {
+        OkHttpUtils
+                .post()
+                .url(UrlUtils.TOPBRAND)
+                .addParams("cityId", cityId)
+                .build()
+                .execute(callBack);
+    }
+
+    /**
+     * 5、热门品牌
+     接口地址：bwf_TuanChe_TopBr
+     请求参数：
+     isBuy：此处传“2”
+     cityId：城市Id
+     */
+    public static void getTuanChe_TopBr(String isBuy,String cityId, HttpCallBack callBack) {
+        OkHttpUtils
+                .post()
+                .url(UrlUtils.HOTSTYLE)
+                .addParams("isBuy", isBuy)
+                .addParams("cityId", cityId)
+                .build()
+                .execute(callBack);
+    }
+/**
+ * 6、首页Banner
+ 接口地址：bwf_TuanChe_BannerServlet
+ 请求参数：
+ cityId：城市Id
+ */
+
+public static void getBannerServlet(String cityId, HttpCallBack callBack) {
+    OkHttpUtils
+            .get()
+            .url(UrlUtils.BANNERSERVLET)
+            .addParams("cityId", cityId)
+            .build()
+            .execute(callBack);
+}
+
+    /**
+     * 3
+     、热门车型
+     接口地址：bwf_TuanChe_Hotstyle
+     请求参数：
+     count： “2” 一行显示个数
+     offset： “0” 页数
+     cityId：城市Id
+     HotstyleRoot
+     */
+
+
+    public static void getBannerHotstyle(String count,String offset,String cityId, HttpCallBackArray callBack) {
+        OkHttpUtils
+                .post()
+                .url(UrlUtils.TUANCHE_HOTSTYLE)
+                .addParams("count", count)
+                .addParams("offset", offset)
+                .addParams("cityId", cityId)
+                .build()
+                .execute(callBack);
+    }
 }

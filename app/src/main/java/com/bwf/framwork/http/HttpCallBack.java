@@ -5,13 +5,12 @@ import android.util.Log;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.bwf.framwork.base.BaseBean;
-import com.bwf.framwork.bean.HotBrandBean;
+
 import com.bwf.framwork.utils.LogUtils;
 import com.bwf.framwork.utils.StringUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.lang.reflect.ParameterizedType;
-import java.util.List;
 
 import okhttp3.Call;
 
@@ -43,14 +42,11 @@ public abstract class HttpCallBack<T> extends StringCallback {
             try {
 
                 BaseBean baseBean = JSON.parseObject(response, BaseBean.class);
-
                 if ("10000".equals(baseBean.code)) {
-
                     if (StringUtils.isNotEmpty(baseBean.result))
                         onSuccess(JSON.parseObject(baseBean.result, tClass));
                     else
                         onFail("result is empty");
-
                 } else {
                     onFail(baseBean.msg);
                 }
