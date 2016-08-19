@@ -3,16 +3,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:fitsSystemWindows="true"
     tools:context="com.bwf.tuanche.MainActivity">
-
-
-    <ListView
-        android:id="@+id/lv_test"
+    <LinearLayout
+        android:id="@+id/line1111111"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="50dp"
+        android:background="#E3E3E3"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="7dp"
+            android:layout_weight="1"
+            android:drawableRight="@mipmap/icon_top_add_arrow"
+            android:gravity="center"
+            android:text="成都"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="5"
+            android:background="@drawable/dialog_white_bg"
+            android:drawableLeft="@mipmap/choosebrand_search"
+            android:gravity="center_vertical"
+            android:text="   请输入品牌名称、车型" />
+
+        <ImageView
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="15dp"
+            android:src="@mipmap/icon_top_icon_saomiao" />
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_below="@id/line1111111"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="40dp">
+            <fragment
+                android:id="@+id/homopagement01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:name="com.bwf.tuanche.homepage.HomePage_FmentTitlebar01"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#E3E3E3"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/nav_icon_home_sel"
+            android:gravity="center"
+            android:text="首页"
+            android:textColor="#FF3837"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/nav_icon_order_nor"
+            android:gravity="center"
+            android:text="订单"
+            android:textSize="10dp" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:src="@mipmap/icon_low_price" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/nav_icon_server_nor"
+            android:gravity="center"
+            android:text="客服"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/nav_icon_my_nor"
+            android:gravity="center"
+            android:text="我的"
+            android:textSize="10dp" />
+
+
+    </LinearLayout>
 
 </RelativeLayout>
