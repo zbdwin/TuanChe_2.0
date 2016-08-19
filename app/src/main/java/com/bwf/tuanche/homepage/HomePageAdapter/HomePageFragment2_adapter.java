@@ -17,6 +17,7 @@ import com.bwf.framwork.utils.IntentUtils;
 import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.BlankPage;
 import com.bwf.tuanche.R;
+import com.bwf.tuanche.car_select.CarSelectActivity;
 import com.bwf.tuanche.homepage.entity.TuanChe_TopBr;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -89,7 +90,7 @@ public class HomePageFragment2_adapter extends RecyclerView.Adapter<HomePageFrag
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    IntentUtils.openActivity(context, BlankPage.class);
+                    IntentUtils.openActivity(context, CarSelectActivity.class);
                     ToastUtil.showToast("进入子布局");
                 }
             });

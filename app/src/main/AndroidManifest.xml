@@ -22,7 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".BlankPage"></activity>
+        <activity android:name=".car_select.CarSelectActivity"></activity>
+
     </application>
 
 </manifest>

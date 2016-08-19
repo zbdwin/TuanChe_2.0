@@ -62,6 +62,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
         });
     }
 
+
     @Override
     public void onClick(View view) {
 
@@ -83,7 +84,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback {
             if (isBack) {
                 ToastUtil.showToast("再次点击退出");
                 isBack = false;
-                handler.sendEmptyMessageDelayed(1, 3000);
+                handler.sendEmptyMessageDelayed(1, 1500);
             } else {
                 //退出app
                 System.exit(0);

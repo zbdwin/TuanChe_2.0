@@ -5,6 +5,7 @@ import android.util.Log;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.bwf.framwork.base.BaseBean;
+
 import com.bwf.framwork.utils.LogUtils;
 import com.bwf.framwork.utils.StringUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -46,7 +47,6 @@ public abstract class HttpCallBack<T> extends StringCallback {
                         onSuccess(JSON.parseObject(baseBean.result, tClass));
                     else
                         onFail("result is empty");
-
                 } else {
                     onFail(baseBean.msg);
                 }

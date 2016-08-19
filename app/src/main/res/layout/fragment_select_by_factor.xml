@@ -1,0 +1,141 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.bwf.tuanche.car_select.Fragment.SelectByFactor_Fragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <!--价格-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="价格"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                android:layout_margin="10dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="#F4F4F4"
+                />
+
+            <!--级别-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="级别"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                android:layout_margin="10dp"
+                />
+
+            <com.bwf.tuanche.car_select.view.MyGridView
+                android:id="@+id/gv_level"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:numColumns="3"
+                android:columnWidth="80dp"
+                android:horizontalSpacing="1dp"
+                android:verticalSpacing="1dp"
+                android:background="@color/simple_black"
+                android:gravity="center"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="#F4F4F4"
+                />
+            <!--国别-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="国别"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                android:layout_margin="10dp"
+                />
+            <com.bwf.tuanche.car_select.view.MyGridView
+                android:id="@+id/gv_country"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:numColumns="3"
+                android:columnWidth="100dp"
+                android:horizontalSpacing="10dp"
+                android:verticalSpacing="10dp"
+                android:gravity="center"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="#F4F4F4"
+                />
+            <!--排量-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="排量"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16"
+                android:layout_margin="10dp"
+                />
+
+            <com.bwf.tuanche.car_select.view.MyGridView
+                android:id="@+id/gv_displacement"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:numColumns="3"
+                android:columnWidth="100dp"
+                android:horizontalSpacing="10dp"
+                android:verticalSpacing="10dp"
+                android:gravity="center"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="#F4F4F4"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:padding="10dp"
+                android:orientation="horizontal"
+                >
+                <Button
+                    android:id="@+id/btn_select_factor_reset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="重置"
+                    android:textColor="@color/withe"
+                    android:background="@drawable/select_factor_reset_shape"
+                    />
+                <Button
+                    android:id="@+id/btn_select_factor_check"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="查看"
+                    android:textColor="@color/withe"
+                    android:background="@drawable/select_factor_look_shape"
+                    android:layout_marginLeft="20dp"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
