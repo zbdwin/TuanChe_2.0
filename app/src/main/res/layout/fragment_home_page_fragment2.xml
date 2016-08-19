@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/withe"
     tools:context="com.bwf.tuanche.homepage.HomepageFagment_Details.HomePageFragment2">
 <TextView
     android:layout_width="match_parent"
@@ -12,6 +13,10 @@
     android:paddingLeft="8dp"
     android:gravity="center_vertical"
     android:text="热门品牌"/>
+   <View
+       android:layout_width="match_parent"
+       android:layout_height="5dp"
+       android:background="#E3E3E3" />
    <android.support.v7.widget.RecyclerView
        android:id="@+id/Homepager_hot"
        android:layout_width="match_parent"
