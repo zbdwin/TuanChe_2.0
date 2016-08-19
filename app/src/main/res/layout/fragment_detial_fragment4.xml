@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.bwf.tuanche.tuancheDetial.carDetial.DetialFragment4">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/simple_black"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="购车流程"
+        android:textSize="@dimen/text_16"
+        android:padding="5dp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/simple_black"/>
+<WebView
+    android:id="@+id/wb_image"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+</WebView>
+
+</LinearLayout>
