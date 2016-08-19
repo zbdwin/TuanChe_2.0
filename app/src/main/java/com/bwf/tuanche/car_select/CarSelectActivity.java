@@ -68,7 +68,6 @@ public class CarSelectActivity extends BaseActivity {
         fragmentTransaction = fragmentManager.beginTransaction();
         switch(view.getId()){
             case R.id.img_select_back://返回
-
             break;
             case R.id.btn_select_by_brand://品牌选车(品牌选车选中，条件选车隐藏)
                 fragmentTransaction.replace(R.id.fragment_content,selectByBrand_Fragment);

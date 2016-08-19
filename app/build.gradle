@@ -25,11 +25,11 @@ dependencies {
     //facebook图片处理
 
     //okhttp
+    compile project(path: ':library')
+
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.android.support:design:24.0.0'
     compile 'com.facebook.fresco:fresco:0.12.0'
     compile 'com.zhy:okhttputils:2.6.2'
-    compile 'com.android.support:support-v4:24.+'
-    compile project(path: ':library')
-
+    compile 'com.android.support:support-v4:24.0.0'
 }
