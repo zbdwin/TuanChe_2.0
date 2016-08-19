@@ -1,6 +1,8 @@
 package com.bwf.framwork.base;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,8 +10,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageView;
 
 import com.bwf.framwork.tools.AppManager;
+import com.bwf.tuanche.R;
 
 /**
  * Created by Lizhangfeng on 2016/7/13 0013.
@@ -78,7 +82,28 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
             view.setOnClickListener(this);
 
     }
+private Dialog dialog;
 
+    /**
+     * dialog的显示和消失
+     */
+    public  void showProgressbar(){
+        if (dialog==null)
+            dialog=new Dialog(this, android.R.style.Theme_DeviceDefault_Dialog_NoActionBar);
+        View view=View.inflate(this, R.layout.show_progressbar,null);
+        dialog.setContentView(view);
+        dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(true);
+        ImageView imageView= (ImageView) view.findViewById(R.id.iv_progress);
+        AnimationDrawable drawable= (AnimationDrawable) imageView.getDrawable();
+        drawable.start();
+            dialog.show();
+    }
+    public void dissmissProgressbar(){
+        if (dialog!=null&&dialog.isShowing()){
+            dialog.dismiss();
+        }
+    }
 
 
     /**

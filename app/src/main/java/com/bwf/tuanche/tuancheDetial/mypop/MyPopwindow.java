@@ -3,7 +3,12 @@ package com.bwf.tuanche.tuancheDetial.mypop;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +31,7 @@ public class MyPopwindow extends PopupWindow implements View.OnClickListener{
     private TextView tv_qq_frend,tv_qq_qone;
     private Activity activity;
     private UMShareAPI shareAPI;
+    private Button bt_dismiss;
 
     public MyPopwindow(Context context,Activity activity) {
         super(context);
@@ -40,16 +46,27 @@ public class MyPopwindow extends PopupWindow implements View.OnClickListener{
         this.setWidth(DisplayUtil.getDensity_Width(context));
         this.setBackgroundDrawable(new BitmapDrawable());
         this.setOutsideTouchable(true);
+        ColorDrawable dw = new ColorDrawable(0xb0000000);
+        this.setBackgroundDrawable(dw);
+        this.setAnimationStyle(R.style.take_pop_anima);
+
         tv_qq_frend= (TextView) view.findViewById(R.id.tv_qq_frend);
         tv_qq_qone= (TextView) view.findViewById(R.id.tv_qq_qone);
+        bt_dismiss= (Button) view.findViewById(R.id.bt_dismiss);
        tv_qq_frend.setOnClickListener(this);
         tv_qq_qone.setOnClickListener(this);
+        bt_dismiss.setOnClickListener(this);
 
     }
     public void showPopWindow(View view) {
         if (!isShowing()) {
-            this.showAsDropDown(view);//显示在view的下方
-            // this.showAtLocation(view, Gravity.TOP, 0, 0);//可以显示在指定view的指定位置
+            //this.showAsDropDown(view);//显示在view的下方
+             this.showAtLocation(view, Gravity.CENTER, 0, 0);//可以显示在指定view的指定位置
+        }
+    }
+    public void dismissPop(){
+        if (isShowing()){
+            this.dismiss();
         }
     }
 
@@ -93,6 +110,9 @@ public class MyPopwindow extends PopupWindow implements View.OnClickListener{
                     }
                 });
                 break;
+            case R.id.bt_dismiss:
+                dismissPop();
+            break;
         }
     }
 

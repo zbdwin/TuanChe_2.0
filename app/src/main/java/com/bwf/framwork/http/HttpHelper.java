@@ -35,7 +35,6 @@ public class HttpHelper {
     }
 
     /**
-<<<<<<< HEAD
      * 购车评价
      *
      */

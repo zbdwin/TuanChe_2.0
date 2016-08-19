@@ -10,7 +10,7 @@
             android:id="@+id/iv_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/back"
+            android:src="@mipmap/icon_back"
             android:layout_alignParentLeft="true"
             android:padding="10dp"/>
     <LinearLayout
@@ -24,16 +24,18 @@
             android:id="@+id/tv_carname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_16"
+            android:textSize="@dimen/text_18"
             android:layout_centerHorizontal="true"
-            android:text="东风-" />
+            android:text="东风-"
+            android:textColor="@color/black"/>
         <TextView
             android:id="@+id/tv_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="成都站"
-            android:textSize="@dimen/text_16"
-            android:drawableRight="@mipmap/icon_top_add_arrow" />
+            android:textColor="@color/red"
+            android:textSize="@dimen/text_18"
+            android:drawableRight="@mipmap/icon_xiajiantou" />
     </LinearLayout>
     <ImageView
         android:id="@+id/iv_share"

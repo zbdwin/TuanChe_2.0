@@ -43,7 +43,7 @@ public class DetialFragment1 extends BaseFragment {
     @Override
     protected void initData() {
         if (result!=null){
-            iv_toppicture.setImageURI(Uri.parse(result.brandPic));
+            iv_toppicture.setImageURI(Uri.parse(result.logo));
             tv_baomingnum.setText(result.manNum+"人");
             tv_jieshengnum.setText(result.saveUpMoney);
 

@@ -1,6 +1,7 @@
 package com.bwf.tuanche.tuancheDetial.carDetial;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +18,7 @@ import java.util.List;
 /**
  *团购报名
  */
-public class DetialFragment2 extends BaseFragment{
+public class DetialFragment2 extends BaseFragment {
     private TextView tuantime,tv_tuanlocation,tv_tuanprice,tv_carnametopop;
     private EditText et_phone,et_name;
     private Button bt_tuangoubaoming;

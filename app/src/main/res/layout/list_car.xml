@@ -6,8 +6,9 @@
     android:layout_height="wrap_content">
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/simpledraw"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:paddingLeft="10dp"
             fresco:placeholderImage="@mipmap/fast_cell_car_one"
             fresco:placeholderImageScaleType="centerCrop"/>
         <LinearLayout
@@ -15,18 +16,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingLeft="5dp"
+            android:layout_gravity="center"
             android:layout_marginLeft="5dp">
             <TextView
                 android:id="@+id/tv_carname1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8dp"
                 android:text="买贵陪3倍"
                 android:textColor="@color/black"
-                android:textSize="@dimen/text_14"/>
+                android:textSize="@dimen/text_12"/>
             <TextView
                 android:id="@+id/tv_zhidaoprice"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="一亿元保证金"
                 android:textColor="@color/simple_black"

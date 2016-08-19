@@ -38,7 +38,7 @@ public class DetialCarList extends BaseListAdpter<StyleList.ResultBeanList, Deti
         if (resultBeanList != null) {
             holder.simpledraw.setImageURI(Uri.parse(resultBeanList.logo));
             holder.tv_carname1.setText(resultBeanList.styleName);
-            holder.tv_zhidaoprice.setText(resultBeanList.pricePrefix + resultBeanList.price);
+            holder.tv_zhidaoprice.setText(resultBeanList.pricePrefix + resultBeanList.price+"万");
         }
 
     }

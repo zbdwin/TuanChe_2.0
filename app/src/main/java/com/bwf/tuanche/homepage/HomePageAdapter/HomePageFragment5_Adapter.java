@@ -1,14 +1,19 @@
 package com.bwf.tuanche.homepage.HomePageAdapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bwf.framwork.utils.IntentUtils;
+import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.homepage.entity.HotstyleRoot;
+import com.bwf.tuanche.tuancheDetial.TuanDetialActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
@@ -45,12 +50,26 @@ public class HomePageFragment5_Adapter extends RecyclerView.Adapter<HomePageFrag
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         HotstyleRoot hotstyleRoot =hotstyleRoots.get(position);
         holder.homepage2_itemimg.setImageURI(Uri.parse(hotstyleRoot.logo));
         holder.homepage2_itemtvbrand.setText(hotstyleRoot.styleName);
         holder.homepage2_itemtvperson.setText(hotstyleRoot.content);
         holder.homepage2_itemtvmoney.setText("指导价:"+hotstyleRoot.factoryPrice);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("id", hotstyleRoots.get(position).brandId);
+                bundle.putString("name", hotstyleRoots.get(position).styleName);
+                Intent intent = new Intent();
+                intent.putExtras(bundle);
+                IntentUtils.openActivity(context, TuanDetialActivity.class, bundle);
+                ToastUtil.showToast("点击了子布局");
+            }
+        });
+
     }
     @Override
     public int getItemCount() {

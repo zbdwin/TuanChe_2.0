@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.bwf.framwork.bean.StyleList;
 import com.bwf.framwork.utils.DisplayUtil;
+import com.bwf.framwork.utils.ListViewUtils;
 import com.bwf.tuanche.MyApplication;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.tuancheDetial.detialAdapter.DetialCarList;
@@ -59,7 +60,7 @@ public class MyPopwindow1 extends PopupWindow{
             View view=View.inflate(context, R.layout.detial_popwindow_jieshi,null);
             this.setContentView(view);
             //this.setHeight(DisplayUtil.getDensity_Height(context));
-            this.setWidth(DisplayUtil.getDensity_Width(context)/2);
+            this.setWidth(DisplayUtil.getDensity_Width(context)*2/3);
             this.setBackgroundDrawable(new BitmapDrawable());
             this.setOutsideTouchable(true);
             tv_context1= (TextView) view.findViewById(R.id.tv_context1);
@@ -109,20 +110,19 @@ public class MyPopwindow1 extends PopupWindow{
         carList.settList(styleList.get(j).styleList);
         listView.setAdapter(carList);
         carList.notifyDataSetChanged();
+        ListViewUtils.measureListViewHeight(listView);
         ll_list.addView(listView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.e("msg3",i+"");
                 if (callBack!=null)
-                callBack.onsuccess(styleList.get(j).styleList.get(i).id,styleList.get(j).styleList.get(i).brandId);
-                Log.e("msg5",styleList.get(j).styleList.get(i).id);
+                callBack.onsuccess(styleList.get(j).styleList.get(i).id,styleList.get(j).styleList.get(i).brandId,styleList.get(j).styleList.get(i).styleName);
                dismissPopWindow();
             }
         });
 
     }
     public interface MyItemListviewCallBack{
-        void onsuccess(String cityId,String brandId);
+        void onsuccess(String cityId,String brandId,String name);
     }
 }
