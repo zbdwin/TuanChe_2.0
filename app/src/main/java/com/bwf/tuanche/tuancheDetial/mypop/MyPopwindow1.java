@@ -20,6 +20,7 @@ import com.bwf.framwork.utils.ListViewUtils;
 import com.bwf.tuanche.MyApplication;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.tuancheDetial.detialAdapter.DetialCarList;
+import com.bwf.tuanche.tuancheDetial.myview.MyListView;
 
 import java.util.List;
 
@@ -76,6 +77,7 @@ public class MyPopwindow1 extends PopupWindow{
             this.setOutsideTouchable(true);
             ll_list= (LinearLayout) view.findViewById(R.id.ll_list);
             if (styleList!=null){
+                Log.e("msg6",styleList.size()+"");
                 for (int i=0;i<styleList.size();i++){
                     addView(ll_list,i);
                 }
@@ -104,7 +106,7 @@ public class MyPopwindow1 extends PopupWindow{
         textView.setText(styleList.get(j).brandName);
         ll_list.addView(textView);
         ListView listView=new ListView(MyApplication.getAppContext());
-        LinearLayout.LayoutParams params1=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams params1=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         listView.setLayoutParams(params1);
         final DetialCarList carList=new DetialCarList(MyApplication.getAppContext());
         carList.settList(styleList.get(j).styleList);
@@ -116,13 +118,13 @@ public class MyPopwindow1 extends PopupWindow{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if (callBack!=null)
-                callBack.onsuccess(styleList.get(j).styleList.get(i).id,styleList.get(j).styleList.get(i).brandId,styleList.get(j).styleList.get(i).styleName);
-               dismissPopWindow();
+                callBack.onsuccess(styleList.get(j).styleList.get(i).logo,styleList.get(j).styleList.get(i).brandId,styleList.get(j).styleList.get(i).styleName);
+                dismissPopWindow();
             }
         });
 
     }
     public interface MyItemListviewCallBack{
-        void onsuccess(String cityId,String brandId,String name);
+        void onsuccess(String logo,String brandId,String name);
     }
 }
