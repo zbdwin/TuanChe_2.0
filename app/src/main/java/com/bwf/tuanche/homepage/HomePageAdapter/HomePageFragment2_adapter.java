@@ -20,6 +20,7 @@ import com.bwf.tuanche.BlankPage;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.car_select.CarSelectActivity;
 import com.bwf.tuanche.homepage.entity.TuanChe_TopBr;
+import com.bwf.tuanche.tuancheDetial.TuanDetialActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
@@ -75,10 +76,11 @@ public class HomePageFragment2_adapter extends RecyclerView.Adapter<HomePageFrag
                 @Override
                 public void onClick(View v) {
                     Bundle bundle = new Bundle();
-                    bundle.putInt("id", Integer.parseInt(newlist.get(position).id));
+                    bundle.putString("id", newlist.get(position).id);
+                    bundle.putString("name", newlist.get(position).name);
                     Intent intent = new Intent();
                     intent.putExtras(bundle);
-                    IntentUtils.openActivity(context, BlankPage.class, bundle);
+                    IntentUtils.openActivity(context, TuanDetialActivity.class, bundle);
                     ToastUtil.showToast("点击了子布局");
                 }
             });

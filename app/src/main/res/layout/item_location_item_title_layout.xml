@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_location_list_title"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textColor="@color/black"
+        android:text="A"
+        android:textSize="@dimen/text_12"
+        android:background="#F4F4F4"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        />
+
+</LinearLayout>

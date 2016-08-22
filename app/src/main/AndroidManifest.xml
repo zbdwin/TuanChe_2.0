@@ -14,6 +14,25 @@
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
 
+    <!--百度定位所需权限-->
+    <!-- 这个权限用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <!-- 这个权限用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+    <!-- 用于读取手机当前的状态-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <!-- 访问网络，网络定位需要上网-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- SD卡读取权限，用户写入离线定位数据(上面有)-->
+
 
     <application
         android:name=".MyApplication"
@@ -40,7 +59,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".BlankPage"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -54,40 +72,37 @@
             android:theme="@style/AppTheme.NoActionBar">
             >
         </activity>
-
         <activity
             android:name=".homepage.Home_order"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".homepage.entity.adapter.Wellcome_poster"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".homepage.Home_margin"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-
-
+        <activity
+            android:name=".homepage.Home_margin"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".tuancheDetial.TuanDetialActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".tuancheDetial.DetialMorePingjiaActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <!-- Umeng 分享、登录-->
+        <activity
+            android:name=".tuancheDetial.DetialMorePingjiaActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- Umeng 分享、登录 -->
         <activity
             android:name="com.umeng.socialize.editorpage.ShareActivity"
-            android:theme="@style/Theme.UMDefault"
-            android:excludeFromRecents="true"/>
-        <!-- QQ\QQZone-->
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.UMDefault" />
+        <!-- QQ\QQZone -->
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
-            android:noHistory="true" >
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="tencent100424468" />
             </intent-filter>
         </activity>
@@ -98,9 +113,17 @@
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="57aa8a2067e58e23de0030b1" >
-        </meta-data>
+            android:value="57aa8a2067e58e23de0030b1" />
 
+        <activity android:name=".cityLocation.LocationActivity">
+
+        </activity>
+        <!--百度定位-->
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
+        </service>
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="qP8xQGb4IsYkyQy1Ca5YXd6QM0Wkstpj" />       //key:开发者申请的key
     </application>
 
 </manifest>

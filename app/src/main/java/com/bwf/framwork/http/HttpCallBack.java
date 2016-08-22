@@ -40,9 +40,8 @@ public abstract class HttpCallBack<T> extends StringCallback {
             LogUtils.e("服务器返回结果: " + response);
 
             try {
-
                 BaseBean baseBean = JSON.parseObject(response, BaseBean.class);
-
+//                Log.e("location_zbd",baseBean.toString());
                 if ("10000".equals(baseBean.code)) {
 
                     if (StringUtils.isNotEmpty(baseBean.result))
@@ -55,8 +54,6 @@ public abstract class HttpCallBack<T> extends StringCallback {
             } catch (JSONException e) {
                 onFail("解析异常");
             }
-
-
         } else
             onFail("服务器返回内容为空");
 

@@ -22,6 +22,7 @@ import com.bwf.framwork.utils.IntentUtils;
 
 import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.car_select.CarSelectActivity;
+import com.bwf.tuanche.cityLocation.LocationActivity;
 import com.bwf.tuanche.homepage.HomePage_FmentTitlebar01;
 import com.bwf.tuanche.homepage.Home_service;
 import com.bwf.tuanche.homepage.Home_service_My;
@@ -45,6 +46,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
     private TextView Homepage2;
     private TextView Homepage3;
     private TextView Homepage4;
+    private TextView tv_home_location;
     private ImageView icon_low_price01;
     private LinearLayout line1111111;
     @Override
@@ -55,6 +57,10 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
     @Override
     public void beforeInitView() {
         handler = new Handler(this);
+
+        //从城市定位页面获取信息
+        if (getIntent().getStringExtra("nowCity") != null)
+        cityId = getIntent().getStringExtra("nowCity");
     }
     @Override
     public void initView() {
@@ -67,6 +73,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
         Homepage2 = findViewByIdNoCast(R.id.Homepage2);
         Homepage3 = findViewByIdNoCast(R.id.Homepage3);
         Homepage4 = findViewByIdNoCast(R.id.Homepage4);
+        tv_home_location = findViewByIdNoCast(R.id.tv_home_location);
         icon_low_price01 =findViewByIdNoCast(R.id.icon_low_price01);
         line1111111 = findViewByIdNoCast(R.id.line1111111);
         Homepage1.setOnClickListener(this);
@@ -75,6 +82,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
         Homepage4.setOnClickListener(this);
         line1111111.setOnClickListener(this);
         icon_low_price01.setOnClickListener(this);
+        setOnClick(R.id.tv_home_location);
 
     }
 
@@ -158,6 +166,9 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
                 Homepage4.setTextColor(Color.parseColor("#FF3837"));
 //                DrawableUtils.drawableTop(MainActivity.this, Homepage1, R.mipmap.nav_icon_my_nor);
                 break;
+            case R.id.tv_home_location:
+                IntentUtils.openActivity(this, LocationActivity.class);
+            break;
 
 
         }

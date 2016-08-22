@@ -3,9 +3,11 @@ package com.bwf.tuanche.car_select;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -20,6 +22,7 @@ import com.bwf.framwork.utils.IntentUtils;
 import com.bwf.framwork.utils.UrlUtils;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.car_select.adapter.MySelectResultAdapter;
+import com.bwf.tuanche.tuancheDetial.TuanDetialActivity;
 import com.handmark.pulltorefresh.library.ILoadingLayout;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshGridView;
@@ -65,6 +68,18 @@ public class SelectResultActivity extends BaseActivity {
         mPullRefreshListView.getRefreshableView().setHorizontalSpacing(30);
         mPullRefreshListView.getRefreshableView().setVerticalSpacing(30);
         mPullRefreshListView.setMode(PullToRefreshBase.Mode.BOTH);
+
+        mPullRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Bundle bundle = new Bundle();
+                bundle.putString("id", hotstyleRootList.get(i).id);
+                bundle.putString("name", hotstyleRootList.get(i).styleName);
+                Intent intent = new Intent();
+                intent.putExtras(bundle);
+                IntentUtils.openActivity(SelectResultActivity.this, TuanDetialActivity.class, bundle);
+            }
+        });
 
         ILoadingLayout startLabels = mPullRefreshListView
                 .getLoadingLayoutProxy(true, false);//下拉刷新文字设置

@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.bwf.framwork.base.BaseActivity;
+import com.bwf.framwork.base.BaseBean;
+import com.bwf.framwork.bean.CityBean;
 import com.bwf.framwork.bean.FactorResultBean;
 import com.bwf.framwork.bean.HotBrandResultBean;
 import com.bwf.framwork.bean.ListBrandBean;
@@ -17,6 +19,7 @@ import com.bwf.framwork.http.HttpArrayCallBack;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.utils.IntentUtils;
+import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.framwork.utils.UrlUtils;
 import com.bwf.tuanche.MainActivity;
 import com.bwf.tuanche.R;
@@ -137,6 +140,7 @@ public class CarSelectActivity extends BaseActivity {
                 Log.e("tuanche",errMsg);
             }
         });
+
     }
 }
 

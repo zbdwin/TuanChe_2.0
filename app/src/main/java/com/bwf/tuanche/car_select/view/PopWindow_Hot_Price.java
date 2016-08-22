@@ -1,12 +1,15 @@
 package com.bwf.tuanche.car_select.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
@@ -15,9 +18,12 @@ import android.widget.TextView;
 import com.bwf.framwork.bean.StyleList;
 import com.bwf.framwork.http.HttpArrayCallBack;
 import com.bwf.framwork.http.HttpHelper;
+import com.bwf.framwork.utils.IntentUtils;
 import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.car_select.adapter.MyPopHotAndPriceAdapter;
+import com.bwf.tuanche.homepage.entity.TuanChe_TopBr;
+import com.bwf.tuanche.tuancheDetial.TuanDetialActivity;
 
 import java.util.List;
 
@@ -32,6 +38,7 @@ public class PopWindow_Hot_Price extends PopupWindow implements View.OnClickList
     private TextView tv_pop_brand,tv_pop_hot,tv_pop_price;
     private ListView lv_hot_and_price;
     private MyPopHotAndPriceAdapter adapter;
+    private List<StyleList.ResultBeanList> styleList;
 
     public PopWindow_Hot_Price(Context context,String brandId){
         super(context);
@@ -40,7 +47,7 @@ public class PopWindow_Hot_Price extends PopupWindow implements View.OnClickList
         init(context);
     }
 
-    public void init(Context context){
+    public void init(final Context context){
         View view = View.inflate(context, R.layout.select_pop_hotandprice_layout,null);
         //PopWindow设置
         this.setContentView(view);
@@ -56,17 +63,29 @@ public class PopWindow_Hot_Price extends PopupWindow implements View.OnClickList
         tv_pop_hot = (TextView) view.findViewById(R.id.tv_pop_hot);
         tv_pop_price = (TextView) view.findViewById(R.id.tv_pop_price);
         lv_hot_and_price = (ListView) view.findViewById(R.id.lv_hot_and_price);
-        tv_pop_hot.setOnClickListener(this);
-        tv_pop_price.setOnClickListener(this);
         getDatas("0");
+        lv_hot_and_price.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Bundle bundle = new Bundle();
+                bundle.putString("id", styleList.get(i).id);
+                bundle.putString("name", styleList.get(i).styleName);
+                Intent intent = new Intent();
+                intent.putExtras(bundle);
+                IntentUtils.openActivity(context, TuanDetialActivity.class, bundle);
+            }
+        });
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dismiss();
             }
         });
-
+        tv_pop_hot.setOnClickListener(this);
+        tv_pop_price.setOnClickListener(this);
     }
+
 
     //获取根据车品牌获取车列表
     public void getDatas(String type){
@@ -74,6 +93,7 @@ public class PopWindow_Hot_Price extends PopupWindow implements View.OnClickList
             @Override
             public void onSuccess(List<StyleList> result) {
                 if (result != null && !result.isEmpty()) {
+                    styleList = result.get(0).styleList;
                     tv_pop_brand.setText(result.get(0).brandName);
                     adapter = new MyPopHotAndPriceAdapter(context);
                     adapter.setDatas(result.get(0).styleList);

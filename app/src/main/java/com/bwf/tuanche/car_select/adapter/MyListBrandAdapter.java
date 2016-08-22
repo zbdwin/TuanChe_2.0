@@ -1,6 +1,7 @@
 package com.bwf.tuanche.car_select.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -22,9 +23,8 @@ public class MyListBrandAdapter extends BaseAdapter {
 
     private Context context;
 
-    //自定义数据
+    //数据
     private List<ListBrandBean> listBrandBeanList;
-    private ListBrandBean separatorBean;
 
     private int dataType1 = 0;//listBrandBean
     private int dataType2 = 1;//separatorBean

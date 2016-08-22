@@ -12,6 +12,27 @@ import com.zhy.http.okhttp.callback.BitmapCallback;
  */
 public class HttpHelper {
 
+    //根据经纬度定位城市
+    public static void getCityLocation(String longitude,String latitude,HttpCallBack callBack){
+        OkHttpUtils
+                .post()
+                .url(UrlUtils.LOCATE_CITY_BY_LONGITUDE_AND_LATITUDE)
+                .addParams("longitude", longitude)
+                .addParams("latitude", latitude)
+                .build()
+                .execute(callBack);
+    }
+
+    //获取城市列表
+    public static void getCityList(String pageSize,HttpCallBack callBack){
+        OkHttpUtils
+                .post()
+                .url(UrlUtils.LOCATE_CITY_CITY_LIST)
+                .addParams("pageSize", pageSize)
+                .build()
+                .execute(callBack);
+    }
+
     //品牌选车--热门
     public static void getHotBrandDatas(String url,String isbBuy,String cityId,HttpCallBack callBack){
         OkHttpUtils
@@ -36,7 +57,6 @@ public class HttpHelper {
     }
 
     /**
-<<<<<<< HEAD
      * 购车评价
      *
      */
