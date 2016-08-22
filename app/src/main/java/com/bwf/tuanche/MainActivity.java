@@ -64,9 +64,11 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
         handler = new Handler(this);
         versionCode_pop=new VersionCode_pop(this);
         //从城市定位页面获取信息
-        if (getIntent().getStringExtra("nowCity") != null)
+        if (getIntent().getStringExtra("nowCity") != null){
             cityId = getIntent().getStringExtra("nowCity");
-    }
+        }
+        }
+
     @Override
     public void initView() {
         homePage_fmentTitlebar01 = (HomePage_FmentTitlebar01) getSupportFragmentManager().findFragmentById(R.id.homopagement01);
