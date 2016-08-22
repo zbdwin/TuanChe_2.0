@@ -66,7 +66,8 @@ public class DetialFragment5 extends BaseFragment {
         if (result!=null){
             tv_all_pingjia.setText("查看全部"+result.count+"条评价");
             tv_zhongfeng.setText(result.commentTotal+"分");
-            ratingBar.setRating( Float.parseFloat(result.commentTotal));
+            float f=Float.parseFloat(result.commentTotal);
+            ratingBar.setRating(f);
             DetialBuyCarPingjiaAdapter adapter = new DetialBuyCarPingjiaAdapter(getContext());
             if (result.commentList!=null){
                 adapter.settList(result.commentList);

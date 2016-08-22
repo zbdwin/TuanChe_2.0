@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="购车流程"
         android:textSize="@dimen/text_16"
-        android:padding="15dp"
+        android:padding="10dp"
         android:textColor="@color/black"/>
     <View
         android:layout_width="match_parent"
