@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.bwf.framwork.base.BaseListAdpter;
@@ -35,7 +36,7 @@ public class DetialBuyCarPingjiaAdapter extends BaseListAdpter<CarDetialResultBe
         viewHolder.tv_content_pingjia=findViewByIdNoCast(R.id.tv_content_pingjia);
         viewHolder.tv_data=findViewByIdNoCast(R.id.tv_data);
         viewHolder.tv_name_pingjia=findViewByIdNoCast(R.id.tv_name_pingjia);
-        viewHolder.ll_xingxing=findViewByIdNoCast(R.id.ll_xingxing);
+        viewHolder.ratingBar=findViewByIdNoCast(R.id.ratingbar2);
         return viewHolder;
     }
 
@@ -47,10 +48,7 @@ public class DetialBuyCarPingjiaAdapter extends BaseListAdpter<CarDetialResultBe
             holder.tv_name_pingjia.setText(commentList.userName);
            holder.tv_data.setText(commentList.commentDate);
             int count=commentList.score;
-            for(int i=0;i<count;i++){
-                addview(holder.ll_xingxing);
-
-            }
+            holder.ratingBar.setRating((float)count);
         }
 
     }
@@ -58,17 +56,6 @@ public class DetialBuyCarPingjiaAdapter extends BaseListAdpter<CarDetialResultBe
     public class MyViewHolder extends BaseListAdpter.ViewHolder{
         private ImageView simple_touxiang;
         private TextView tv_name_pingjia,tv_data,tv_content_pingjia;
-        private LinearLayout ll_xingxing;
-
-    }
-    public void addview(LinearLayout ll_xingxing){
-        ImageView imageView = new ImageView(MyApplication.getAppContext());
-        imageView.setPadding(2,2,2,2);
-        LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        imageView.setLayoutParams(params);
-        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        imageView.setImageResource(R.mipmap.star_small);
-        ll_xingxing.addView(imageView);
-
+       private RatingBar ratingBar;
     }
 }

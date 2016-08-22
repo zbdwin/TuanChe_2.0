@@ -7,28 +7,59 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="5dp"
+        android:layout_height="15dp"
         android:background="@color/simple_black"/>
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="购车评价"
-        android:textSize="@dimen/text_16"
-        android:padding="5dp" />
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="购车评价"
+            android:textSize="@dimen/text_16"
+            android:textColor="@color/black"/>
+        <RatingBar
+            android:id="@+id/ratingbar"
+            style="@style/MyRattingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:isIndicator="true"
+            android:stepSize="0.1"/>
+        <TextView
+            android:id="@+id/tv_zhongfeng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="购车评价"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/chengshe"
+            android:textSize="@dimen/text_14"
+             />
+    </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/simple_black"/>
-    <ListView
+    <com.bwf.tuanche.tuancheDetial.myview.MyListView
         android:id="@+id/lv_buy_car_pingjia"
         android:layout_width="match_parent"
-        android:layout_height="100dp"/>
+        android:layout_height="wrap_content"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/simple_black"/>
     <TextView
         android:id="@+id/tv_all_pingjia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="查看全部评价"
         android:textSize="@dimen/text_14"
+        android:textColor="@color/red"
         android:drawableRight="@mipmap/arrow_right"
-        android:padding="5dp"/>
+        android:padding="15dp"/>
 </LinearLayout>

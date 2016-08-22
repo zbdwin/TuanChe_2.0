@@ -1,5 +1,7 @@
 package com.bwf.tuanche.tuancheDetial;
 
+import android.app.Fragment;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.bean.CarDetialResultBean;
@@ -17,6 +20,7 @@ import com.bwf.framwork.http.HttpArrayCallBack;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.utils.IntentUtils;
+import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.MainActivity;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.tuancheDetial.carDetial.DetialFragment1;
@@ -29,7 +33,7 @@ import com.bwf.tuanche.tuancheDetial.mypop.MyPopwindow;
 import com.bwf.tuanche.tuancheDetial.mypop.MyPopwindow1;
 import java.util.List;
 
-public class TuanDetialActivity extends BaseActivity implements DetialFragment2.MyCallBack,MyPopwindow1.MyItemListviewCallBack {
+public class TuanDetialActivity extends BaseActivity implements DetialFragment2.MyCallBack,MyPopwindow1.MyItemListviewCallBack ,DetialFragment5.MyText{
     private ImageView iv_back, iv_share;//返回和分享
     private TextView tv_carname, tv_location;//汽车名和地名
     private ScrollView scrollview;
@@ -52,14 +56,13 @@ public class TuanDetialActivity extends BaseActivity implements DetialFragment2.
         brandId=getIntent().getStringExtra("id");
         name=getIntent().getStringExtra("name");
     }
-
     @Override
     public void initView() {
         iv_back = findViewByIdNoCast(R.id.iv_back);
         iv_share = findViewByIdNoCast(R.id.iv_share);
         tv_carname = findViewByIdNoCast(R.id.tv_carname);
         tv_location = findViewByIdNoCast(R.id.tv_location);
-        scrollview = findViewByIdNoCast(R.id.scrollview);
+        scrollview = findViewByIdNoCast(R.id.scrollview1);
         fragment1 = (DetialFragment1) getSupportFragmentManager().findFragmentById(R.id.fragment1);
         fragment2 = (DetialFragment2) getSupportFragmentManager().findFragmentById(R.id.fragment2);
         fragment3 = (DetialFragment3) getSupportFragmentManager().findFragmentById(R.id.fragment3);
@@ -72,7 +75,6 @@ public class TuanDetialActivity extends BaseActivity implements DetialFragment2.
     public void initData() {
         setOnClick(R.id.iv_share, R.id.iv_back, R.id.tv_location);
         tv_carname.setText(name+"-");
-        scrollview.scrollTo(0, 0);
         getData();
         getData2();
         getData3();
@@ -160,19 +162,26 @@ private MyPopwindow popwindow;
 
     @Override
     public void showpop(int position) {
-        if (styleLists!=null){
+        if (styleLists.size()!=0){
             MyPopwindow1 popwindow2 = new MyPopwindow1(this, position, styleLists);
             popwindow2.setCallBack(this);
             popwindow2.showAsDropDown(iv_share);
+        }else{
+            ToastUtil.showToast("没有数据");
         }
     }
 
     @Override
-    public void onsuccess(String cityId, String brandId, String name) {
+    public void onsuccess(String logo, String brandId, String name) {
        this.brandId=brandId;
-        Log.e("msg5",brandId);
         getData();
      //   getData2();
         getData3();
+
+    }
+
+    @Override
+    public void ontest() {
+        scrollview.smoothScrollTo(0,20);
     }
 }

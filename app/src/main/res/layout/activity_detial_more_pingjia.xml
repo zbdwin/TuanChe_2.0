@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:fitsSystemWindows="true"
     tools:context="com.bwf.tuanche.tuancheDetial.DetialMorePingjiaActivity">
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="@color/simple_black"/>
     <LinearLayout
+        android:id="@+id/ll_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -21,23 +17,105 @@
             android:layout_height="match_parent"
             android:paddingRight="10dp"
             android:paddingLeft="10dp"
-            android:src="@mipmap/back"/>
+            android:src="@mipmap/icon_back"/>
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="购车评价"
+            android:text="评价详情"
             android:gravity="center"
-            android:textSize="@dimen/text_16"
-            android:padding="5dp" />
+            android:textSize="@dimen/text_18"
+            android:padding="10dp" />
     </LinearLayout>
 
-    <View
+
+<ScrollView
+    android:id="@+id/scrollview2"
+    android:layout_below="@id/ll_title"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/simple_black"/>
-    <ListView
-        android:id="@+id/lv_buy_car_pingjia"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/simple_black"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="总体评价："
+                android:textSize="@dimen/text_14" />
+            <RatingBar
+                android:id="@+id/ratingbar1"
+                style="@style/MyRattingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:isIndicator="true"
+                android:stepSize="0.1"/>
+            <TextView
+                android:id="@+id/tv_allpingjia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="总体评价"
+                android:textSize="@dimen/text_14"
+                android:textColor="@color/chengshe"
+                android:paddingLeft="10dp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/simple_black"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="价格："
+                android:textSize="@dimen/text_14"
+                />
+            <TextView
+                android:id="@+id/tv_tuanzhang"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="团长服务："
+                android:textSize="@dimen/text_14"
+                />
+            <TextView
+                android:id="@+id/tv_4sserver"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="4s店服务："
+                android:textSize="@dimen/text_14"
+                />
+        </LinearLayout>
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/simple_black"/>
+        <com.bwf.tuanche.tuancheDetial.myview.MyListView
+            android:id="@+id/lv_buy_car_pingjia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+</ScrollView>
+
+</RelativeLayout>
