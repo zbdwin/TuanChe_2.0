@@ -25,6 +25,7 @@
             android:textSize="16dp" />
 
         <TextView
+            android:id="@+id/search_Details"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="3dp"

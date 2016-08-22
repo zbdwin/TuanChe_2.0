@@ -1,6 +1,10 @@
 [
     {
+<<<<<<< HEAD
         "outputFile": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-cs\\values-cs.xml",
+=======
+        "outputFile": "E:\\Android\\TuanChe\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-cs\\values-cs.xml",
+>>>>>>> bd8a1cacdf67c3547a85039bde5c4000ab487946
         "map": [
             {
                 "to": {
@@ -11,7 +15,11 @@
                     "endOffset": 128
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-cs\\values-cs.xml",
+=======
+                    "file": "E:\\Android\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-cs\\values-cs.xml",
+>>>>>>> bd8a1cacdf67c3547a85039bde5c4000ab487946
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +38,11 @@
                     "endOffset": 199
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-cs\\values-cs.xml",
+=======
+                    "file": "E:\\Android\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-cs\\values-cs.xml",
+>>>>>>> bd8a1cacdf67c3547a85039bde5c4000ab487946
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +61,11 @@
                     "endOffset": 282
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-cs\\values-cs.xml",
+=======
+                    "file": "E:\\Android\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-cs\\values-cs.xml",
+>>>>>>> bd8a1cacdf67c3547a85039bde5c4000ab487946
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

@@ -3,8 +3,10 @@ package com.bwf.tuanche;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,14 +28,13 @@ import com.bwf.tuanche.cityLocation.LocationActivity;
 import com.bwf.tuanche.homepage.HomePage_FmentTitlebar01;
 import com.bwf.tuanche.homepage.Home_service;
 import com.bwf.tuanche.homepage.Home_service_My;
+import com.bwf.tuanche.homepage.Search.Search_Details;
 import com.bwf.tuanche.homepage.entity.Cheap_car_home_result;
-
+import com.bwf.tuanche.homepage.version_Message.VersionCode;
+import com.bwf.tuanche.homepage.version_Message.VersionCode_pop;
 
 
 public class MainActivity extends BaseActivity implements Handler.Callback, View.OnClickListener {
-
-
-
 
     private HomePage_FmentTitlebar01 homePage_fmentTitlebar01;
     private Home_service homePage_fmentTitlebar02;
@@ -47,8 +48,12 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
     private TextView Homepage3;
     private TextView Homepage4;
     private TextView tv_home_location;
+
+    private TextView search_Details;
+
     private ImageView icon_low_price01;
     private LinearLayout line1111111;
+    private VersionCode_pop versionCode_pop;
     @Override
     public int getContentViewId() {
         return R.layout.activity_main;
@@ -57,10 +62,10 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
     @Override
     public void beforeInitView() {
         handler = new Handler(this);
-
+        versionCode_pop=new VersionCode_pop(this);
         //从城市定位页面获取信息
         if (getIntent().getStringExtra("nowCity") != null)
-        cityId = getIntent().getStringExtra("nowCity");
+            cityId = getIntent().getStringExtra("nowCity");
     }
     @Override
     public void initView() {
@@ -73,7 +78,11 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
         Homepage2 = findViewByIdNoCast(R.id.Homepage2);
         Homepage3 = findViewByIdNoCast(R.id.Homepage3);
         Homepage4 = findViewByIdNoCast(R.id.Homepage4);
+
         tv_home_location = findViewByIdNoCast(R.id.tv_home_location);
+
+        search_Details  =findViewByIdNoCast(R.id.search_Details);
+
         icon_low_price01 =findViewByIdNoCast(R.id.icon_low_price01);
         line1111111 = findViewByIdNoCast(R.id.line1111111);
         Homepage1.setOnClickListener(this);
@@ -81,8 +90,16 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
         Homepage3.setOnClickListener(this);
         Homepage4.setOnClickListener(this);
         line1111111.setOnClickListener(this);
+        search_Details.setOnClickListener(this);
         icon_low_price01.setOnClickListener(this);
+
         setOnClick(R.id.tv_home_location);
+
+        handler.sendEmptyMessageDelayed(2, 1500);
+//        versionCode_pop.show(search_Details);
+
+
+
 
     }
 
@@ -125,14 +142,19 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
 
                 break;
             case R.id.Homepage2:
+
                 //点击跳转
-                IntentUtils.openActivity(this, BlankPage.class);
-//                DrawableUtils.drawableTop(MainActivity.this, Homepage1, R.mipmap.nav_icon_order_nor);
-//                Homepage2.setTextColor(Color.parseColor("#869D88"));
+//                IntentUtils.openActivity(this, BlankPage.class);
+                IntentUtils.openActivity(this, VersionCode.class);
+
                 break;
             case R.id.icon_low_price01:
                 //点击跳转
                 IntentUtils.openActivity(MainActivity.this, CarSelectActivity.class);
+                break;
+            case R.id.search_Details:
+                //点击搜索页面
+                IntentUtils.openActivity(MainActivity.this, Search_Details.class);
                 break;
             case R.id.Homepage3:
                 //客服
@@ -209,6 +231,10 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
         switch (message.what) {
             case 1:
                 isBack = true;
+                break;
+            case 2:
+                //延迟验证版本信息
+                versionCode_pop.show(line1111111, Gravity.CENTER,0,0);
                 break;
         }
 

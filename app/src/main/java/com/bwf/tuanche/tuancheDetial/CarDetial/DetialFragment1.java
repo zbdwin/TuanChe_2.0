@@ -2,12 +2,12 @@ package com.bwf.tuanche.tuancheDetial.carDetial;
 
 import android.net.Uri;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bwf.framwork.base.BaseFragment;
 import com.bwf.framwork.bean.CarDetialResultBean1;
 import com.bwf.tuanche.R;
+import com.bwf.tuanche.tuancheDetial.TuanDetialActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 /**
@@ -55,4 +55,5 @@ public class DetialFragment1 extends BaseFragment {
     public void onClick(View view) {
 
     }
+
 }

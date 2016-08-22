@@ -8,7 +8,7 @@
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/iv_toppicture"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         fresco:placeholderImage="@mipmap/fast_cell_car_one"
         fresco:placeholderImageScaleType="centerCrop"/>
     <LinearLayout
@@ -31,12 +31,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="本期已报名"/>
+                android:text="本期已报名"
+                android:paddingBottom="3dp"
+                android:textSize="@dimen/text_16"/>
             <TextView
                 android:id="@+id/tv_baomingnum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="123"
+                android:textSize="@dimen/text_16"
                 android:textColor="@color/chengshe"/>
 
         </LinearLayout>
@@ -52,12 +55,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="累计为团友额外"/>
+                android:text="累计为团友额外"
+                android:paddingBottom="3dp"
+                android:textSize="@dimen/text_16"/>
             <TextView
                 android:id="@+id/tv_jieshengnum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="123"
+                android:textSize="@dimen/text_16"
                 android:textColor="@color/chengshe"/>
 
         </LinearLayout>

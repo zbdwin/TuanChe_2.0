@@ -1,6 +1,10 @@
 [
     {
+<<<<<<< HEAD
         "outputFile": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-fi\\values-fi.xml",
+=======
+        "outputFile": "E:\\Android\\TuanChe\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-fi\\values-fi.xml",
+>>>>>>> bd8a1cacdf67c3547a85039bde5c4000ab487946
         "map": [
             {
                 "to": {
@@ -11,7 +15,11 @@
                     "endOffset": 141
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-fi\\values-fi.xml",
+=======
+                    "file": "E:\\Android\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-fi\\values-fi.xml",
+>>>>>>> bd8a1cacdf67c3547a85039bde5c4000ab487946
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +38,11 @@
                     "endOffset": 255
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-fi\\values-fi.xml",
+=======
+                    "file": "E:\\Android\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-fi\\values-fi.xml",
+>>>>>>> bd8a1cacdf67c3547a85039bde5c4000ab487946
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +61,11 @@
                     "endOffset": 363
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-fi\\values-fi.xml",
+=======
+                    "file": "E:\\Android\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-fi\\values-fi.xml",
+>>>>>>> bd8a1cacdf67c3547a85039bde5c4000ab487946
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -68,7 +84,11 @@
                     "endOffset": 442
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-fi\\values-fi.xml",
+=======
+                    "file": "E:\\Android\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-fi\\values-fi.xml",
+>>>>>>> bd8a1cacdf67c3547a85039bde5c4000ab487946
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -87,7 +107,11 @@
                     "endOffset": 516
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-fi\\values-fi.xml",
+=======
+                    "file": "E:\\Android\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-fi\\values-fi.xml",
+>>>>>>> bd8a1cacdf67c3547a85039bde5c4000ab487946
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -106,7 +130,11 @@
                     "endOffset": 597
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-fi\\values-fi.xml",
+=======
+                    "file": "E:\\Android\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-fi\\values-fi.xml",
+>>>>>>> bd8a1cacdf67c3547a85039bde5c4000ab487946
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,

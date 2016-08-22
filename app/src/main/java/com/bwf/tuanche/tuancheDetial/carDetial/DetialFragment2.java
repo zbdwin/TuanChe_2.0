@@ -1,7 +1,7 @@
 package com.bwf.tuanche.tuancheDetial.carDetial;
 
 import android.content.Context;
-import android.util.Log;
+import android.text.Html;;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -69,7 +69,8 @@ public class DetialFragment2 extends BaseFragment {
     protected void initData() {
         setOnClick(R.id.tv_tuanprice, R.id.tv_carnametopop);
         if (result!=null){
-            tuantime.setText("团购时间："+result.groupbuyDate+"("+result.groupbuyWeek+")"+"具体报名时间以团长通知为准");
+            String string = "团购时间："+result.groupbuyDate+"("+result.groupbuyWeek+")"+ "<font color='#ACB0B5'><small>具体时间以团长通知为准</small></font>";
+            tuantime.setText(Html.fromHtml(string));
             tv_tuanlocation.setText("团购地点："+result.regular4sShop);
             tv_tuanprice.setText("团购价格："+"现场公布");
             tv_carnametopop.setText(result.brandName);
