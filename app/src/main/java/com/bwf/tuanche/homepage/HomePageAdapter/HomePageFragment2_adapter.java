@@ -60,10 +60,6 @@ public class HomePageFragment2_adapter extends RecyclerView.Adapter<HomePageFrag
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-//        newlist =new ArrayList<TuanChe_TopBr>();
-//        final TuanChe_TopBr  list1=list.get(position);
-//        newlist.add((TuanChe_TopBr) list);
-//        newlist.add(8,tuanChe_topBr);
         TuanChe_TopBr tuanChe_topBr1 = newlist.get(position);
         if (position != 8) {
             holder.homepage2_itemimg.setImageURI(Uri.parse(tuanChe_topBr1.logo));

@@ -1,18 +1,24 @@
 package com.bwf.tuanche;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bwf.framwork.Constants;
 import com.bwf.framwork.base.BaseActivity;
+import com.bwf.framwork.bean.CityBean;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
 
@@ -25,6 +31,7 @@ import com.bwf.framwork.utils.IntentUtils;
 
 import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.car_select.CarSelectActivity;
+import com.bwf.tuanche.car_select.SelectResultActivity;
 import com.bwf.tuanche.cityLocation.LocationActivity;
 import com.bwf.tuanche.homepage.HomePage_FmentTitlebar01;
 import com.bwf.tuanche.homepage.Home_service;
@@ -33,18 +40,20 @@ import com.bwf.tuanche.homepage.Search.Search_Details;
 import com.bwf.tuanche.homepage.entity.Cheap_car_home_result;
 import com.bwf.tuanche.homepage.version_Message.VersionCode;
 import com.bwf.tuanche.homepage.version_Message.VersionCode_pop;
+import com.bwf.tuanche.tuancheDetial.TuanDetialActivity;
+import com.handmark.pulltorefresh.library.ILoadingLayout;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
 
 
 public class MainActivity extends BaseActivity implements Handler.Callback, View.OnClickListener {
-
-    //更新标志位
-//    private boolean isFirst = true;
 
     private HomePage_FmentTitlebar01 homePage_fmentTitlebar01;
     private Home_service homePage_fmentTitlebar02;
     private Home_service_My homePage_fmentTitlebar03;
     private Cheap_car_home_result cheap_car_home_result;
     private String cityId = "156";
+    private String cityName;
     private boolean isBack = true;
     private Handler handler;
     private TextView Homepage1;
@@ -54,6 +63,8 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
     private TextView tv_home_location;
 
     private TextView search_Details;
+
+    private PullToRefreshScrollView mPullToRefreshScrollView;
 
     private ImageView icon_low_price01;
     private LinearLayout line1111111;
@@ -66,13 +77,16 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
     @Override
     public void beforeInitView() {
         handler = new Handler(this);
-            versionCode_pop=new VersionCode_pop(this);
+
+        versionCode_pop=new VersionCode_pop(this);
 
         //从城市定位页面获取信息
-        if (getIntent().getStringExtra("nowCity") != null){
-            cityId = getIntent().getStringExtra("nowCity");
+        String info1 = getIntent().getStringExtra("cityId");
+        String info2 = getIntent().getStringExtra("cityName");
+        if (info1 != null && info2 != null){
+            cityId = info1;
+            cityName = info2;
         }
-
     }
 
     @Override
@@ -109,13 +123,41 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
 
 //        versionCode_pop.show(search_Details);
 
+        // 得到控件
+        mPullToRefreshScrollView =  findViewByIdNoCast(R.id.mPullToRefreshScrollView);
+        mPullToRefreshScrollView.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
 
 
+        ILoadingLayout startLabels = mPullToRefreshScrollView
+                .getLoadingLayoutProxy(true, false);//下拉刷新文字设置
+        startLabels.setPullLabel("下拉刷新...");// 刚下拉时，显示的提示
+        startLabels.setRefreshingLabel("松开即可刷新...");// 刷新时
+        startLabels.setReleaseLabel("加载中...");// 下来达到一定距离时，显示的提示
 
+        mPullToRefreshScrollView
+                .setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ScrollView>() {
+                    @Override
+                    public void onPullDownToRefresh(PullToRefreshBase<ScrollView> refreshView) {
+                        //这里写下拉刷新的任务
+
+                        mPullToRefreshScrollView.onRefreshComplete();
+                    }
+
+                    @Override
+                    public void onPullUpToRefresh(PullToRefreshBase<ScrollView> refreshView) {
+                        //这里写上拉加载更多的任务
+
+
+                        mPullToRefreshScrollView.onRefreshComplete();
+                    }
+                });
     }
 
     @Override
     public void initData() {
+        if (cityName != null && !"".equals(cityName)){
+            tv_home_location.setText(cityName);
+        }
         HttpHelper.getTopBrand(cityId, new HttpCallBack<Cheap_car_home_result>() {
 
 

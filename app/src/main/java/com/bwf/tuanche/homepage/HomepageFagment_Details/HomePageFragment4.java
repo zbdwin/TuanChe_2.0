@@ -80,7 +80,6 @@ public class HomePageFragment4 extends BaseFragment {
                 homePageFragment4_06.setImageURI(Uri.parse(result.position_banner.get(2).iconUrl));
                 homePageFragment4_07.setImageURI(Uri.parse(result.position_banner.get(3).iconUrl));
                 homePageFragment4_08.setImageURI(Uri.parse(result.position_banner.get(4).iconUrl));
-//                Log.e("XXXX", "onSuccess: " + result.toString());
             }
 
             @Override

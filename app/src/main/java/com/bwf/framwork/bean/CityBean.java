@@ -38,7 +38,7 @@ public class CityBean implements Parcelable,Comparable<CityBean>{
 
     @Override
     public String toString() {
-        return "HotCityBean{" +
+        return "CityBean{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", province='" + province + '\'' +

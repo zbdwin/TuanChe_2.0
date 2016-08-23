@@ -98,50 +98,56 @@ public class CarSelectActivity extends BaseActivity {
     }
 
     public void getDatas(){
-        HttpHelper httpHelper = new HttpHelper();
         //获取热门数据
-        httpHelper.getHotBrandDatas(UrlUtils.SELECT_HOT_CAR_BRAND,"2","156", new HttpCallBack<HotBrandResultBean>() {
+
+        HttpHelper.getHotBrandDatas(UrlUtils.SELECT_HOT_CAR_BRAND,"2","156", new HttpCallBack<HotBrandResultBean>() {
 
             @Override
             public void onSuccess(HotBrandResultBean hotBrandResultBean) {
+
 //                  Log.e("tuanche",hotBrandResultBean.toString());
                 selectByBrand_Fragment.setHotDatas(hotBrandResultBean,title_bar_select);
             }
 
             @Override
             public void onFail(String errMsg) {
+
 //                Log.e("tuanche",errMsg);
             }
         });
         //获取条件选择数据
-        httpHelper.getFactorDatas(UrlUtils.SELECT_CAR_FACTOR, new HttpCallBack<FactorResultBean>() {
+        HttpHelper.getFactorDatas(UrlUtils.SELECT_CAR_FACTOR, new HttpCallBack<FactorResultBean>() {
 
             @Override
             public void onSuccess(FactorResultBean factorResultBean) {
+
 //                Log.e("tuanche",factorResultBean.toString());
                  selectByFactor_Fragment.setDatas(factorResultBean);
             }
 
             @Override
             public void onFail(String errMsg) {
+
 //                Log.e("tuanche",errMsg);
             }
         });
         //获取选车--列表数据
-        httpHelper.getListBrandDatas(UrlUtils.SELECT_LIST_CAR_BRAND,"156", new HttpArrayCallBack<ListBrandBean>() {
+        showProgressbar();
+        HttpHelper.getListBrandDatas(UrlUtils.SELECT_LIST_CAR_BRAND,"156", new HttpArrayCallBack<ListBrandBean>() {
 
             @Override
             public void onSuccess(List<ListBrandBean> result) {
 //                Log.e("tuanche",result.toString());
+                dissmissProgressbar();
                 selectByBrand_Fragment.setListDatas(result);
             }
 
             @Override
             public void onFail(String errMsg) {
+                dissmissProgressbar();
                 Log.e("tuanche",errMsg);
             }
         });
-
     }
 }
 

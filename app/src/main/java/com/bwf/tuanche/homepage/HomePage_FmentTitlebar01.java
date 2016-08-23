@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bwf.framwork.base.BaseFragment;
 import com.bwf.framwork.utils.IntentUtils;
@@ -24,6 +25,9 @@ import com.facebook.drawee.view.SimpleDraweeView;
  */
 public class HomePage_FmentTitlebar01 extends BaseFragment {
     private SimpleDraweeView simpleDraweeView;
+    //下拉刷新
+    private ImageView title_updata_img;
+    private TextView title_updata_text;
 
     @Override
     protected int getResource() {
@@ -37,12 +41,12 @@ public class HomePage_FmentTitlebar01 extends BaseFragment {
 
     @Override
     protected void initView(View rootView) {
-        simpleDraweeView =findViewByIdNoCast(R.id.fragmentHomedetails_img01);
+        simpleDraweeView = findViewByIdNoCast(R.id.fragmentHomedetails_img01);
     }
 
     @Override
     protected void initData() {
-        Uri uri =Uri.parse(UrlUtils.SIMPLEDRAWEEVIEW);
+        Uri uri = Uri.parse(UrlUtils.SIMPLEDRAWEEVIEW);
         simpleDraweeView.setImageURI(uri);
         simpleDraweeView.setOnClickListener(new View.OnClickListener() {
             @Override
