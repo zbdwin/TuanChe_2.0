@@ -10,13 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#E3E3E3"
+        android:visibility="gone"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="拉我下来干嘛" />
+            android:text="拉我下来干嘛"
+            />
     </LinearLayout>
 
     <LinearLayout

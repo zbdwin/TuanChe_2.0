@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
     tools:context="com.bwf.tuanche.MainActivity">
 
@@ -45,11 +46,15 @@
     </LinearLayout>
 
 
-    <ScrollView
+    <com.handmark.pulltorefresh.library.PullToRefreshScrollView
+        android:id="@+id/mPullToRefreshScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/line1111111"
-        android:layout_marginBottom="40dp">
+        android:layout_marginBottom="40dp"
+        ptr:ptrMode="pullFromStart"
+        ptr:ptrDrawable="@mipmap/operation_sucess"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -76,7 +81,7 @@
 
 
         </LinearLayout>
-    </ScrollView>
+    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
 
 
     <LinearLayout

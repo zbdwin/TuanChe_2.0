@@ -122,10 +122,11 @@ public class SelectResultActivity extends BaseActivity {
     public void getDatas(){
         if (request.offset == 0)
             hotstyleRootList.clear();
-
+        showProgressbar();
         HttpHelper.getHotTypeDatas(UrlUtils.HOT_CAR_TYPE, "156",request,new HttpArrayCallBack<HotstyleRoot>() {
             @Override
             public void onSuccess(List<HotstyleRoot> result) {
+                dissmissProgressbar();
                 if (result != null && !result.isEmpty()){
                     hotstyleRootList.addAll(result);
                     // 设置适配器
@@ -137,7 +138,7 @@ public class SelectResultActivity extends BaseActivity {
 
             @Override
             public void onFail(String errMsg) {
-
+                dissmissProgressbar();
             }
         });
 

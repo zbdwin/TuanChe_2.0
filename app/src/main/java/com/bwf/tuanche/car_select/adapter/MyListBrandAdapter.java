@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.SectionIndexer;
 import android.widget.TextView;
 
 import com.bwf.framwork.bean.HotBrandBean;
@@ -19,7 +20,7 @@ import java.util.List;
 /**
  * Created by admin on 2016/8/17.
  */
-public class MyListBrandAdapter extends BaseAdapter {
+public class MyListBrandAdapter extends BaseAdapter implements SectionIndexer {
 
     private Context context;
 
@@ -29,8 +30,12 @@ public class MyListBrandAdapter extends BaseAdapter {
     private int dataType1 = 0;//listBrandBean
     private int dataType2 = 1;//separatorBean
 
-    public MyListBrandAdapter(Context context,List<ListBrandBean> listBrandBeanList) {
+    public MyListBrandAdapter(Context context) {
         this.context = context;
+
+    }
+
+    public void setDatas(List<ListBrandBean> listBrandBeanList){
         this.listBrandBeanList = listBrandBeanList;
     }
 
@@ -96,6 +101,39 @@ public class MyListBrandAdapter extends BaseAdapter {
             separatorViewHolder.tv_item_separator.setText(modeTwo.separator);
         }
         return convertView;
+    }
+    //配合SiderBar联动实现SectionIndexer设置
+    public Object[] getSections() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public int getPositionForSection(int sectionIndex) {              //关键方法，通过section index获取在ListView中的位置
+        //根据参数arg0，加上65后得到对应的大写字母
+        char c = (char)(sectionIndex + 65);
+        //循环遍历ListView中的数据，遇到第一个首字母为上面的就是要找的位置
+        for(int i = 0; i < getCount(); i++){
+            if (listBrandBeanList.get(i).penname != null)
+            if(listBrandBeanList.get(i).penname.equals(c+"")){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    @Override
+    public int getSectionForPosition(int position) {//关键方法，通过在ListView中的位置获取Section index
+        //获取该位置的城市名首字母
+        if (listBrandBeanList.get(position).penname != null){
+            char c = listBrandBeanList.get(position).penname.charAt(0);
+            //如果该字母在A和Z之间，则返回A到Z的索引，从0到25
+            if(c >= 'A' && c <= 'Z'){
+                return c - 'A';
+            }
+        }
+        //如果首字母不是A到Z的字母，则返回26，该类型将会被分类到#下面
+        return 26;
     }
 
     private class ItemViewHolder{

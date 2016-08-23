@@ -1,10 +1,14 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.bwf.tuanche.car_select.fragment.SelectByBrand_Fragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -22,8 +26,11 @@
         />
 
     <ScrollView
+        android:id="@+id/select_scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -50,5 +57,25 @@
                 />
         </LinearLayout>
     </ScrollView>
+    </LinearLayout>
+    <com.bwf.tuanche.car_select.view.SideBar
+        android:id="@+id/sideBar"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:background="@color/touming"
+        android:layout_gravity="right|center_vertical" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/centerHintTv"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textColor="#6699ff"
+        android:text="A"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:background="#1e000000"
+        />
+
+</FrameLayout>

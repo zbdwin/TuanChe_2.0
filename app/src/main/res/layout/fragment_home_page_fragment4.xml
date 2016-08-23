@@ -33,7 +33,7 @@
                 android:layout_width="195dp"
                 android:layout_height="100dp"
                 android:padding="17dp"
-                fresco:placeholderImage="@mipmap/pic_smell"
+                fresco:placeholderImage="@mipmap/default_list_car"
                 fresco:placeholderImageScaleType="centerCrop"
                  />
 
@@ -50,7 +50,7 @@
                 android:layout_width="195dp"
                 android:layout_height="100dp"
                 android:padding="17dp"
-                fresco:placeholderImage="@mipmap/pic_smell"
+                fresco:placeholderImage="@mipmap/default_list_car"
                 fresco:placeholderImageScaleType="centerCrop" />
 
 
@@ -95,7 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="6"
-                fresco:placeholderImage="@mipmap/pic_smell"
+                fresco:placeholderImage="@mipmap/default_list_car"
                 fresco:placeholderImageScaleType="centerCrop" />
 
 
@@ -142,7 +142,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    fresco:placeholderImage="@mipmap/pic_smell"
+                    fresco:placeholderImage="@mipmap/default_list_car"
                     fresco:placeholderImageScaleType="centerCrop" />
             </LinearLayout>
 
@@ -185,7 +185,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="5dp"
-        fresco:placeholderImage="@mipmap/pic_smell"
+        fresco:placeholderImage="@mipmap/default_list_car"
         fresco:placeholderImageScaleType="centerCrop" />
 
 </LinearLayout>
@@ -232,7 +232,7 @@
                     android:layout_gravity="center"
                     android:layout_height="80dp"
                     android:layout_margin="5dp"
-                    fresco:placeholderImage="@mipmap/pic_smell"
+                    fresco:placeholderImage="@mipmap/default_list_car"
                     fresco:placeholderImageScaleType="centerCrop" />
 
 
@@ -271,7 +271,7 @@
         android:layout_gravity="center"
         android:layout_height="80dp"
         android:layout_margin="5dp"
-        fresco:placeholderImage="@mipmap/pic_smell"
+        fresco:placeholderImage="@mipmap/default_list_car"
         fresco:placeholderImageScaleType="centerCrop" />
 
 
@@ -311,7 +311,7 @@
                     android:layout_gravity="center"
                     android:layout_height="80dp"
                     android:layout_margin="5dp"
-                    fresco:placeholderImage="@mipmap/pic_smell"
+                    fresco:placeholderImage="@mipmap/default_list_car"
                     fresco:placeholderImageScaleType="centerCrop" />
 
 

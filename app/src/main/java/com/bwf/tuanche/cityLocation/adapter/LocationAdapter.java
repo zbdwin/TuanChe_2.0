@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.SectionIndexer;
 import android.widget.TextView;
 
 import com.bwf.framwork.bean.CityBean;
@@ -21,7 +22,7 @@ import java.util.List;
 /**
  * Created by admin on 2016/8/20.
  */
-public class LocationAdapter extends BaseAdapter {
+public class LocationAdapter extends BaseAdapter implements SectionIndexer {
     //上下文
     private Activity activity;
     //数据源
@@ -164,13 +165,14 @@ public class LocationAdapter extends BaseAdapter {
             }
 
             if (getItemViewType(position) == type_content) {
-                CityBean modeOne = totalDatas.get(position);
+                final CityBean modeOne = totalDatas.get(position);
                 itemViewHolder.tv_location_now_city.setText(modeOne.name);
                 itemViewHolder.tv_location_now_city.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Bundle bundle = new Bundle();
-                        bundle.putString("nowCity",nowCity.id);
+                        bundle.putString("cityId",modeOne.id);
+                        bundle.putString("cityName",modeOne.name);
                         IntentUtils.openActivity(activity, MainActivity.class,bundle);
                     }
                 });
@@ -190,6 +192,41 @@ public class LocationAdapter extends BaseAdapter {
             return view;
         else
         return convertView;
+    }
+
+    //配合SiderBar联动实现SectionIndexer设置
+    public Object[] getSections() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public int getPositionForSection(int sectionIndex) {              //关键方法，通过section index获取在ListView中的位置
+        //根据参数arg0，加上65后得到对应的大写字母
+        char c = (char)(sectionIndex + 65);
+        //循环遍历ListView中的数据，遇到第一个首字母为上面的就是要找的位置
+        for(int i = 0; i < getCount(); i++){
+            if (totalDatas.get(i) != null)
+            if (totalDatas.get(i).separator != null)
+                if(totalDatas.get(i).separator.equals(c+"")){
+                    return i;
+                }
+        }
+        return -1;
+    }
+
+    @Override
+    public int getSectionForPosition(int position) {//关键方法，通过在ListView中的位置获取Section index
+        //获取该位置的城市名首字母
+        if (totalDatas.get(position) != null && totalDatas.get(position).separator != null){
+            char c = totalDatas.get(position).separator.charAt(0);
+            //如果该字母在A和Z之间，则返回A到Z的索引，从0到25
+            if(c >= 'A' && c <= 'Z'){
+                return c - 'A';
+            }
+        }
+        //如果首字母不是A到Z的字母，则返回26，该类型将会被分类到#下面
+        return 26;
     }
 
     private class ItemViewHolder{

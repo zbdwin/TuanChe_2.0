@@ -89,6 +89,7 @@ public class PopWindow_Hot_Price extends PopupWindow implements View.OnClickList
 
     //获取根据车品牌获取车列表
     public void getDatas(String type){
+        
         HttpHelper.getDetailByPingpai(type, "156", brandId, new HttpArrayCallBack<StyleList>() {
             @Override
             public void onSuccess(List<StyleList> result) {

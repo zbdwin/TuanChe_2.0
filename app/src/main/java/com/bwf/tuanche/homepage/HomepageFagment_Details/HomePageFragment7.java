@@ -59,7 +59,6 @@ public class HomePageFragment7 extends BaseActivity {
         HttpHelper.getAdplistServlet(new HttpCallBack<AdplistServlet_Result>() {
             @Override
             public void onSuccess(AdplistServlet_Result result) {
-                LogUtils.e("tttt", result.toString());
                 if (result != null) {
                     homePageFragment7_adapater = new HomePageFragment7_adapater(HomePageFragment7.this, result.carstyleList);
                     adplisthomepageimg.setImageURI(result.adpLogo);
