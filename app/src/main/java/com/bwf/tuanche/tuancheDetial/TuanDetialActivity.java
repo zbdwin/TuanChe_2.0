@@ -1,19 +1,12 @@
 package com.bwf.tuanche.tuancheDetial;
 
-import android.app.Fragment;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.MotionEvent;
+import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bwf.framwork.base.BaseActivity;
-import com.bwf.framwork.bean.CarDetialResultBean;
 import com.bwf.framwork.bean.CarDetialResultBean1;
 import com.bwf.framwork.bean.StyleList;
 import com.bwf.framwork.http.HttpArrayCallBack;
@@ -159,7 +152,6 @@ private MyPopwindow popwindow;
     public void onsuccess(String logo, String brandId, String name) {
        this.brandId=brandId;
         getData();
-     //   getData2();
     }
 
     @Override

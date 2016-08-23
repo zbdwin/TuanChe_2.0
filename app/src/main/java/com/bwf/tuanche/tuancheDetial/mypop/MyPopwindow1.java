@@ -77,7 +77,6 @@ public class MyPopwindow1 extends PopupWindow{
             this.setOutsideTouchable(true);
             ll_list= (LinearLayout) view.findViewById(R.id.ll_list);
             if (styleList!=null){
-                Log.e("msg6",styleList.size()+"");
                 for (int i=0;i<styleList.size();i++){
                     addView(ll_list,i);
                 }

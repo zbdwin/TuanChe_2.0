@@ -7,6 +7,33 @@
     tools:context=".homepage.HomePage_FmentTitlebar01">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#E3E3E3"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="拉我下来干嘛"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/fragmentHomedetails_img01"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            fresco:placeholderImage="@mipmap/ic_launcher" />
+    </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -52,17 +79,6 @@
                     android:gravity="center" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="120dp">
-
-                <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/fragmentHomedetails_img01"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:scaleType="centerCrop"
-                    fresco:placeholderImage="@mipmap/ic_launcher" />
-            </LinearLayout>
 
             <fragment
                 android:id="@+id/homopagementdemo01"

@@ -1,8 +1,11 @@
 package com.bwf.tuanche.cityLocation;
 
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -16,7 +19,10 @@ import com.bwf.framwork.bean.CityListBean;
 import com.bwf.framwork.bean.ListBrandBean;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
+import com.bwf.framwork.utils.IntentUtils;
+import com.bwf.tuanche.MainActivity;
 import com.bwf.tuanche.R;
+import com.bwf.tuanche.car_select.view.SideBar;
 import com.bwf.tuanche.cityLocation.adapter.LocationAdapter;
 
 import java.util.ArrayList;
@@ -25,9 +31,12 @@ import java.util.List;
 
 public class LocationActivity extends BaseActivity {
 
+    private TextView hintTv;
+    private SideBar indexBar;
+
     private String latitude;
     private String longitude;
-
+    private ImageView img_location_back;
     private CityBean cityBean;
     private TextView tv_location_now_city;
     private ListView lv_location;
@@ -61,7 +70,44 @@ public class LocationActivity extends BaseActivity {
     @Override
     public void initView() {
         tv_location_now_city = findViewByIdNoCast(R.id.tv_location_now_city);
+        img_location_back = findViewByIdNoCast(R.id.img_location_back);
+
+        hintTv = findViewByIdNoCast(R.id.location_centerHintTv);
         lv_location = findViewByIdNoCast(R.id.lv_location);
+        indexBar = findViewByIdNoCast(R.id.location_sideBar);
+
+        //监听SideBar的手指按下和抬起事件
+        indexBar.setOnSelectListener(new SideBar.OnSelectListener() {
+
+            @Override
+            public void onSelect(String s) {
+                //手指按下时显示中央的字母
+                hintTv.setVisibility(View.VISIBLE);
+                hintTv.setText(s);
+                //如果SideBar按下的是#号，则ListView定位到位置0
+                if ("#".equals(s) || s == null) {
+                    lv_location.setSelection(0);
+                    return;
+                }
+                //获取手指按下的字母所在的块索引
+                int section = s.toCharArray()[0];
+                //根据块索引获取该字母首次在ListView中出现的位置
+                int pos = adapter.getPositionForSection(section - 65);
+                Log.e("select",pos+"");
+                //定位ListView到按下字母首次出现的位置
+//                mScrollView.scrollTo(0,20+pos*100);//自己猜的距离，醉了
+                lv_location.setSelection(pos-4);//对应字母显示在中间
+            }
+
+            @Override
+            public void onMoveUp(String s) {
+                hintTv.setVisibility(View.GONE);
+                hintTv.setText(s);
+            }
+        });
+
+
+        setOnClick(R.id.img_location_back);
     }
 
     @Override
@@ -71,7 +117,11 @@ public class LocationActivity extends BaseActivity {
 
     @Override
     public void onClick(View view) {
-
+        switch(view.getId()){
+            case R.id.img_location_back:
+                IntentUtils.openActivity(LocationActivity.this, MainActivity.class);
+            break;
+        }
     }
 
     //获取城市定位
@@ -88,15 +138,17 @@ public class LocationActivity extends BaseActivity {
 
             @Override
             public void onFail(String errMsg) {
-
+                dissmissProgressbar();
             }
         });
     }
     //获取城市列表
     public void getCityListDatas(){
+        showProgressbar();
         HttpHelper.getCityList("4", new HttpCallBack<CityListBean>() {
             @Override
             public void onSuccess(CityListBean result) {
+                dissmissProgressbar();
                 if (result != null ){
                     if (!result.hotCitys.isEmpty())
                         hotCitys = result.hotCitys;
@@ -111,6 +163,7 @@ public class LocationActivity extends BaseActivity {
 
             @Override
             public void onFail(String errMsg) {
+                dissmissProgressbar();
                 Log.e("location",errMsg);
             }
         });

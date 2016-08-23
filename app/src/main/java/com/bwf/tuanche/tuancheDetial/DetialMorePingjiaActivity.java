@@ -13,7 +13,6 @@ import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.utils.ListViewUtils;
 import com.bwf.tuanche.R;
-import com.bwf.tuanche.tuancheDetial.detialAdapter.DetialBuyCarPingjiaAdapter;
 import com.bwf.tuanche.tuancheDetial.detialAdapter.DetialBuyCarPingjiaMoreAdapter;
 import com.bwf.tuanche.tuancheDetial.myview.MyListView;
 

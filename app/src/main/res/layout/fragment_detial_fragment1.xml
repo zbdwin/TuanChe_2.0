@@ -38,7 +38,6 @@
                 android:id="@+id/tv_baomingnum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="123"
                 android:textSize="@dimen/text_16"
                 android:textColor="@color/chengshe"/>
 
@@ -62,7 +61,6 @@
                 android:id="@+id/tv_jieshengnum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="123"
                 android:textSize="@dimen/text_16"
                 android:textColor="@color/chengshe"/>
 
