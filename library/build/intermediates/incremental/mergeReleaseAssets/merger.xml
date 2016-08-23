@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <merger version="3"><dataSet config="main"><source path="E:\NO1\TuanChe_2.0\library\src\main\assets"/><source path="E:\NO1\TuanChe_2.0\library\build\generated\assets\shaders\release"/></dataSet><dataSet config="release"><source path="E:\NO1\TuanChe_2.0\library\src\release\assets"/></dataSet></merger>
-=======
-<merger version="3"><dataSet config="main"><source path="D:\androidASCode\TuanChe_2.0\library\src\main\assets"/><source path="D:\androidASCode\TuanChe_2.0\library\build\generated\assets\shaders\release"/></dataSet><dataSet config="release"><source path="D:\androidASCode\TuanChe_2.0\library\src\release\assets"/></dataSet></merger>
->>>>>>> 3277597d67cfc1b64e359ab3faa0901585a22231

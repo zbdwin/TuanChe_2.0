@@ -56,7 +56,7 @@ public class VersionCode_pop extends PopupWindow implements View.OnClickListener
         this.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
         this.setBackgroundDrawable(new BitmapDrawable());
         this.setFocusable(true);
-        this.setOutsideTouchable(true);
+        this.setOutsideTouchable(false);
         getdata();
     }
 
