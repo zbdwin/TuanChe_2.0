@@ -51,6 +51,16 @@
         android:layout_height="wrap_content"
         android:divider="@color/simple_black"
         android:dividerHeight="1dp"/>
+    <TextView
+        android:id="@+id/tv_no_pingjia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="暂时没有评价"
+        android:gravity="center"
+        android:textSize="@dimen/text_18"
+        android:padding="10dp"
+        android:background="@mipmap/star_big_null"
+        android:visibility="gone"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

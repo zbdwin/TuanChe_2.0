@@ -1,11 +1,8 @@
 package com.bwf.tuanche.tuancheDetial;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -14,14 +11,14 @@ import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.bean.CarDetialResultBean;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
-import com.bwf.framwork.utils.IntentUtils;
 import com.bwf.framwork.utils.ListViewUtils;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.tuancheDetial.detialAdapter.DetialBuyCarPingjiaAdapter;
+import com.bwf.tuanche.tuancheDetial.detialAdapter.DetialBuyCarPingjiaMoreAdapter;
 import com.bwf.tuanche.tuancheDetial.myview.MyListView;
 
 public class DetialMorePingjiaActivity extends BaseActivity {
-    private DetialBuyCarPingjiaAdapter adapter;
+    private DetialBuyCarPingjiaMoreAdapter adapter;
     private MyListView lv_buy_car_pingjia;
     private ImageView iv_back1;
     private TextView tv_allpingjia,tv_price,tv_tuanzhang,tv_4sserver;
@@ -56,7 +53,7 @@ public class DetialMorePingjiaActivity extends BaseActivity {
     @Override
     public void initData() {
         setOnClick(iv_back1);
-        adapter = new DetialBuyCarPingjiaAdapter(this);
+        adapter = new DetialBuyCarPingjiaMoreAdapter(this);
         lv_buy_car_pingjia.setAdapter(adapter);
         ListViewUtils.measureListViewHeight(lv_buy_car_pingjia);
         getData();
@@ -65,7 +62,7 @@ public class DetialMorePingjiaActivity extends BaseActivity {
     }
     public void getData(){
         showProgressbar();
-        HttpHelper.getDetailBuyCarPingjia("10","1", "156", brandId, new HttpCallBack<CarDetialResultBean>() {
+        HttpHelper.getDetailBuyCarPingjia("10","0", "156", brandId, new HttpCallBack<CarDetialResultBean>() {
             @Override
             public void onSuccess(CarDetialResultBean result) {
                 if (result!=null){

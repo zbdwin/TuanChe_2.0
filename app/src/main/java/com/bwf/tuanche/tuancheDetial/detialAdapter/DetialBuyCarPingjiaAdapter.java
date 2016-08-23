@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.bwf.framwork.base.BaseListAdpter;
 import com.bwf.framwork.bean.CarDetialResultBean;
+import com.bwf.framwork.bean.CarDetialResultBean1;
 import com.bwf.tuanche.MainActivity;
 import com.bwf.tuanche.MyApplication;
 import com.bwf.tuanche.R;
@@ -18,7 +19,7 @@ import com.bwf.tuanche.R;
 /**
  * Created by admin on 17/08/2016.
  */
-public class DetialBuyCarPingjiaAdapter extends BaseListAdpter<CarDetialResultBean.CommentList,DetialBuyCarPingjiaAdapter.MyViewHolder> {
+public class DetialBuyCarPingjiaAdapter extends BaseListAdpter<CarDetialResultBean1.Comment.CommentList,DetialBuyCarPingjiaAdapter.MyViewHolder> {
 
     public DetialBuyCarPingjiaAdapter(Context context) {
         super(context);
@@ -41,17 +42,17 @@ public class DetialBuyCarPingjiaAdapter extends BaseListAdpter<CarDetialResultBe
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, CarDetialResultBean.CommentList commentList, int position) {
+    public void onBindViewHolder(MyViewHolder holder, CarDetialResultBean1.Comment.CommentList commentList, int position) {
         if (commentList!=null){
             holder.simple_touxiang.setImageURI(Uri.parse(commentList.memberPic));
             holder.tv_content_pingjia.setText(commentList.content);
             holder.tv_name_pingjia.setText(commentList.userName);
-           holder.tv_data.setText(commentList.commentDate);
-            int count=commentList.score;
+            holder.tv_data.setText(commentList.commentDate);
+            int count=Integer.parseInt(commentList.score);
             holder.ratingBar.setRating((float)count);
         }
-
     }
+
 
     public class MyViewHolder extends BaseListAdpter.ViewHolder{
         private ImageView simple_touxiang;

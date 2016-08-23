@@ -75,11 +75,12 @@
                 android:name="com.bwf.tuanche.tuancheDetial.carDetial.DetialFragment4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
-            <fragment
-                android:id="@+id/fragment5"
-                android:name="com.bwf.tuanche.tuancheDetial.carDetial.DetialFragment5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+           <fragment
+               android:id="@+id/fragment5"
+               android:name="com.bwf.tuanche.tuancheDetial.carDetial.DetialFragment5"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+
             <fragment
                 android:id="@+id/fragment6"
                 android:name="com.bwf.tuanche.tuancheDetial.carDetial.DetialFragment6"

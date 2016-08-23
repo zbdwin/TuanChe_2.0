@@ -1,10 +1,6 @@
 [
     {
-<<<<<<< HEAD
-        "outputFile": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-ar\\values-ar.xml",
-=======
-        "outputFile": "E:\\Android\\TuanChe\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-ar\\values-ar.xml",
->>>>>>> bd8a1cacdf67c3547a85039bde5c4000ab487946
+        "outputFile": "D:\\androidASCode\\TuanChe_2.0\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-ar\\values-ar.xml",
         "map": [
             {
                 "to": {
@@ -15,11 +11,7 @@
                     "endOffset": 119
                 },
                 "from": {
-<<<<<<< HEAD
-                    "file": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-ar\\values-ar.xml",
-=======
-                    "file": "E:\\Android\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-ar\\values-ar.xml",
->>>>>>> bd8a1cacdf67c3547a85039bde5c4000ab487946
+                    "file": "D:\\androidASCode\\TuanChe_2.0\\library\\build\\intermediates\\bundles\\debug\\res\\values-ar\\values-ar.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -38,11 +30,7 @@
                     "endOffset": 187
                 },
                 "from": {
-<<<<<<< HEAD
-                    "file": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-ar\\values-ar.xml",
-=======
-                    "file": "E:\\Android\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-ar\\values-ar.xml",
->>>>>>> bd8a1cacdf67c3547a85039bde5c4000ab487946
+                    "file": "D:\\androidASCode\\TuanChe_2.0\\library\\build\\intermediates\\bundles\\debug\\res\\values-ar\\values-ar.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -61,11 +49,7 @@
                     "endOffset": 259
                 },
                 "from": {
-<<<<<<< HEAD
-                    "file": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-ar\\values-ar.xml",
-=======
-                    "file": "E:\\Android\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\values-ar\\values-ar.xml",
->>>>>>> bd8a1cacdf67c3547a85039bde5c4000ab487946
+                    "file": "D:\\androidASCode\\TuanChe_2.0\\library\\build\\intermediates\\bundles\\debug\\res\\values-ar\\values-ar.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
