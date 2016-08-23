@@ -1,5 +1,6 @@
 package com.bwf.tuanche.tuancheDetial;
 
+import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ScrollView;
@@ -151,7 +152,6 @@ private MyPopwindow popwindow;
     public void onsuccess(String logo, String brandId, String name) {
        this.brandId=brandId;
         getData();
-     //   getData2();
     }
 
     @Override
