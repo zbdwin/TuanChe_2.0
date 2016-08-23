@@ -99,17 +99,19 @@ public class CarSelectActivity extends BaseActivity {
 
     public void getDatas(){
         //获取热门数据
-        showProgressbar();
+
         HttpHelper.getHotBrandDatas(UrlUtils.SELECT_HOT_CAR_BRAND,"2","156", new HttpCallBack<HotBrandResultBean>() {
 
             @Override
             public void onSuccess(HotBrandResultBean hotBrandResultBean) {
+
 //                  Log.e("tuanche",hotBrandResultBean.toString());
                 selectByBrand_Fragment.setHotDatas(hotBrandResultBean,title_bar_select);
             }
 
             @Override
             public void onFail(String errMsg) {
+
 //                Log.e("tuanche",errMsg);
             }
         });
@@ -125,10 +127,12 @@ public class CarSelectActivity extends BaseActivity {
 
             @Override
             public void onFail(String errMsg) {
+
 //                Log.e("tuanche",errMsg);
             }
         });
         //获取选车--列表数据
+        showProgressbar();
         HttpHelper.getListBrandDatas(UrlUtils.SELECT_LIST_CAR_BRAND,"156", new HttpArrayCallBack<ListBrandBean>() {
 
             @Override
