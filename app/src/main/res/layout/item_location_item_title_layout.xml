@@ -9,7 +9,7 @@
         android:layout_height="30dp"
         android:textColor="@color/black"
         android:text="A"
-        android:textSize="@dimen/text_12"
+        android:textSize="@dimen/text_16"
         android:background="#F4F4F4"
         android:paddingLeft="10dp"
         android:gravity="center_vertical"
