@@ -81,7 +81,7 @@ public class HomePageFragment2 extends BaseFragment {
 
             @Override
             public void onFail(String errMsg) {
-                LogUtils.e("TTTT" + errMsg);
+//                LogUtils.e("TTTT" + errMsg);
             }
         });
 

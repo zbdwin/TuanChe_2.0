@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bwf.framwork.Constants;
 import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
@@ -37,7 +38,7 @@ import com.bwf.tuanche.homepage.version_Message.VersionCode_pop;
 public class MainActivity extends BaseActivity implements Handler.Callback, View.OnClickListener {
 
     //更新标志位
-    private boolean isFirst = true;
+//    private boolean isFirst = true;
 
     private HomePage_FmentTitlebar01 homePage_fmentTitlebar01;
     private Home_service homePage_fmentTitlebar02;
@@ -65,10 +66,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
     @Override
     public void beforeInitView() {
         handler = new Handler(this);
-        if (isFirst){
             versionCode_pop=new VersionCode_pop(this);
-            isFirst = false;
-        }
 
         //从城市定位页面获取信息
         if (getIntent().getStringExtra("nowCity") != null){
@@ -105,7 +103,10 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
 
         setOnClick(R.id.tv_home_location);
 
-        handler.sendEmptyMessageDelayed(2, 1500);
+
+            handler.sendEmptyMessageDelayed(2, 1500);
+
+
 //        versionCode_pop.show(search_Details);
 
 
@@ -154,8 +155,8 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
             case R.id.Homepage2:
 
                 //点击跳转
-//                IntentUtils.openActivity(this, BlankPage.class);
-                IntentUtils.openActivity(this, VersionCode.class);
+                IntentUtils.openActivity(this, BlankPage.class);
+//                IntentUtils.openActivity(this, VersionCode.class);
 
                 break;
             case R.id.icon_low_price01:
@@ -244,7 +245,18 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
                 break;
             case 2:
                 //延迟验证版本信息
-                versionCode_pop.show(line1111111, Gravity.CENTER,0,0);
+                if (Constants.ISFIRST){
+                    versionCode_pop.show(line1111111, Gravity.CENTER,0,0);
+                    Constants.ISFIRST = false;
+                    handler.sendEmptyMessageDelayed(3, 6000);
+
+                }
+
+
+                break;
+
+            case 3:
+                versionCode_pop.dismiss();
                 break;
         }
 
