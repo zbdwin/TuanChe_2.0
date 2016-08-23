@@ -27,6 +27,7 @@ public class DetialMorePingjiaActivity extends BaseActivity {
     private TextView tv_allpingjia,tv_price,tv_tuanzhang,tv_4sserver;
     private RatingBar ratingBar;
     private ScrollView scrollview2;
+    private String brandId;
 
     @Override
     public int getContentViewId() {
@@ -35,6 +36,7 @@ public class DetialMorePingjiaActivity extends BaseActivity {
 
     @Override
     public void beforeInitView() {
+        brandId=getIntent().getStringExtra("brandId");
 
     }
 
@@ -63,7 +65,7 @@ public class DetialMorePingjiaActivity extends BaseActivity {
     }
     public void getData(){
         showProgressbar();
-        HttpHelper.getDetailBuyCarPingjia("10","1", "156", "31", new HttpCallBack<CarDetialResultBean>() {
+        HttpHelper.getDetailBuyCarPingjia("10","1", "156", brandId, new HttpCallBack<CarDetialResultBean>() {
             @Override
             public void onSuccess(CarDetialResultBean result) {
                 if (result!=null){
