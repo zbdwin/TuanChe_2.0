@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -42,8 +43,8 @@ public class MyPopwindow extends PopupWindow implements View.OnClickListener{
     public void initView( Context context){
         View view=View.inflate(context, R.layout.detial_popwindow,null);
         this.setContentView(view);
-        this.setHeight(DisplayUtil.getDensity_Height(context));
-        this.setWidth(DisplayUtil.getDensity_Width(context));
+        this.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+        this.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
         this.setBackgroundDrawable(new BitmapDrawable());
         this.setOutsideTouchable(true);
         ColorDrawable dw = new ColorDrawable(0xb0000000);
