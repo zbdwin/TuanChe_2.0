@@ -24,7 +24,7 @@ public class VersionCode extends BaseActivity {
         int versionCode = 0;
         try {
             // 获取软件版本号，
-            versionCode = context.getPackageManager().getPackageInfo("com.szy.update", 0).versionCode;
+            versionCode = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }

@@ -6,39 +6,63 @@
     android:orientation="vertical"
     tools:context=".homepage.HomePage_FmentTitlebar01">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#E3E3E3"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="拉我下来干嘛" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="120dp">
-
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/fragmentHomedetails_img01"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:scaleType="centerCrop"
-            fresco:placeholderImage="@mipmap/ic_launcher" />
-    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#E3E3E3"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center" />
+
+                <ImageView
+                    android:id="@+id/title_updata_img"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:src="@mipmap/icon_loading_refresh1" />
+
+                <TextView
+                    android:id="@+id/title_updata_text"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="下拉刷新..." />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/fragmentHomedetails_img01"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:scaleType="centerCrop"
+                    fresco:placeholderImage="@mipmap/ic_launcher" />
+            </LinearLayout>
 
             <fragment
                 android:id="@+id/homopagementdemo01"
@@ -57,16 +81,18 @@
                 android:name="com.bwf.tuanche.homepage.HomepageFagment_Details.HomePageFragment3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
             <fragment
                 android:id="@+id/homopagementdemo04"
+                android:name="com.bwf.tuanche.homepage.HomepageFagment_Details.HomePageFragment4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:name="com.bwf.tuanche.homepage.HomepageFagment_Details.HomePageFragment4"/>
+                android:layout_height="wrap_content" />
+
             <fragment
                 android:id="@+id/homopagementdemo05"
+                android:name="com.bwf.tuanche.homepage.HomepageFagment_Details.HomePageFragment5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:name="com.bwf.tuanche.homepage.HomepageFagment_Details.HomePageFragment5"/>
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
 

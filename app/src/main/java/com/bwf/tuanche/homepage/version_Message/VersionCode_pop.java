@@ -2,6 +2,7 @@ package com.bwf.tuanche.homepage.version_Message;
 
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.CountDownTimer;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,13 +22,28 @@ import com.bwf.tuanche.homepage.entity.VersionUpadteServlet;
 /**
  * Created by wanli on 2016/8/22.
  * Description:
+ * 首页更新页面显示的页面
+ *
  */
 public class VersionCode_pop extends PopupWindow implements View.OnClickListener {
     private TextView relatupdatanow;
     private WebView VersionCodeview;
     private TextView updatatextView;
+    private TextView updatetimer1;
+    private TextView updatatextViewdemo;
     private ImageView updatadiss;
     private String c;
+    private CountDownTimer timer =new CountDownTimer(6000,1000) {
+        @Override
+        public void onTick(long l) {
+            updatetimer1.setText("剩余更新时间"+(l / 1000));
+        }
+
+        @Override
+        public void onFinish() {
+            updatetimer1.setEnabled(true);
+        }
+    };
 
     public VersionCode_pop(Context context) {
         this(context, null);
@@ -50,6 +66,8 @@ public class VersionCode_pop extends PopupWindow implements View.OnClickListener
         relatupdatanow = (TextView) view.findViewById(R.id.relatupdatanow);
         VersionCodeview = (WebView) view.findViewById(R.id.VersionCodeview);
         updatatextView = (TextView) view.findViewById(R.id.updatatextView);
+        updatatextViewdemo = (TextView) view.findViewById(R.id.updatatextViewdemo);
+        updatetimer1 = (TextView) view.findViewById(R.id.updatetimer1);
         relatupdatanow.setOnClickListener(this);
         this.setContentView(view);
         this.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
@@ -63,8 +81,11 @@ public class VersionCode_pop extends PopupWindow implements View.OnClickListener
     public void show(View view, int gravity, int x, int y) {
         if (!isShowing()) {
             showAtLocation(view, gravity, x, y);
+            timer.start();
         }
     }
+
+
 
     public void getdata() {
 
@@ -75,6 +96,7 @@ public class VersionCode_pop extends PopupWindow implements View.OnClickListener
 //                VersionCodeview.loadUrl(result.url);
 //                relatupdatanow.setText(result.description);
                 updatatextView.setText(result.description);
+                updatatextViewdemo.setText(result.versionName);
             }
 
             @Override
