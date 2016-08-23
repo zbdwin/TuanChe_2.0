@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <merger version="3"><dataSet config="debug"><source path="E:\NO1\TuanChe_2.0\library\build\intermediates\bundles\debug\assets"/></dataSet><dataSet config="main"><source path="E:\NO1\TuanChe_2.0\library\src\androidTest\assets"/><source path="E:\NO1\TuanChe_2.0\library\build\generated\assets\shaders\androidTest\debug"/></dataSet></merger>
+=======
+<merger version="3"><dataSet config="debug"><source path="D:\androidASCode\TuanChe_2.0\library\build\intermediates\bundles\debug\assets"/></dataSet><dataSet config="main"><source path="D:\androidASCode\TuanChe_2.0\library\src\androidTest\assets"/><source path="D:\androidASCode\TuanChe_2.0\library\build\generated\assets\shaders\androidTest\debug"/></dataSet></merger>
+>>>>>>> 3277597d67cfc1b64e359ab3faa0901585a22231

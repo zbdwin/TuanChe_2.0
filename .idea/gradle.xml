@@ -5,6 +5,10 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+<<<<<<< HEAD
+=======
+        <option name="gradleHome" value="D:\androidstudio\Android Studio\gradle\gradle-2.10" />
+>>>>>>> 3277597d67cfc1b64e359ab3faa0901585a22231
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />

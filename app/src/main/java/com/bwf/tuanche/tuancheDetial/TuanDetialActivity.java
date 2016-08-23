@@ -147,7 +147,7 @@ private MyPopwindow popwindow;
             public void onSuccess(CarDetialResultBean result) {
                 dissmissProgressbar();
                 if (result != null) {
-                    fragment5.setResult(result);
+                    fragment5.setResult(result,brandId);
                 }
 
             }

@@ -35,9 +35,11 @@ public class DetialFragment5 extends BaseFragment {
    private CarDetialResultBean result;
     private RatingBar ratingBar;
     private MyText text;
+    private String brandId;
 
-    public void setResult(CarDetialResultBean result) {
+    public void setResult(CarDetialResultBean result,String brandId) {
         this.result = result;
+        this.brandId=brandId;
         initData();
     }
 
@@ -89,7 +91,11 @@ public class DetialFragment5 extends BaseFragment {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.tv_all_pingjia:
-                IntentUtils.openActivity(DetialFragment5.this.getContext(), DetialMorePingjiaActivity.class);
+                if (brandId!=null) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("brandId", brandId);
+                    IntentUtils.openActivity(DetialFragment5.this.getContext(), DetialMorePingjiaActivity.class, bundle);
+                }
             break;
         }
 
