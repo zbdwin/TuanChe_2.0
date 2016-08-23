@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
+<merger version="3"><dataSet config="main"><source path="E:\NO1\TuanChe_2.0\library\src\main\jniLibs"/></dataSet><dataSet config="release"><source path="E:\NO1\TuanChe_2.0\library\src\release\jniLibs"/></dataSet></merger>
+=======
 <merger version="3"><dataSet config="main"><source path="D:\androidASCode\TuanChe_2.0\library\src\main\jniLibs"/></dataSet><dataSet config="release"><source path="D:\androidASCode\TuanChe_2.0\library\src\release\jniLibs"/></dataSet></merger>
+>>>>>>> 0e247b94dc862b1a11053c2e4974a505c400a845
