@@ -36,6 +36,9 @@ import com.bwf.tuanche.homepage.version_Message.VersionCode_pop;
 
 public class MainActivity extends BaseActivity implements Handler.Callback, View.OnClickListener {
 
+    //更新标志位
+    private boolean isFirst = true;
+
     private HomePage_FmentTitlebar01 homePage_fmentTitlebar01;
     private Home_service homePage_fmentTitlebar02;
     private Home_service_My homePage_fmentTitlebar03;
@@ -62,12 +65,17 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
     @Override
     public void beforeInitView() {
         handler = new Handler(this);
-        versionCode_pop=new VersionCode_pop(this);
+        if (isFirst){
+            versionCode_pop=new VersionCode_pop(this);
+            isFirst = false;
+        }
+
         //从城市定位页面获取信息
         if (getIntent().getStringExtra("nowCity") != null){
             cityId = getIntent().getStringExtra("nowCity");
         }
-        }
+
+    }
 
     @Override
     public void initView() {
