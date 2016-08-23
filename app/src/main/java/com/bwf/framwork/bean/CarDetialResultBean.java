@@ -8,7 +8,7 @@ import java.util.List;
  * Created by admin on 17/08/2016.
  */
 public class CarDetialResultBean extends BaseBean{
-    public List<CommentList> commentList;
+    public List<CarDetialResultBean.CommentList> commentList;
 
     public String commentTotal;
 
@@ -35,7 +35,7 @@ public class CarDetialResultBean extends BaseBean{
                 '}';
     }
     public class CommentList {
-        public List<CommentPicList> commentPicList;
+        public List<CarDetialResultBean.CommentList.CommentPicList> commentPicList;
 
         public String memberPic;
 
@@ -61,8 +61,8 @@ public class CarDetialResultBean extends BaseBean{
                     ", fine=" + fine +
                     '}';
         }
-    }
-    public class CommentPicList{
+        public class CommentPicList{
+        }
     }
 }
 

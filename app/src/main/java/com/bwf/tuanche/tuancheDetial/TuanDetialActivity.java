@@ -77,7 +77,6 @@ public class TuanDetialActivity extends BaseActivity implements DetialFragment2.
         tv_carname.setText(name+"-");
         getData();
         getData2();
-        getData3();
     }
 private MyPopwindow popwindow;
     @Override
@@ -106,6 +105,10 @@ private MyPopwindow popwindow;
                 if (result != null) {
                     fragment1.setResult(result);
                     fragment2.setResult(result);
+                    if (result.comment!=null){
+                        fragment5.setResult(result.comment,brandId);
+                    }
+
                 }
 
             }
@@ -133,32 +136,13 @@ private MyPopwindow popwindow;
 
             @Override
             public void onFail(String errMsg) {
-                Log.e("msg2", errMsg);
                 dissmissProgressbar();
 
             }
         });
     }
 
-    public void getData3() {
-        showProgressbar();
-        HttpHelper.getDetailBuyCarPingjia("3", "1", "156", brandId, new HttpCallBack<CarDetialResultBean>() {
-            @Override
-            public void onSuccess(CarDetialResultBean result) {
-                dissmissProgressbar();
-                if (result != null) {
-                    fragment5.setResult(result,brandId);
-                }
 
-            }
-
-            @Override
-            public void onFail(String errMsg) {
-                dissmissProgressbar();
-
-            }
-        });
-    }
 
     @Override
     public void showpop(int position) {
@@ -176,8 +160,6 @@ private MyPopwindow popwindow;
        this.brandId=brandId;
         getData();
      //   getData2();
-        getData3();
-
     }
 
     @Override
