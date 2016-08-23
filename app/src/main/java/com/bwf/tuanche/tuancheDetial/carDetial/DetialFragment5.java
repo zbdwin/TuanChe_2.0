@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.bwf.framwork.base.BaseBean;
 import com.bwf.framwork.base.BaseFragment;
 import com.bwf.framwork.bean.CarDetialResultBean;
+import com.bwf.framwork.bean.CarDetialResultBean1;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.utils.IntentUtils;
@@ -26,18 +27,22 @@ import com.bwf.tuanche.tuancheDetial.TuanDetialActivity;
 import com.bwf.tuanche.tuancheDetial.detialAdapter.DetialBuyCarPingjiaAdapter;
 import com.bwf.tuanche.tuancheDetial.myview.MyListView;
 
+import java.util.List;
+
 /**
  *购车评价
  */
 public class DetialFragment5 extends BaseFragment {
     private MyListView lv_buy_car_pingjia;
-    private TextView tv_all_pingjia,tv_zhongfeng;
-   private CarDetialResultBean result;
+    private TextView tv_all_pingjia,tv_zhongfeng,tv_no_pingjia;
+   private CarDetialResultBean1.Comment result;
     private RatingBar ratingBar;
     private MyText text;
+    private String brandId;
 
-    public void setResult(CarDetialResultBean result) {
+    public void setResult(CarDetialResultBean1.Comment result,String brandId) {
         this.result = result;
+        this.brandId=brandId;
         initData();
     }
 
@@ -57,19 +62,22 @@ public class DetialFragment5 extends BaseFragment {
         tv_all_pingjia=findViewByIdNoCast(R.id.tv_all_pingjia);
         ratingBar=findViewByIdNoCast(R.id.ratingbar);
         tv_zhongfeng=findViewByIdNoCast(R.id.tv_zhongfeng);
+        tv_no_pingjia=findViewByIdNoCast(R.id.tv_no_pingjia);
 
     }
 
     @Override
     protected void initData() {
         setOnClick(R.id.tv_all_pingjia);
-        if (result!=null){
+        if (result!=null&&result.commentList.size()!=0){
+            tv_no_pingjia.setVisibility(View.GONE);
+            tv_all_pingjia.setVisibility(View.VISIBLE);
             tv_all_pingjia.setText("查看全部"+result.count+"条评价");
             tv_zhongfeng.setText(result.commentTotal+"分");
             float f=Float.parseFloat(result.commentTotal);
             ratingBar.setRating(f);
             DetialBuyCarPingjiaAdapter adapter = new DetialBuyCarPingjiaAdapter(getContext());
-            if (result.commentList!=null){
+
                 adapter.settList(result.commentList);
                 lv_buy_car_pingjia.setAdapter(adapter);
                 ListViewUtils.measureListViewHeight(lv_buy_car_pingjia);
@@ -77,8 +85,9 @@ public class DetialFragment5 extends BaseFragment {
                     text.ontest();
                 }
                 adapter.notifyDataSetChanged();
-            }
-
+        }else{
+            tv_no_pingjia.setVisibility(View.VISIBLE);
+            tv_all_pingjia.setVisibility(View.GONE);
 
         }
 
@@ -89,7 +98,11 @@ public class DetialFragment5 extends BaseFragment {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.tv_all_pingjia:
-                IntentUtils.openActivity(DetialFragment5.this.getContext(), DetialMorePingjiaActivity.class);
+                if (brandId!=null) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("brandId", brandId);
+                    IntentUtils.openActivity(DetialFragment5.this.getContext(), DetialMorePingjiaActivity.class, bundle);
+                }
             break;
         }
 

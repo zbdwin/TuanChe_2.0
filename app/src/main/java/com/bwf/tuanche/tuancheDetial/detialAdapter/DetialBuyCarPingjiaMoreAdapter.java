@@ -1,27 +1,22 @@
 package com.bwf.tuanche.tuancheDetial.detialAdapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.net.Uri;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.bwf.framwork.base.BaseListAdpter;
 import com.bwf.framwork.bean.CarDetialResultBean;
-import com.bwf.framwork.bean.CarDetialResultBean1;
-import com.bwf.tuanche.MainActivity;
-import com.bwf.tuanche.MyApplication;
 import com.bwf.tuanche.R;
 
 /**
  * Created by admin on 17/08/2016.
  */
-public class DetialBuyCarPingjiaAdapter extends BaseListAdpter<CarDetialResultBean1.Comment.CommentList,DetialBuyCarPingjiaAdapter.MyViewHolder> {
+public class DetialBuyCarPingjiaMoreAdapter extends BaseListAdpter<CarDetialResultBean.CommentList,DetialBuyCarPingjiaMoreAdapter.MyViewHolder> {
 
-    public DetialBuyCarPingjiaAdapter(Context context) {
+    public DetialBuyCarPingjiaMoreAdapter(Context context) {
         super(context);
     }
 
@@ -42,16 +37,17 @@ public class DetialBuyCarPingjiaAdapter extends BaseListAdpter<CarDetialResultBe
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, CarDetialResultBean1.Comment.CommentList commentList, int position) {
+    public void onBindViewHolder(MyViewHolder holder, CarDetialResultBean.CommentList commentList, int position) {
         if (commentList!=null){
             holder.simple_touxiang.setImageURI(Uri.parse(commentList.memberPic));
             holder.tv_content_pingjia.setText(commentList.content);
             holder.tv_name_pingjia.setText(commentList.userName);
             holder.tv_data.setText(commentList.commentDate);
-            int count=Integer.parseInt(commentList.score);
+            int count=commentList.score;
             holder.ratingBar.setRating((float)count);
         }
     }
+
 
 
     public class MyViewHolder extends BaseListAdpter.ViewHolder{

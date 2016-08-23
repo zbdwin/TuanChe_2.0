@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.bwf.framwork.Constants;
 import com.bwf.framwork.base.BaseActivity;
 import com.bwf.framwork.bean.CityBean;
 import com.bwf.framwork.http.HttpCallBack;
@@ -76,6 +77,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
     @Override
     public void beforeInitView() {
         handler = new Handler(this);
+
         versionCode_pop=new VersionCode_pop(this);
 
         //从城市定位页面获取信息
@@ -115,7 +117,10 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
 
         setOnClick(R.id.tv_home_location);
 
-        handler.sendEmptyMessageDelayed(2, 1500);
+
+            handler.sendEmptyMessageDelayed(2, 1500);
+
+
 //        versionCode_pop.show(search_Details);
 
         // 得到控件
@@ -192,8 +197,8 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
             case R.id.Homepage2:
 
                 //点击跳转
-//                IntentUtils.openActivity(this, BlankPage.class);
-                IntentUtils.openActivity(this, VersionCode.class);
+                IntentUtils.openActivity(this, BlankPage.class);
+//                IntentUtils.openActivity(this, VersionCode.class);
 
                 break;
             case R.id.icon_low_price01:
@@ -255,6 +260,8 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
      * @param event
      * @return
      */
+
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
@@ -282,7 +289,18 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
                 break;
             case 2:
                 //延迟验证版本信息
-                versionCode_pop.show(line1111111, Gravity.CENTER,0,0);
+                if (Constants.ISFIRST){
+                    versionCode_pop.show(line1111111, Gravity.CENTER,0,0);
+                    Constants.ISFIRST = false;
+                    handler.sendEmptyMessageDelayed(3, 6000);
+
+                }
+
+
+                break;
+
+            case 3:
+                versionCode_pop.dismiss();
                 break;
         }
 

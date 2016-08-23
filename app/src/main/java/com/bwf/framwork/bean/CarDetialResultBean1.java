@@ -136,7 +136,7 @@ public class CarDetialResultBean1{
 
     public String commentTotal;
 
-    public List<CommentList> commentList ;
+    public List<CarDetialResultBean1.Comment.CommentList> commentList ;
 
     @Override
     public String toString() {
@@ -152,7 +152,7 @@ public class CarDetialResultBean1{
         public String score;
         public String content;
         public String memberPic;
-        public List<CommentPicList> commentPicList ;
+        public List<CarDetialResultBean1.Comment.CommentList.CommentPicList> commentPicList ;
         public String fine;
 
         @Override

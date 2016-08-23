@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <merger version="3"><dataSet config="main"><source path="E:\android_studio_mywork\TuanChe\library\src\main\shaders"/></dataSet><dataSet config="debug"><source path="E:\android_studio_mywork\TuanChe\library\src\debug\shaders"/></dataSet></merger>
-=======
-<merger version="3"><dataSet config="main"><source path="E:\Android\TuanChe\library\src\main\shaders"/></dataSet><dataSet config="debug"><source path="E:\Android\TuanChe\library\src\debug\shaders"/></dataSet></merger>
->>>>>>> bd8a1cacdf67c3547a85039bde5c4000ab487946

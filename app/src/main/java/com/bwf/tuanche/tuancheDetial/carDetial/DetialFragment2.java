@@ -25,7 +25,6 @@ public class DetialFragment2 extends BaseFragment {
     private List<StyleList> styleLists;
     private MyCallBack callBack;
     private CarDetialResultBean1 result;
-
     public void setStyleLists(List<StyleList> styleLists) {
         this.styleLists = styleLists;
     }
