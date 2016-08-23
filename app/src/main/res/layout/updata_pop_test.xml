@@ -19,12 +19,12 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/relatupdata"
+           android:layout_marginTop="140dp"
             android:gravity="center_vertical"
             android:text="版本更新信息"
             android:paddingLeft="40dp"
             android:textColor="@color/black"
-            android:layout_marginBottom="10dp"
+
             android:textSize="@dimen/text_16"
             android:id="@+id/updatatextView" />
 
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="@mipmap/dialog_red_bg"
-            android:gravity="center">
+            android:gravity="center_horizontal">
 
             <TextView
                 android:id="@+id/relatupdatanow"
@@ -46,9 +46,36 @@
                 android:textColor="@color/withe" />
         </RelativeLayout>
 
+        <TextView
+            android:id="@+id/updatetimer1"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="剩余更新时间"
+            android:textColor="@color/withe"
+            android:layout_alignParentBottom="true"
+            android:layout_above="@+id/relatupdata"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/updatatextViewdemo"
+            android:layout_width="55dp"
+            android:layout_height="25dp"
+            android:text="版本号"
+            android:textColor="@color/withe"
+            android:gravity="center"
+            android:background="@drawable/update123"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="48dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginTop="53dp" />
+
     </RelativeLayout>
 
     <ImageView
+
         android:layout_marginTop="70dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
