@@ -101,7 +101,7 @@ public abstract class BaseModel implements BaseColumns {
     }
 
     /**
-     * 删除更个表
+     * 删除整个表
      *
      * @param tableName
      */
