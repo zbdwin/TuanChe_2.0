@@ -66,6 +66,7 @@
               android:drawableTop="@mipmap/icon_tuanchequan"
               />
           <TextView
+              android:id="@+id/tv_browser_record"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:text="浏览记录"
@@ -89,6 +90,12 @@
       android:textSize="@dimen/text_16"
       android:padding="10dp"
       android:textColor="@color/black"
+      />
+
+  <View
+      android:layout_width="wrap_content"
+      android:layout_height="1dp"
+      android:background="#F4F4F4"
       />
 
   <LinearLayout
@@ -137,6 +144,12 @@
       android:textColor="@color/black"
       />
 
+  <View
+      android:layout_width="wrap_content"
+      android:layout_height="1dp"
+      android:background="#F4F4F4"
+      />
+
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="60dp"
@@ -180,6 +193,13 @@
       android:textColor="@color/black"
       android:textSize="@dimen/text_16"
       android:padding="10dp"
+      android:drawableRight="@mipmap/arrow_right"
+      />
+
+  <View
+      android:layout_width="wrap_content"
+      android:layout_height="1dp"
+      android:background="#F4F4F4"
       />
 
   <TextView
@@ -189,6 +209,7 @@
       android:textColor="@color/black"
       android:textSize="@dimen/text_16"
       android:padding="10dp"
+      android:drawableRight="@mipmap/arrow_right"
       />
 
   <View

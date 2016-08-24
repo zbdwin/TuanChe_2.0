@@ -139,7 +139,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".homepage.Search.Search_Details_All" />
         <activity android:name=".homepage.version_Message.VersionCode" />
-        <activity android:name=".aboutme.MyPersonalInfoActivity"></activity>
+        <activity android:name=".homepage.RecordActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

@@ -39,7 +39,6 @@ public class DBHelper extends SQLiteOpenHelper {
                 Class<BaseModel> baseModelClass = (Class<BaseModel>) Class.forName(Constants.TABLES[i]);//根据类名反射拿到Class
                 BaseModel baseModel = baseModelClass.newInstance();//根据Class拿到对象
                 db.execSQL(baseModel.getCreateTableSql());
-
             }
         } catch (Exception e) {
             e.printStackTrace();
