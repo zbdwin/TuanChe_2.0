@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bwf.framwork.db.model.RecordModel;
 import com.bwf.framwork.utils.IntentUtils;
 import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.R;
@@ -27,6 +28,7 @@ public class HomePageFragment5_Adapter extends RecyclerView.Adapter<HomePageFrag
 
     private Context context;
 
+    private RecordModel recordModel;
 
 //    public void setResult(Context context, List<HotstyleRoot> result) {
 //        this.context = context;
@@ -34,6 +36,7 @@ public class HomePageFragment5_Adapter extends RecyclerView.Adapter<HomePageFrag
 //    }
 
     public HomePageFragment5_Adapter(Context context,List<HotstyleRoot> hotstyleRoots) {
+        recordModel = new RecordModel();
         this.context = context;
         this.hotstyleRoots = hotstyleRoots;
     }
@@ -60,13 +63,13 @@ public class HomePageFragment5_Adapter extends RecyclerView.Adapter<HomePageFrag
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                recordModel.insertCarRecord(hotstyleRoots.get(position));
                 Bundle bundle = new Bundle();
                 bundle.putString("id", hotstyleRoots.get(position).brandId);
                 bundle.putString("name", hotstyleRoots.get(position).styleName);
                 Intent intent = new Intent();
                 intent.putExtras(bundle);
                 IntentUtils.openActivity(context, TuanDetialActivity.class, bundle);
-                ToastUtil.showToast("点击了子布局");
             }
         });
 

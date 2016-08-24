@@ -9,17 +9,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.bwf.framwork.base.BaseActivity;
-import com.bwf.framwork.base.BaseBean;
-import com.bwf.framwork.bean.CityBean;
 import com.bwf.framwork.bean.FactorResultBean;
 import com.bwf.framwork.bean.HotBrandResultBean;
 import com.bwf.framwork.bean.ListBrandBean;
-import com.bwf.framwork.bean.StyleList;
 import com.bwf.framwork.http.HttpArrayCallBack;
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.utils.IntentUtils;
-import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.framwork.utils.UrlUtils;
 import com.bwf.tuanche.MainActivity;
 import com.bwf.tuanche.R;
@@ -99,17 +95,19 @@ public class CarSelectActivity extends BaseActivity {
 
     public void getDatas(){
         //获取热门数据
-        showProgressbar();
+
         HttpHelper.getHotBrandDatas(UrlUtils.SELECT_HOT_CAR_BRAND,"2","156", new HttpCallBack<HotBrandResultBean>() {
 
             @Override
             public void onSuccess(HotBrandResultBean hotBrandResultBean) {
+
 //                  Log.e("tuanche",hotBrandResultBean.toString());
                 selectByBrand_Fragment.setHotDatas(hotBrandResultBean,title_bar_select);
             }
 
             @Override
             public void onFail(String errMsg) {
+
 //                Log.e("tuanche",errMsg);
             }
         });
@@ -125,10 +123,12 @@ public class CarSelectActivity extends BaseActivity {
 
             @Override
             public void onFail(String errMsg) {
+
 //                Log.e("tuanche",errMsg);
             }
         });
         //获取选车--列表数据
+        showProgressbar();
         HttpHelper.getListBrandDatas(UrlUtils.SELECT_LIST_CAR_BRAND,"156", new HttpArrayCallBack<ListBrandBean>() {
 
             @Override

@@ -117,7 +117,12 @@
             android:name="UMENG_APPKEY"
             android:value="57aa8a2067e58e23de0030b1" />
 
-        <activity android:name=".cityLocation.LocationActivity"></activity>
+
+
+        <activity
+            android:name=".cityLocation.LocationActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
         <!-- 百度定位 -->
         <service
             android:name="com.baidu.location.f"
@@ -139,9 +144,15 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".homepage.Search.Search_Details_All" />
         <activity android:name=".homepage.version_Message.VersionCode" />
+
         <activity android:name=".homepage.Home_service_message"
             android:theme="@style/AppTheme.NoActionBar"
             ></activity>
+
+
+        <activity android:name=".homepage.RecordActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
     </application>
 

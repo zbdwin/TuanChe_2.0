@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.bwf.tuanche.BlankPage">
+
+    <TextView
+        android:id="@+id/tv_record"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="浏览记录"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_16"
+        android:gravity="center"
+        android:drawableLeft="@mipmap/icon_back"
+        android:background="@color/simple_black"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_record"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_record"
+        />
+
+</RelativeLayout>
