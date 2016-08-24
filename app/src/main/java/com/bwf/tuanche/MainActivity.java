@@ -8,6 +8,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -151,6 +152,15 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
                         mPullToRefreshScrollView.onRefreshComplete();
                     }
                 });
+
+        mPullToRefreshScrollView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (homePage_fmentTitlebar02.isVisible() || homePage_fmentTitlebar03.isVisible())
+                    return true;
+                return false;
+            }
+        });
     }
 
     @Override

@@ -46,6 +46,14 @@ public class RecordModel extends BaseModel {
     }
 
     /**
+     * 删除所有记录
+     *
+     */
+    public void deletAllCarRecord() {
+        clear(TABLE_NAME);
+    }
+
+    /**
      * 查询记录对象
      *
      * @param id
