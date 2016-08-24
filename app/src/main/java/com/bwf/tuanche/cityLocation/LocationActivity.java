@@ -93,7 +93,6 @@ public class LocationActivity extends BaseActivity {
                 int section = s.toCharArray()[0];
                 //根据块索引获取该字母首次在ListView中出现的位置
                 int pos = adapter.getPositionForSection(section - 65);
-                Log.e("select",pos+"");
                 //定位ListView到按下字母首次出现的位置
 //                mScrollView.scrollTo(0,20+pos*100);//自己猜的距离，醉了
                 lv_location.setSelection(pos-4);//对应字母显示在中间

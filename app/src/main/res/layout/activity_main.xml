@@ -71,7 +71,7 @@
                 android:id="@+id/homopagement02"
                 android:name="com.bwf.tuanche.homepage.Home_service"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="550dp" />
 
             <fragment
                 android:id="@+id/homopagement03"

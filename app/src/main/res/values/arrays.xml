@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="languages">
+        <item>购买新车</item>
+        <item>养车服务</item>
+        <item>卖二手车</item>
+        <item>上门维修</item>
+        <item>投诉建议</item>
+    </string-array>
+</resources>

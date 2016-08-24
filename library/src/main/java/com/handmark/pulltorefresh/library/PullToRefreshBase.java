@@ -35,6 +35,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.handmark.pulltorefresh.library.internal.FlipLoadingLayout;
+import com.handmark.pulltorefresh.library.internal.FrameAnimationLayout;
 import com.handmark.pulltorefresh.library.internal.LoadingLayout;
 import com.handmark.pulltorefresh.library.internal.RotateLoadingLayout;
 import com.handmark.pulltorefresh.library.internal.Utils;
@@ -1325,7 +1326,8 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 			switch (this) {
 				case ROTATE:
 				default:
-					return new RotateLoadingLayout(context, mode, scrollDirection, attrs);
+//					return new RotateLoadingLayout(context, mode, scrollDirection, attrs);
+					return new FrameAnimationLayout(context, mode, scrollDirection, attrs);
 				case FLIP:
 					return new FlipLoadingLayout(context, mode, scrollDirection, attrs);
 			}

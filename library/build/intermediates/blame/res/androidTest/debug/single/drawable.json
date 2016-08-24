@@ -1,18 +1,30 @@
 [
     {
-        "merged": "D:\\androidASCode\\TuanChe_2.0\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_bottom.xml",
-        "source": "D:\\androidASCode\\TuanChe_2.0\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_bottom.xml"
+        "merged": "E:\\NO1\\TuanChe_2.0\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_bottom.xml",
+        "source": "E:\\NO1\\TuanChe_2.0\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_bottom.xml"
     },
     {
-        "merged": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_top.xml",
-        "source": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_top.xml"
+        "merged": "E:\\NO1\\TuanChe_2.0\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\icon_loading_refresh4.png",
+        "source": "E:\\NO1\\TuanChe_2.0\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\icon_loading_refresh4.png"
     },
     {
-        "merged": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_bottom.xml",
-        "source": "E:\\android_studio_mywork\\TuanChe\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_bottom.xml"
+        "merged": "E:\\NO1\\TuanChe_2.0\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\icon_loading_refresh1.png",
+        "source": "E:\\NO1\\TuanChe_2.0\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\icon_loading_refresh1.png"
     },
     {
-        "merged": "D:\\androidASCode\\TuanChe_2.0\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_top.xml",
-        "source": "D:\\androidASCode\\TuanChe_2.0\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_top.xml"
+        "merged": "E:\\NO1\\TuanChe_2.0\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\icon_loading_refresh3.png",
+        "source": "E:\\NO1\\TuanChe_2.0\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\icon_loading_refresh3.png"
+    },
+    {
+        "merged": "E:\\NO1\\TuanChe_2.0\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\show_updata.xml",
+        "source": "E:\\NO1\\TuanChe_2.0\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\show_updata.xml"
+    },
+    {
+        "merged": "E:\\NO1\\TuanChe_2.0\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\icon_loading_refresh2.png",
+        "source": "E:\\NO1\\TuanChe_2.0\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\icon_loading_refresh2.png"
+    },
+    {
+        "merged": "E:\\NO1\\TuanChe_2.0\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_top.xml",
+        "source": "E:\\NO1\\TuanChe_2.0\\library\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_top.xml"
     }
 ]

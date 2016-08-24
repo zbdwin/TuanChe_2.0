@@ -36,7 +36,7 @@ public class VersionCode_pop extends PopupWindow implements View.OnClickListener
     private CountDownTimer timer =new CountDownTimer(6000,1000) {
         @Override
         public void onTick(long l) {
-            updatetimer1.setText("剩余更新时间"+(l / 1000));
+            updatetimer1.setText("剩余更新时间"+(l / 1000)+"秒");
         }
 
         @Override

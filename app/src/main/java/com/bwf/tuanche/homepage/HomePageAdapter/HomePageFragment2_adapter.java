@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bwf.framwork.db.DBHelper;
+import com.bwf.framwork.db.model.RecordModel;
 import com.bwf.framwork.image.ImageLoader;
 import com.bwf.framwork.utils.IntentUtils;
 import com.bwf.framwork.utils.ToastUtil;
@@ -77,7 +79,6 @@ public class HomePageFragment2_adapter extends RecyclerView.Adapter<HomePageFrag
                     Intent intent = new Intent();
                     intent.putExtras(bundle);
                     IntentUtils.openActivity(context, TuanDetialActivity.class, bundle);
-                    ToastUtil.showToast("点击了子布局");
                 }
             });
 

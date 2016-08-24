@@ -1,16 +1,11 @@
 package com.bwf.tuanche.car_select.fragment;
 
 import android.content.Context;
-import android.graphics.PixelFormat;
-import android.location.Location;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -18,11 +13,7 @@ import android.widget.TextView;
 import com.bwf.framwork.base.BaseFragment;
 import com.bwf.framwork.bean.HotBrandResultBean;
 import com.bwf.framwork.bean.ListBrandBean;
-import com.bwf.framwork.bean.StyleList;
-import com.bwf.framwork.http.HttpArrayCallBack;
-import com.bwf.framwork.http.HttpHelper;
 import com.bwf.framwork.utils.ListViewUtils;
-import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.car_select.adapter.MyHotBrandAdapter;
 import com.bwf.tuanche.car_select.adapter.MyListBrandAdapter;
@@ -118,7 +109,6 @@ public class SelectByBrand_Fragment extends BaseFragment implements MyHotBrandAd
                 int section = s.toCharArray()[0];
                 //根据块索引获取该字母首次在ListView中出现的位置
                 int pos = list_adapter.getPositionForSection(section - 65);
-                Log.e("select",pos+"");
                 //定位ListView到按下字母首次出现的位置
                   mScrollView.scrollTo(0,-width/5+pos*width/5);//自己猜的距离，醉了
 //                lv_select_brand_list.setSelection(pos);
