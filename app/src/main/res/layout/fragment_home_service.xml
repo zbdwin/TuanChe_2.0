@@ -1,14 +1,122 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context="com.bwf.tuanche.homepage.Home_service">
 
-   <TextView
-       android:layout_width="380dp"
-       android:layout_height="500dp"
-       android:gravity="center"
-       android:text="客服页面敬请期待"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:background="@color/withe"
+        android:gravity="center"
+        android:text="客服"
+        android:textSize="@dimen/text_16"/>
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:padding="20dp"
+            android:src="@mipmap/icon_kefu" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/servicephone"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:background="@drawable/home_service"
+                android:gravity="center"
+                android:text="拨打客服电话400-6969-123"
+                android:textColor="@color/withe"
+                android:textSize="@dimen/text_14" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/text_12"
+            android:text="客服工作时间：周一到周日09:00-18:00"
+            android:textSize="@dimen/text_14"
+
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:gravity="bottom|center_horizontal"
+            android:padding="@dimen/text_12"
+            android:text="不方便打电话的亲，还可以留言哦···"
+            android:textSize="@dimen/text_14" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5" />
+
+            <TextView
+                android:id="@+id/servicemessage"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2.5"
+                android:gravity="center"
+                android:text="我要留言"
+                android:textColor="@color/red"
+                android:background="@drawable/home_servier1"
+                android:textSize="@dimen/text_18" />
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/text_12"
+            android:textSize="@dimen/text_18" />
+    </LinearLayout>
+</LinearLayout>
