@@ -1,6 +1,4 @@
 package com.bwf.tuanche.tuancheDetial;
-
-import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ScrollView;

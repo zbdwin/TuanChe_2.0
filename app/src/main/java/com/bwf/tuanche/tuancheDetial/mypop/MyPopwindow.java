@@ -75,7 +75,7 @@ public class MyPopwindow extends PopupWindow implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.tv_qq_frend:
+            case R.id.tv_qq_qone:
                //QQ空间分享
                 ShareUtil.shareToQQ(activity, SHARE_MEDIA.QZONE, "团车", "团车分享", "http://www.baidu.com", "http://p1.qhimg.com/t0151320b1d0fc50be8.png", new UMShareListener() {
                     @Override
@@ -94,7 +94,7 @@ public class MyPopwindow extends PopupWindow implements View.OnClickListener{
                     }
                 });
             break;
-            case R.id.tv_qq_qone:
+            case R.id.tv_qq_frend:
                 shareAPI.doOauthVerify(activity, SHARE_MEDIA.QQ, new UMAuthListener() {
                     @Override
                     public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
