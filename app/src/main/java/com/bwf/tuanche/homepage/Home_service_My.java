@@ -15,7 +15,6 @@ import com.bwf.tuanche.R;
  */
 public class Home_service_My extends BaseFragment {
 
-
     @Override
     protected int getResource() {
         return R.layout.fragment_home_service__my;

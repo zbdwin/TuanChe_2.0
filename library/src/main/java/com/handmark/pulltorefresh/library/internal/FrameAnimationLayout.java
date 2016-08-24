@@ -6,7 +6,8 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.bwf.tuanche.R;
+import com.handmark.pulltorefresh.library.R;
+
 /**
  * Created by admin on 2016/8/23.
  */
@@ -22,7 +23,7 @@ public class FrameAnimationLayout extends LoadingLayout {
 
     @Override
     protected int getDefaultDrawableResId() {
-        return R.drawable.default_ptr_flip;
+        return R.drawable.default_ptr_rotate;
     }
 
     @Override
