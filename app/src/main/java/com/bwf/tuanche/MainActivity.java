@@ -41,6 +41,7 @@ import com.bwf.tuanche.homepage.Search.Search_Details;
 import com.bwf.tuanche.homepage.entity.Cheap_car_home_result;
 import com.bwf.tuanche.homepage.version_Message.VersionCode;
 import com.bwf.tuanche.homepage.version_Message.VersionCode_pop;
+import com.bwf.tuanche.tuancheDetial.OrderActivity;
 import com.bwf.tuanche.tuancheDetial.TuanDetialActivity;
 import com.handmark.pulltorefresh.library.ILoadingLayout;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -207,7 +208,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
             case R.id.Homepage2:
 
                 //点击跳转
-                IntentUtils.openActivity(this, BlankPage.class);
+                IntentUtils.openActivity(this, OrderActivity.class);
 //                IntentUtils.openActivity(this, VersionCode.class);
 
                 break;
