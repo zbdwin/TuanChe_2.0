@@ -1,4 +1,5 @@
 package com.bwf.tuanche.tuancheDetial;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ScrollView;
@@ -14,6 +15,7 @@ import com.bwf.framwork.utils.IntentUtils;
 import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.MainActivity;
 import com.bwf.tuanche.R;
+import com.bwf.tuanche.cityLocation.LocationActivity;
 import com.bwf.tuanche.tuancheDetial.carDetial.DetialFragment1;
 import com.bwf.tuanche.tuancheDetial.carDetial.DetialFragment2;
 import com.bwf.tuanche.tuancheDetial.carDetial.DetialFragment3;
@@ -81,7 +83,7 @@ private MyPopwindow popwindow;
                 IntentUtils.openActivity(TuanDetialActivity.this, MainActivity.class);
                 break;
             case R.id.tv_location:
-
+IntentUtils.openActivity(TuanDetialActivity.this, LocationActivity.class);
                 break;
         }
 
@@ -89,12 +91,13 @@ private MyPopwindow popwindow;
 
     public void getData() {
       showProgressbar();
-        HttpHelper.getDetailBuyCarDetial("25", "156", brandId, new HttpCallBack<CarDetialResultBean1>() {
+        HttpHelper.getDetailBuyCarDetial("166", "156", brandId, new HttpCallBack<CarDetialResultBean1>() {
             @Override
             public void onSuccess(CarDetialResultBean1 result) {
                 dissmissProgressbar();
                 if (result != null) {
                     fragment1.setResult(result);
+                    Log.e("tag",brandId+"----"+result.logo+"----"+result.manNum+"---"+result.saveUpMoney);
                     fragment2.setResult(result);
                     if (result.comment!=null){
                         fragment5.setResult(result.comment,brandId);
