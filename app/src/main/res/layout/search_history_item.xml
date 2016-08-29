@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="5dp"
-    android:text="      奔驰"
+    android:text="\t\t奔驰"
     android:textSize="@dimen/text_18"
     android:layout_marginLeft="15dp"
     android:drawableLeft="@mipmap/search_icon_history"/>

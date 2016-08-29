@@ -30,6 +30,11 @@ import okhttp3.Call;
  */
 public class Search_Details_ReclyView_adapter extends RecyclerView.Adapter<Search_Details_ReclyView_adapter.Viewholder> {
     private Context context;
+    private CallBackone callBackone;
+
+    public void setCallBackone(CallBackone callBackone) {
+        this.callBackone = callBackone;
+    }
 
     private List<String> listto2;
     private View view;
@@ -73,6 +78,9 @@ public class Search_Details_ReclyView_adapter extends RecyclerView.Adapter<Searc
             @Override
             public void onClick(View view) {
                 ToastUtil.showToast("点我干嘛！！！你又买不起");
+                if (callBackone !=null){
+                    callBackone.One();
+                }
             }
         });
     }
@@ -88,5 +96,8 @@ public class Search_Details_ReclyView_adapter extends RecyclerView.Adapter<Searc
         public Viewholder(View itemView) {
             super(itemView);
         }
+    }
+    public interface CallBackone{
+        void One();
     }
 }

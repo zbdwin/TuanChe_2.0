@@ -24,7 +24,10 @@ public class Search_Details_All_Adapter extends RecyclerView.Adapter<Search_Deta
     private List<String> listto1;
     private View view;
 
+    private Search_Model model;
+
     public Search_Details_All_Adapter(Context context, List<String> listto) {
+        model =new Search_Model();
         this.context = context;
         listto1 = new ArrayList<>();
         if (listto != null) {
@@ -50,17 +53,22 @@ public class Search_Details_All_Adapter extends RecyclerView.Adapter<Search_Deta
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder1 holder, int position) {
+    public void onBindViewHolder(ViewHolder1 holder, final int position) {
 
 
         holder.search_Details_textview.setText(listto1.get(position));
+
         if ((position + 1) % 3 == 0) {
             DrawableUtils.drawableRight(context, (TextView) view.findViewById(R.id.search_Details_textview), R.color.withe);
         }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                model.infoSelct( listto1.get(position));
+                //搜索记录
                 ToastUtil.showToast("点我干嘛！！！你又买不起");
+
             }
         });
     }

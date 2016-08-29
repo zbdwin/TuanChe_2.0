@@ -1,5 +1,6 @@
 package com.bwf.tuanche.homepage.Search;
 
+import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +8,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.bwf.framwork.base.BaseActivity;
@@ -34,7 +37,15 @@ public class Search_Details extends BaseActivity {
     private List<RecyclerView> recyclerViews;
     private String[] list;
     private List<String> listto = null;
+
+
+    // 添加搜索历史
     private EditText Search_Detailsedittext;
+    private ListView search_history;
+    private TextView search_search;
+    private Search_Model_Adapater search_model_adapater;
+    private Search_Model model;
+    private List<String> search_bases;
 
     @Override
     public int getContentViewId() {
@@ -43,34 +54,66 @@ public class Search_Details extends BaseActivity {
 
     @Override
     public void beforeInitView() {
+        search_model_adapater = new Search_Model_Adapater(this);
+        model = new Search_Model();
+
+    }
+    public void addFooter(){
+        View view =View.inflate(this,R.layout.foot_view,null);
+        search_history.addFooterView(view);
+        view.findViewById(R.id.footviewlist).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                model.Destr0y();
+
+            }
+        });
+
+
+
+
     }
 
     @Override
     public void initView() {
         search_Details_viewpager = findViewByIdNoCast(R.id.search_Details_viewpager);
         Search_Detailsedittext = findViewByIdNoCast(R.id.Search_Detailsedittext);
-        Search_Detailsedittext.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        search_history = findViewByIdNoCast(R.id.search_history);
+        search_search = findViewByIdNoCast(R.id.search_search);
 
-            }
+        addFooter();
 
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                ToastUtil.showToast(Search_Detailsedittext.getText().toString());
-            }
 
-            @Override
-            public void afterTextChanged(Editable editable) {
 
-            }
-        });
+        search_bases = model.Querydate();
+        if (search_bases != null && !search_bases.isEmpty()) {
+            search_model_adapater.setStrings(search_bases);
+            search_history.setAdapter(search_model_adapater);
+
+        }
+//        Search_Detailsedittext.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//                ToastUtil.showToast(Search_Detailsedittext.getText().toString());
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//
+//            }
+//        });
     }
 
     @Override
     public void initData() {
         details_all = new Search_Details_All();
         reclyView = new Search_Details_ReclyView();
+
         recyclerViews = new ArrayList<>();
         final RecyclerView recyclerView = new RecyclerView(this);
         final RecyclerView recyclerView1 = new RecyclerView(this);
@@ -99,6 +142,12 @@ public class Search_Details extends BaseActivity {
                     //no1
                     Search_Details_ReclyView_adapter search_details_reclyView_adapter = new Search_Details_ReclyView_adapter(Search_Details.this, listto);
                     recyclerView1.setAdapter(search_details_reclyView_adapter);
+                    search_details_reclyView_adapter.setCallBackone(new Search_Details_ReclyView_adapter.CallBackone() {
+                        @Override
+                        public void One() {
+                           
+                        }
+                    });
                 }
             }
         });
@@ -114,4 +163,6 @@ public class Search_Details extends BaseActivity {
     public void onClick(View view) {
 
     }
+
+
 }
