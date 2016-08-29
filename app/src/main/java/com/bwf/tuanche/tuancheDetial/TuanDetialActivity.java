@@ -24,6 +24,7 @@ import com.bwf.tuanche.tuancheDetial.carDetial.DetialFragment5;
 import com.bwf.tuanche.tuancheDetial.carDetial.DetialFragment6;
 import com.bwf.tuanche.tuancheDetial.mypop.MyPopwindow;
 import com.bwf.tuanche.tuancheDetial.mypop.MyPopwindow1;
+
 import java.util.List;
 
 public class TuanDetialActivity extends BaseActivity implements DetialFragment2.MyCallBack,MyPopwindow1.MyItemListviewCallBack ,DetialFragment5.MyText{
@@ -144,6 +145,7 @@ IntentUtils.openActivity(TuanDetialActivity.this, LocationActivity.class);
             MyPopwindow1 popwindow2 = new MyPopwindow1(this, position, styleLists);
             popwindow2.setCallBack(this);
             popwindow2.showAsDropDown(iv_share);
+
         }else{
             ToastUtil.showToast("没有数据");
         }

@@ -16,7 +16,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/simple_touxiang"
