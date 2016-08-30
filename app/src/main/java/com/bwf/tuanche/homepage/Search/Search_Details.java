@@ -30,11 +30,12 @@ import okhttp3.Call;
  * Created by wanli on 2016/8/20.
  * Description:搜索页面里面的热门搜索
  */
-public class Search_Details extends BaseActivity implements Search_Details_All_Adapter.Callback1 {
+public class Search_Details extends BaseActivity implements Search_Details_All_Adapter.Callback1,Search_Details_ReclyView_adapter.CallBackone {
     private Search_Details_All details_all;
     private Search_Details_ReclyView reclyView;
     private ViewPager search_Details_viewpager;
     private Search_Details_ViewPaget_Adapater paget_adapater;
+    private Search_Details_ReclyView_adapter search_details_reclyView_adapter;
     private List<RecyclerView> recyclerViews;
     private String[] list;
     private List<String> listto = null;
@@ -90,10 +91,12 @@ public class Search_Details extends BaseActivity implements Search_Details_All_A
                 for (String b : newsearch_bases) {
                     if (c.equals(b))
                         return;
+
                 }
                 if (c.isEmpty() || c == null)
                     return;
                 model.infoSelct(c);
+
                 newsearch_bases.clear();
                 newsearch_bases.addAll(model.Querydate());
                 if (newsearch_bases != null && !newsearch_bases.isEmpty()) {
@@ -180,12 +183,40 @@ public class Search_Details extends BaseActivity implements Search_Details_All_A
                     //no1
                     Search_Details_ReclyView_adapter search_details_reclyView_adapter = new Search_Details_ReclyView_adapter(Search_Details.this, listto);
                     recyclerView1.setAdapter(search_details_reclyView_adapter);
-                    search_details_reclyView_adapter.setCallBackone(new Search_Details_ReclyView_adapter.CallBackone() {
-                        @Override
-                        public void One(String q) {
-                            model.infoSelct(q);
-                        }
-                    });
+                    search_details_reclyView_adapter.setCallBackone(Search_Details.this);
+//                    search_details_reclyView_adapter.setCallBackone(new Search_Details_ReclyView_adapter.CallBackone() {
+//                        @Override
+//                        public void One(final String q) {
+////                            w=q;
+//                            Search_Detailsedittext.setText(q);
+//
+////                            newsearch_bases = model.Querydate();
+//                            String c = Search_Detailsedittext.getText().toString().trim();
+//                            for (String b : newsearch_bases) {
+//                                if (c.equals(b))
+//                                    return;
+//                            }
+//                            if (c.isEmpty() || c == null)
+//                                return;
+////
+//                            model.infoSelct(q);
+//                            newsearch_bases.clear();
+//                            newsearch_bases.addAll(model.Querydate());
+//                            if (newsearch_bases != null && !newsearch_bases.isEmpty()) {
+//                                search_model_adapater.setStrings(newsearch_bases);
+//                                search_history.setAdapter(search_model_adapater);
+//                                search_model_adapater.notifyDataSetChanged();
+//                            }
+//
+//
+//
+//
+//
+//
+//
+//
+//                        }
+//                    });
                 }
             }
         });
@@ -206,5 +237,10 @@ public class Search_Details extends BaseActivity implements Search_Details_All_A
     @Override
     public void CallbackDome(String a) {
         Search_Detailsedittext.setText("    " + a);
+    }
+
+    @Override
+    public void One(String c) {
+        Search_Detailsedittext.setText("    " +c);
     }
 }

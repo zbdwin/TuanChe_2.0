@@ -2,9 +2,11 @@ package com.bwf.tuanche;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.Contacts;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -27,9 +29,6 @@ import com.bwf.framwork.utils.DrawableUtils;
 import com.bwf.framwork.utils.IntentUtils;
 
 
-
-
-
 import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.car_select.CarSelectActivity;
 import com.bwf.tuanche.car_select.SelectResultActivity;
@@ -48,7 +47,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
 
 
-public class MainActivity extends BaseActivity implements Handler.Callback, View.OnClickListener {
+public class MainActivity extends BaseActivity implements Handler.Callback, View.OnClickListener, VersionCode_pop.Callback2 {
 
     private HomePage_FmentTitlebar01 homePage_fmentTitlebar01;
     private Home_service homePage_fmentTitlebar02;
@@ -71,6 +70,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
     private ImageView icon_low_price01;
     private LinearLayout line1111111;
     private VersionCode_pop versionCode_pop;
+
     @Override
     public int getContentViewId() {
         return R.layout.activity_main;
@@ -80,12 +80,13 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
     public void beforeInitView() {
         handler = new Handler(this);
 
-        versionCode_pop=new VersionCode_pop(this);
+        versionCode_pop = new VersionCode_pop(this);
+
 
         //从城市定位页面获取信息
         String info1 = getIntent().getStringExtra("cityId");
         String info2 = getIntent().getStringExtra("cityName");
-        if (info1 != null && info2 != null){
+        if (info1 != null && info2 != null) {
             cityId = info1;
             cityName = info2;
         }
@@ -93,6 +94,8 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
 
     @Override
     public void initView() {
+
+        versionCode_pop.setCallback2(MainActivity.this);
         homePage_fmentTitlebar01 = (HomePage_FmentTitlebar01) getSupportFragmentManager().findFragmentById(R.id.homopagement01);
         homePage_fmentTitlebar02 = (Home_service) getSupportFragmentManager().findFragmentById(R.id.homopagement02);
         getSupportFragmentManager().beginTransaction().hide(homePage_fmentTitlebar02).commit();
@@ -105,9 +108,9 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
 
         tv_home_location = findViewByIdNoCast(R.id.tv_home_location);
 
-        search_Details  =findViewByIdNoCast(R.id.search_Details);
+        search_Details = findViewByIdNoCast(R.id.search_Details);
 
-        icon_low_price01 =findViewByIdNoCast(R.id.icon_low_price01);
+        icon_low_price01 = findViewByIdNoCast(R.id.icon_low_price01);
         line1111111 = findViewByIdNoCast(R.id.line1111111);
         Homepage1.setOnClickListener(this);
         Homepage2.setOnClickListener(this);
@@ -120,13 +123,13 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
         setOnClick(R.id.tv_home_location);
 
 
-            handler.sendEmptyMessageDelayed(2, 1500);
+        handler.sendEmptyMessageDelayed(2, 1500);
 
 
 //        versionCode_pop.show(search_Details);
 
         // 得到控件
-        mPullToRefreshScrollView =  findViewByIdNoCast(R.id.mPullToRefreshScrollView);
+        mPullToRefreshScrollView = findViewByIdNoCast(R.id.mPullToRefreshScrollView);
         mPullToRefreshScrollView.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
 
 
@@ -166,7 +169,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
 
     @Override
     public void initData() {
-        if (cityName != null && !"".equals(cityName)){
+        if (cityName != null && !"".equals(cityName)) {
             tv_home_location.setText(cityName);
         }
         HttpHelper.getTopBrand(cityId, new HttpCallBack<Cheap_car_home_result>() {
@@ -254,7 +257,7 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
                 break;
             case R.id.tv_home_location:
                 IntentUtils.openActivity(this, LocationActivity.class);
-            break;
+                break;
 
 
         }
@@ -300,8 +303,8 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
                 break;
             case 2:
                 //延迟验证版本信息
-                if (Constants.ISFIRST){
-                    versionCode_pop.show(line1111111, Gravity.CENTER,0,0);
+                if (Constants.ISFIRST) {
+                    versionCode_pop.show(line1111111, Gravity.CENTER, 0, 0);
                     Constants.ISFIRST = false;
                     handler.sendEmptyMessageDelayed(3, 6000);
 
@@ -316,5 +319,12 @@ public class MainActivity extends BaseActivity implements Handler.Callback, View
         }
 
         return false;
+    }
+
+    @Override
+    public void two(String c) {
+        Uri uri = Uri.parse(c);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
     }
 }

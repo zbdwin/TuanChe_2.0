@@ -1,7 +1,9 @@
 package com.bwf.tuanche.homepage.version_Message;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.CountDownTimer;
 import android.util.AttributeSet;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 
 import com.bwf.framwork.http.HttpCallBack;
 import com.bwf.framwork.http.HttpHelper;
+import com.bwf.framwork.utils.IntentUtils;
 import com.bwf.framwork.utils.LogUtils;
 import com.bwf.framwork.utils.ToastUtil;
 import com.bwf.tuanche.MainActivity;
@@ -33,6 +36,12 @@ public class VersionCode_pop extends PopupWindow implements View.OnClickListener
     private TextView updatatextViewdemo;
     private ImageView updatadiss;
     private String c;
+    private Callback2 callback2;
+
+    public void setCallback2(Callback2 callback2) {
+        this.callback2 = callback2;
+    }
+
     private CountDownTimer timer =new CountDownTimer(6000,1000) {
         @Override
         public void onTick(long l) {
@@ -110,12 +119,24 @@ public class VersionCode_pop extends PopupWindow implements View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.relatupdatanow:
+                //Android跳转浏览器打开URL
+
+                if (callback2 !=null){
+                    callback2.two(c);
+                }
+//                Uri uri = Uri.parse(c);
+//                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+
                 ToastUtil.showToast("立即更新应用");
-                VersionCodeview.loadUrl(c);
+
+//                VersionCodeview.loadUrl(c);
                 break;
             case R.id.updatadiss:
                 this.dismiss();
                 break;
         }
+    }
+    public interface  Callback2{
+        void two(String c);
     }
 }
