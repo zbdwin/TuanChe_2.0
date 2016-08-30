@@ -1,7 +1,11 @@
 package com.bwf.tuanche.tuancheDetial.carDetial;
 
+import android.app.Activity;
 import android.content.Context;
+import android.graphics.Point;
+import android.graphics.Rect;
 import android.text.Html;;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,6 +13,7 @@ import android.widget.TextView;
 import com.bwf.framwork.base.BaseFragment;
 import com.bwf.framwork.bean.CarDetialResultBean1;
 import com.bwf.framwork.bean.StyleList;
+import com.bwf.tuanche.MyApplication;
 import com.bwf.tuanche.R;
 import com.bwf.tuanche.tuancheDetial.TuanDetialActivity;
 import com.bwf.tuanche.tuancheDetial.mypop.MyPopwindow1;
@@ -25,6 +30,7 @@ public class DetialFragment2 extends BaseFragment {
     private List<StyleList> styleLists;
     private MyCallBack callBack;
     private CarDetialResultBean1 result;
+
     public void setStyleLists(List<StyleList> styleLists) {
         this.styleLists = styleLists;
     }
@@ -74,6 +80,7 @@ public class DetialFragment2 extends BaseFragment {
             tv_tuanprice.setText("团购价格："+"现场公布");
             tv_carnametopop.setText(result.brandName);
         }
+
     }
 private int position;
     @Override

@@ -2,11 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bwf.tuanche">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <!-- QQ、QQ空间所需权限 -->
     <uses-permission android:name="android.permission.GET_TASKS" />
@@ -15,6 +13,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
 
     <!-- 百度定位所需权限 -->
     <!-- 这个权限用于进行网络定位 -->
@@ -117,17 +116,15 @@
             android:name="UMENG_APPKEY"
             android:value="57aa8a2067e58e23de0030b1" />
 
-
-
         <activity
             android:name=".cityLocation.LocationActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- 百度定位 -->
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote"></service>
+            android:process=":remote" />
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
@@ -144,16 +141,14 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".homepage.Search.Search_Details_All" />
         <activity android:name=".homepage.version_Message.VersionCode" />
-
-        <activity android:name=".homepage.Home_service_message"
-            android:theme="@style/AppTheme.NoActionBar"
-            ></activity>
-
-
-        <activity android:name=".homepage.RecordActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
+        <activity
+            android:name=".homepage.Home_service_message"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".homepage.RecordActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".tuancheDetial.OrderActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
