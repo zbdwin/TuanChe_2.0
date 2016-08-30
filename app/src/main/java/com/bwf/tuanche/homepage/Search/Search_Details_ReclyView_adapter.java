@@ -64,7 +64,7 @@ public class Search_Details_ReclyView_adapter extends RecyclerView.Adapter<Searc
     }
 
     @Override
-    public void onBindViewHolder(Viewholder holder, int position) {
+    public void onBindViewHolder(Viewholder holder, final int position) {
         holder.search_Details_textview.setText(listto2.get(position));
         if (position == listto2.size() - 1) {
             holder.search_Details_textview.setTextColor(Color.parseColor("#FF0000"));
@@ -79,7 +79,7 @@ public class Search_Details_ReclyView_adapter extends RecyclerView.Adapter<Searc
             public void onClick(View view) {
                 ToastUtil.showToast("点我干嘛！！！你又买不起");
                 if (callBackone !=null){
-                    callBackone.One();
+                    callBackone.One(listto2.get(position));
                 }
             }
         });
@@ -98,6 +98,6 @@ public class Search_Details_ReclyView_adapter extends RecyclerView.Adapter<Searc
         }
     }
     public interface CallBackone{
-        void One();
+        void One(String c);
     }
 }

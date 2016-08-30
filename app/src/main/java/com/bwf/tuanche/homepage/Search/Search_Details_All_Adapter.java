@@ -24,10 +24,13 @@ public class Search_Details_All_Adapter extends RecyclerView.Adapter<Search_Deta
     private List<String> listto1;
     private View view;
 
-    private Search_Model model;
+    private Callback1 callback;
+
+    public void setCallback(Callback1 callback) {
+        this.callback = callback;
+    }
 
     public Search_Details_All_Adapter(Context context, List<String> listto) {
-        model =new Search_Model();
         this.context = context;
         listto1 = new ArrayList<>();
         if (listto != null) {
@@ -64,8 +67,9 @@ public class Search_Details_All_Adapter extends RecyclerView.Adapter<Search_Deta
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                model.infoSelct( listto1.get(position));
+                if (callback != null) {
+                    callback.CallbackDome(listto1.get(position));
+                }
                 //搜索记录
                 ToastUtil.showToast("点我干嘛！！！你又买不起");
 
@@ -84,5 +88,9 @@ public class Search_Details_All_Adapter extends RecyclerView.Adapter<Search_Deta
         public ViewHolder1(View itemView) {
             super(itemView);
         }
+    }
+
+    public interface Callback1 {
+        void CallbackDome(String a);
     }
 }

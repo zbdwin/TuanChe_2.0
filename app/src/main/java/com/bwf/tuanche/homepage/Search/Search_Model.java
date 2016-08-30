@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import com.bwf.framwork.Constants;
 import com.bwf.framwork.base.BaseModel;
+import com.bwf.framwork.bean.UserBean;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -68,6 +70,27 @@ public class Search_Model extends BaseModel {
         }
         return strings;
     }
+
+
+    /**
+     *
+     * @return
+     */
+    public List<UserBean> Querydate1() {
+        List<UserBean> strings = new ArrayList<>();
+        UserBean userBean =new UserBean();
+        String sql = "select * from "+TABLE_NAME;
+        Cursor cursor = select(sql);
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                userBean.userName   =cursor.getString(cursor.getColumnIndex("name"));
+                userBean.userId   =cursor.getString(cursor.getColumnIndex(_ID));
+                strings.add(userBean);
+            }
+        }
+        return strings;
+    }
+
 
 
     @Override
